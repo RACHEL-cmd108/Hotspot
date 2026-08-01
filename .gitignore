@@ -1,0 +1,25 @@
+# macOS metadata
+.DS_Store
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Temporary working files
+tmp/
+*.tmp
+*.temp
+~$*
+
+# Generated document previews and repeated render outputs
+output/rendered*/
+output/final-render*/
+output/v2-final-render*/
+
+# Local editor and tool state
+.idea/
+.vscode/
+*.swp
+*.swo
