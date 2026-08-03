@@ -339,17 +339,44 @@ def add_bullets(doc, items, level=0):
         p = doc.add_paragraph(style="List Bullet" if level == 0 else "List Bullet 2")
         p.paragraph_format.space_after = Pt(3)
         p.paragraph_format.line_spacing = 1.08
-        for r in p.runs:
-            set_run(r, 10.2, False, BLACK)
+        r = p.add_run(str(item))
+        set_run(r, 10.2, False, BLACK)
+
+
+def new_numbering_instance(doc, style_name="List Number"):
+    style_num_id = doc.styles[style_name]._element.pPr.numPr.numId.val
+    numbering = doc.part.numbering_part.element
+    base_num = numbering.xpath(f'./w:num[@w:numId="{style_num_id}"]')[0]
+    abstract_num_id = base_num.find(qn("w:abstractNumId")).get(qn("w:val"))
+    existing_ids = [int(num.get(qn("w:numId"))) for num in numbering.findall(qn("w:num"))]
+    num_id = max(existing_ids, default=0) + 1
+
+    num = OxmlElement("w:num")
+    num.set(qn("w:numId"), str(num_id))
+    abstract = OxmlElement("w:abstractNumId")
+    abstract.set(qn("w:val"), abstract_num_id)
+    num.append(abstract)
+    override = OxmlElement("w:lvlOverride")
+    override.set(qn("w:ilvl"), "0")
+    start = OxmlElement("w:startOverride")
+    start.set(qn("w:val"), "1")
+    override.append(start)
+    num.append(override)
+    numbering.append(num)
+    return num_id
 
 
 def add_numbers(doc, items):
+    num_id = new_numbering_instance(doc)
     for item in items:
         p = doc.add_paragraph(style="List Number")
         p.paragraph_format.space_after = Pt(4)
         p.paragraph_format.line_spacing = 1.08
-        for r in p.runs:
-            set_run(r, 10.2, False, BLACK)
+        num_pr = p._p.get_or_add_pPr().get_or_add_numPr()
+        num_pr.get_or_add_ilvl().val = 0
+        num_pr.get_or_add_numId().val = num_id
+        r = p.add_run(str(item))
+        set_run(r, 10.2, False, BLACK)
 
 
 def add_callout(doc, label, text, fill=PALE_BLUE, accent=BLUE):
