@@ -11,12 +11,12 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
 
-ROOT = Path("/Users/rachelyuan/Documents/热点监控")
-OUT = ROOT / "output"
-ASSET = OUT / "assets"
+ROOT = Path(__file__).resolve().parent
+OUT = ROOT / "docs" / "system-design" / "releases"
+ASSET = ROOT / "docs" / "system-design" / "assets"
 DOCX = OUT / "Predx热点运营系统建设方案_v2.0.docx"
-OUT.mkdir(exist_ok=True)
-ASSET.mkdir(exist_ok=True)
+OUT.mkdir(parents=True, exist_ok=True)
+ASSET.mkdir(parents=True, exist_ok=True)
 
 FONT_PATH = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
 FONT = "Arial Unicode MS"
