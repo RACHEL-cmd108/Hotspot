@@ -38,7 +38,7 @@
 
 产品能力以用户提供的架构图为准：
 
-![Hotspot Monitor 产品模块与业务关系](../system-design/product-architecture/hotspot-monitor-product-architecture.svg)
+![Hotspot Monitor 产品模块与业务关系](./assets/hotspot-monitor-product-architecture.svg)
 
 **正式主链：**M1 形成 Candidate Event → M2 形成/更新 Event Card → M3 形成并决定 Opportunity Card → M4 形成已授权 Action Package 并协调执行 → M5 汇总 Outcome、复盘和策略建议。
 

@@ -1,0 +1,21 @@
+{
+  "handle": "@PredxDemo",
+  "positioning": "用预测市场概率解释正在发生的新闻",
+  "audience": [
+    "预测市场用户",
+    "全球新闻关注者"
+  ],
+  "tone": [
+    "准确",
+    "克制",
+    "清晰"
+  ],
+  "language": "zh-CN",
+  "max_chars": 280,
+  "product_mention": "natural",
+  "prohibited_phrases": [
+    "保证收益",
+    "内幕消息"
+  ],
+  "examples": []
+}

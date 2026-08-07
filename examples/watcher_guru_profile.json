@@ -1,0 +1,59 @@
+{
+  "handle": "@PredxNewsDemo",
+  "positioning": "快速、克制地承接全球金融、加密、政治和科技热点",
+  "audience": [
+    "全球新闻关注者",
+    "加密与金融市场用户",
+    "预测市场用户"
+  ],
+  "tone": [
+    "fast",
+    "factual",
+    "concise",
+    "non-promotional"
+  ],
+  "language": "en",
+  "max_chars": 280,
+  "product_mention": "none_in_trend_capture",
+  "prohibited_phrases": [
+    "guaranteed",
+    "risk-free",
+    "insider information"
+  ],
+  "hooks": [
+    "JUST IN:",
+    "BREAKING:",
+    "UPDATE:"
+  ],
+  "style_rules": [
+    "Lead with the news status and the single most important verified fact",
+    "Use a country or asset marker only when supported by the input",
+    "Keep the first version factual and free of analysis",
+    "Use short sentences and avoid promotional calls to action",
+    "Never copy wording from the reference account"
+  ],
+  "interest_keywords": [
+    "bitcoin",
+    "ethereum",
+    "crypto",
+    "加密",
+    "比特币",
+    "以太坊",
+    "美股",
+    "stock",
+    "market",
+    "fed",
+    "美联储",
+    "利率",
+    "通胀",
+    "特朗普",
+    "trump",
+    "iran",
+    "伊朗",
+    "senate",
+    "SEC",
+    "AI",
+    "人工智能"
+  ],
+  "examples": []
+}

@@ -1,0 +1,43 @@
+{
+  "event_id": "evt_demo_001",
+  "event_title": "示例候选人确认参加关键辩论",
+  "verified_facts": [
+    "示例候选人通过官方账号确认将参加周五的关键辩论"
+  ],
+  "source_urls": [
+    "https://example.com/official-announcement"
+  ],
+  "action_window": "breaking",
+  "objective": "awareness",
+  "audience": [
+    "预测市场用户",
+    "政治新闻关注者"
+  ],
+  "participation_reason": "观察辩论确认是否继续影响候选人的市场概率",
+  "risks": [
+    "不要把市场概率描述成事实结果"
+  ],
+  "prohibited_claims": [
+    "稳赚",
+    "必然获胜"
+  ],
+  "markets": [
+    {
+      "market_id": "market_demo_001",
+      "title": "示例候选人会赢得选举吗？",
+      "probability": 63,
+      "probability_change": 8,
+      "volume": 125000,
+      "closes_at": "2026-11-03T23:59:59Z",
+      "updated_at": "2026-08-04T06:00:00Z",
+      "url": "https://predx.example/markets/market_demo_001"
+    }
+  ],
+  "relevance": {
+    "market_match": 95,
+    "outcome_impact": 85,
+    "market_signal": 80,
+    "audience_overlap": 90,
+    "natural_fit": 90
+  }
+}

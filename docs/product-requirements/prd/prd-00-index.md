@@ -3,9 +3,9 @@ title: Hotspot Monitor PRD
 status: draft
 version: v2.2
 created: 2026-08-06
-updated: 2026-08-06
-product_brief: ../product-brief/current/product-brief-v1.3.md
-product_architecture: ../system-design/product-architecture/hotspot-monitor-product-architecture.svg
+updated: 2026-08-07
+product_brief: ../product-brief.md
+product_architecture: ./assets/hotspot-monitor-product-architecture.svg
 guide: ../../../GUIDE.md
 ---
 
@@ -17,8 +17,8 @@ guide: ../../../GUIDE.md
 |---|---|
 | 产品 | Hotspot Monitor（热点监控增长运营系统） |
 | 产品定位 | 以 Event 为共享对象的公司级事件驱动增长智能与运营平台 |
-| 版本 | v2.1 / draft |
-| 权威输入 | [Product Brief v1.3](../product-brief/current/product-brief-v1.3.md)、[产品模块与业务关系图](../system-design/product-architecture/hotspot-monitor-product-architecture.svg)、[文档规范](../../../GUIDE.md) |
+| 版本 | v2.2 / draft |
+| 权威输入 | [Product Brief v1.3](../product-brief.md)、[产品模块与业务关系图](./assets/hotspot-monitor-product-architecture.svg)、[文档规范](../../../GUIDE.md) |
 | 文档边界 | 定义业务能力、结果、规则与验收，不定义技术组件、接口或部署方案 |
 | 首个验证环境 | Predx 内容运营的突发热点响应（Phase 0） |
 | 下游使用者 | UX/UI、系统架构、Epics & Stories、实施就绪评审 |

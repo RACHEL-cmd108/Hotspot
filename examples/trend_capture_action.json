@@ -1,0 +1,32 @@
+{
+  "mode": "trend_capture",
+  "event_id": "evt_heat_demo_001",
+  "event_title": "Major asset manager calls for crypto legislation",
+  "verified_facts": [
+    "A major US asset manager publicly called on the Senate to advance crypto market-structure legislation"
+  ],
+  "source_urls": [
+    "https://example.com/verified-source"
+  ],
+  "action_window": "breaking",
+  "objective": "hotspot_capture",
+  "audience": [
+    "crypto users",
+    "financial news followers"
+  ],
+  "participation_reason": "Watch for a formal Senate response or a change in the legislative timetable",
+  "risks": [
+    "Do not imply that the legislation has passed"
+  ],
+  "prohibited_claims": [
+    "the bill has passed"
+  ],
+  "markets": [],
+  "relevance": {},
+  "heat": {
+    "source_reliability": 95,
+    "freshness": 92,
+    "velocity": 86,
+    "audience_fit": 90
+  }
+}

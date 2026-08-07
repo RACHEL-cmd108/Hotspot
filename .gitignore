@@ -1,5 +1,9 @@
-# macOS metadata
+# macOS and editor metadata
 .DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
 
 # Python caches and local environments
 __pycache__/
@@ -7,19 +11,25 @@ __pycache__/
 .venv/
 venv/
 
-# Temporary working files
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Temporary and generated files
 tmp/
 *.tmp
 *.temp
 ~$*
+workspace/
 
-# Generated document previews and repeated render outputs
-output/rendered*/
-output/final-render*/
-output/v2-final-render*/
-
-# Local editor and tool state
-.idea/
-.vscode/
-*.swp
-*.swo
+# Local Codex/BMad installations and generated output
+.agents/
+_bmad/render/**
+!_bmad/render/.gitignore
+_bmad/config.user.toml
+_bmad/custom/config.user.toml
+_bmad-output/*
+!_bmad-output/README.md

@@ -4,7 +4,7 @@ status: approved
 version: v1.3-final
 created: 2026-08-05
 updated: 2026-08-05
-source_document: ../../Hotspot-monitor product brief.docx
+source_document: migrated-from-legacy-docx
 ---
 
 # Hotspot Monitor Product Brief

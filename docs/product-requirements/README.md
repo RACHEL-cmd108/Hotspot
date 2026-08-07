@@ -1,0 +1,22 @@
+# 产品需求文档集
+
+## 权威入口
+
+- [`product-brief.md`](product-brief.md)：Product Brief v1.3-final，状态为 approved。
+- [`prd/prd-00-index.md`](prd/prd-00-index.md)：PRD v2.2 的唯一入口与版本索引。
+
+## PRD 文件映射
+
+| 文件 | 内容 |
+|---|---|
+| `prd-01-product-vision-and-goals.md` | 产品愿景与目标 |
+| `prd-02-users-and-journeys.md` | 用户、JTBD 与用户旅程 |
+| `prd-03-scope-and-capabilities.md` | 范围、非目标与产品能力 |
+| `prd-04-functional-requirements.md` | 功能需求 FR-01 至 FR-26 |
+| `prd-05-conceptual-domain-model.md` | 概念实体、关系、生命周期与业务事件 |
+| `prd-06-business-and-data-rules.md` | 业务、状态、权限与数据规则 |
+| `prd-07-non-functional-requirements.md` | 可测量非功能需求 |
+| `prd-08-metrics-and-experiments.md` | 指标与 Phase 0 实验 |
+| `prd-09-decisions-and-open-questions.md` | 决策、风险与开放问题 |
+
+历史单篇 PRD、Word/PDF 发布版和重复产品架构文件已移出版本控制，不再作为权威需求来源。
