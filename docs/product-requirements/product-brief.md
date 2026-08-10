@@ -1,9 +1,9 @@
 ---
 title: Hotspot Monitor Product Brief
-status: draft
-version: v1.4-draft
+status: approved
+version: v1.4
 created: 2026-08-05
-updated: 2026-08-07
+updated: 2026-08-10
 source_document: migrated-from-legacy-docx
 product_architecture: prd/assets/hotspot-monitor-product-architecture.svg
 ---
