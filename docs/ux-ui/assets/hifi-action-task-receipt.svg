@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Action Task 交接与 Task Receipt</title>
+  <desc id="desc">展示四类行动的交接、执行、异常和回执，并区分人工声明、机器人回执、平台验证与回执延迟。</desc>
+  <style>
+    .bg{fill:#f6f8fb}.nav{fill:#172131}.card{fill:#fff;stroke:#d9e0ea;stroke-width:1.5}.b{fill:#eaf1ff}.g{fill:#e7f7ef}.a{fill:#fff5df}.r{fill:#ffeded}.p{fill:#f1edff}.t{font:700 18px system-ui;fill:#18212f}.h{font:700 26px system-ui;fill:#18212f}.s{font:14px system-ui;fill:#667085}.xs{font:12px system-ui;fill:#667085}.w{fill:#fff}.line{stroke:#d9e0ea}.btn{fill:#2563eb}
+  </style>
+  <rect class="bg" width="1440" height="900"/><rect class="nav" width="236" height="900"/>
+  <text x="28" y="54" class="t w">Hotspot Monitor</text><text x="30" y="118" class="s w">工作台</text><text x="30" y="162" class="s w">热点与事件</text><text x="30" y="206" class="s w">机会</text><rect x="18" y="222" width="200" height="42" rx="8" fill="#334a69"/><text x="32" y="249" class="s w">任务中心</text><text x="30" y="306" class="s w">效果与学习</text>
+  <text x="276" y="52" class="s">Task Plan TP-204 › Action Task / Task Receipt</text><text x="276" y="90" class="h">行动交接与回执</text><text x="276" y="118" class="s">任务状态不由缺失回执推断；每次交接与回执均保留主体、时间、来源与可信等级。</text>
+  <rect x="276" y="146" width="1116" height="76" rx="12" class="card"/><text x="300" y="176" class="t">当前计划：优先参与 · v5</text><text x="300" y="202" class="s">内容发布、私域触达已选入；KOL 取消后计划变更待复核；营销活动未选入。</text>
+  <rect x="276" y="250" width="1116" height="390" rx="14" class="card"/>
+  <text x="300" y="286" class="xs">主状态</text><text x="430" y="286" class="xs">行动任务 / 交付物</text><text x="770" y="286" class="xs">交接与专属状态</text><text x="1054" y="286" class="xs">最近回执</text><text x="1252" y="286" class="xs">下一步</text>
+  <line x1="300" y1="304" x2="1368" y2="304" class="line"/>
+  <rect x="300" y="328" width="96" height="28" rx="14" class="a"/><text x="348" y="347" text-anchor="middle" class="xs">待交接</text><text x="430" y="347" class="t">社媒｜听证会快讯 v3</text><text x="770" y="347" class="s">已选中 · 等待小陈接收</text><text x="1054" y="347" class="s">尚无</text><text x="1252" y="347" class="s">确认交接</text>
+  <line x1="300" y1="374" x2="1368" y2="374" class="line"/>
+  <rect x="300" y="398" width="96" height="28" rx="14" class="b"/><text x="348" y="417" text-anchor="middle" class="xs">已接收</text><text x="430" y="417" class="t">私域｜市场异动更新</text><text x="770" y="417" class="s">Telegram Bot 待发送 1 / 3</text><text x="1054" y="417" class="s">Bot 接收回执 · 2m</text><text x="1252" y="417" class="s">打开目标详情</text>
+  <line x1="300" y1="444" x2="1368" y2="444" class="line"/>
+  <rect x="300" y="468" width="96" height="28" rx="14" class="g"/><text x="348" y="487" text-anchor="middle" class="xs">进行中</text><text x="430" y="487" class="t">社媒｜后续解释串</text><text x="770" y="487" class="s">人工声明已发布 · 等待平台验证</text><text x="1054" y="487" class="s">链接回填 · 16m</text><text x="1252" y="487" class="s">补充平台验证</text>
+  <line x1="300" y1="514" x2="1368" y2="514" class="line"/>
+  <rect x="300" y="538" width="96" height="28" rx="14" class="r"/><text x="348" y="557" text-anchor="middle" class="xs">异常</text><text x="430" y="557" class="t">KOL｜首封触达批次</text><text x="770" y="557" class="s">能力检查失败 · 已阻止交接</text><text x="1054" y="557" class="s">连接器异常 · 4m</text><text x="1252" y="557" class="s">人工接管/升级</text>
+  <line x1="300" y1="584" x2="1368" y2="584" class="line"/>
+  <rect x="300" y="608" width="96" height="28" rx="14" class="a"/><text x="348" y="627" text-anchor="middle" class="xs">回执延迟</text><text x="430" y="627" class="t">营销｜预测挑战数据回收</text><text x="770" y="627" class="s">等待责任人更新；未推定完成或失败</text><text x="1054" y="627" class="s">最后更新 · 38m</text><text x="1252" y="627" class="s">重新分派/升级</text>
+  <rect x="276" y="668" width="650" height="184" rx="14" class="card"/><text x="300" y="706" class="t">Task Receipt 时间线</text>
+  <circle cx="322" cy="746" r="7" fill="#2563eb"/><text x="342" y="751" class="s">10:24　小陈接收社媒任务</text><circle cx="322" cy="782" r="7" fill="#16835a"/><text x="342" y="787" class="s">10:30　Telegram Bot 回执：2 个审核目标已送达</text><circle cx="322" cy="818" r="7" fill="#b86400"/><text x="342" y="823" class="s">10:40　平台验证仍待回填，触发 15 分钟提醒</text>
+  <rect x="950" y="668" width="442" height="184" rx="14" class="p"/><text x="976" y="706" class="t">异常恢复</text><text x="976" y="740" class="s">回执延迟：可人工更新、重派或升级</text><text x="976" y="770" class="s">连接器失败：可重试或进入人工接管</text><rect x="976" y="790" width="168" height="38" rx="8" class="btn"/><text x="1060" y="815" text-anchor="middle" class="s w">记录人工更新</text><rect x="1158" y="790" width="200" height="38" rx="8" class="card"/><text x="1258" y="815" text-anchor="middle" class="s">升级责任人</text>
+</svg>
