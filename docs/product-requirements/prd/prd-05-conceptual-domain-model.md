@@ -15,8 +15,8 @@
 | CE-07 | Evidence（证据） | 表示支持、质疑或排除 Fact 的来源材料、可信等级与可访问引用。 | 已采集 → 待核验 → 已采用/已排除；可补充。 |
 | CE-08 | Event Card（事件卡） | 有版本的统一事件档案，引用并呈现 Event、Fact、Evidence、热度、风险、窗口和状态；它不是这些实体的父对象。 | v1 → 更新版本 → 已关闭；可再激活更新。 |
 | CE-09 | Opportunity Card（机会卡） | 记录 Event 的目标、受众、价值、风险、资源、路径与机会决策。 | 待评估 → 优先参与/参与/观察/不参与。 |
-| CE-10 | Task Plan（任务方案） | 表达 Opportunity 的跨渠道大方案：目标、参与策略、各渠道参与/不参与及其作用、成功标准、资源、窗口与风险边界。 | 草拟 → 待选定 → 已选定 → 已撤销/已关闭。 |
-| CE-11 | Execution Deliverable Draft（交付物草稿） | 等待审核或修订的行动交付物父实体。交付物类型为 Social Content Draft、Private Outreach Draft、Campaign Proposal Draft、KOL Outreach Draft；类型不另列概念实体编号。 | 草拟 → 待审核 → 已通过/需修改/已驳回。 |
+| CE-10 | Task Plan（任务方案） | 系统针对 Opportunity 自动生成的跨渠道大方案和行动选项：目标、参与策略、各渠道参与/不参与及其作用、成功标准、资源、窗口与风险边界；人负责选择、拒绝或例外修改。 | 系统生成 → 待选定 → 已选定 → 已撤销/已关闭。 |
+| CE-11 | Execution Deliverable Draft（交付物草稿） | 行动交付物父实体。类型为 Social Content Draft、Private Outreach Draft、Campaign Proposal Draft、KOL Outreach Draft；普通社媒内容可经规则预检后供选择，高风险或其他类型按适用门禁审核；类型不另列概念实体编号。 | 系统生成/草拟 → 预检完成 → 已通过/待审核/需修改/已驳回。 |
 | CE-12 | Action Task（行动任务） | 基于已选定 Task Plan 与可交接交付物草稿，为每个需要响应的渠道分配的独立具体规划与执行单元；由责任人或外部专业系统承接。 | 待交接 → 已接收 → 进行中 → 已完成/已暂停/异常/已取消。 |
 | CE-13 | Task Receipt（任务回执） | 记录责任人或外部专业系统对 Action Task 的接收、进度、异常和完成信息。 | 已接收 → 已关联 → 已处理/待人工处理。 |
 | CE-14 | Outcome（结果） | 记录与行动任务关联的传播、产品、商业、成本或风险结果及口径。 | 待收集 → 已记录 → 已解释/数据缺失。 |
@@ -38,20 +38,20 @@
 
 ![Hotspot Monitor 概念实体关系图（v7）](./assets/hotspot-monitor-conceptual-domain-model-v7.svg)
 
-关系规则：Monitoring Scope 配置 Signal 与 Future Event 的发现边界；Signal 和/或 Future Event 触发 Candidate Event，候选被形成后关联 Event。一个 Event 可包含多个 Fact；Evidence 支持、质疑或排除相应 Fact。Event Card 引用并汇集这些对象及热度、风险、窗口、状态，而不是把它们变为其子实体。Event Card 是 Opportunity Card 的直接决策输入；Opportunity Card 是 Task Plan 的业务起点。Task Plan 先确定各渠道参与/不参与及其作用边界；需要响应的渠道生成相应交付物草稿，草稿满足适用审核和授权门禁后，才可据以创建渠道级 Action Task。Action Task 由系统连接器执行或由人工承接，Task Receipt 回传实际执行状态，Outcome 汇总结果。Event 是 M2—M5 的共享根上下文；经批准的 Strategy Recommendation 才可反馈到 Monitoring Scope、Opportunity Card 判断策略和 Task Plan 模板，不自动覆盖现有规则。
+关系规则：Monitoring Scope 配置 Signal 与 Future Event 的发现边界；Future Event 的自动窗口、授权用户手动提前启动、Signal 和/或二者匹配都可触发 Candidate Event，候选被形成后关联同一 Event。一个 Event 可包含多个 Fact；Evidence 支持、质疑或排除相应 Fact。Event Card 引用并汇集这些对象及热度、风险、窗口、状态，而不是把它们变为其子实体。Event Card 是 Opportunity Card 的直接决策输入；Opportunity Card 是系统生成 Task Plan 的业务起点。Task Plan 提供各渠道参与/不参与及作用边界的行动选项；普通社媒内容默认生成候选，私域、活动和 KOL 仅在推荐被选择推进或按需请求后生成草稿。草稿满足适用预检、审核和授权门禁后，才可据以创建渠道级 Action Task。Action Task 由系统连接器执行或由人工承接，Task Receipt 回传实际执行状态，Outcome 汇总结果。Event 是 M2—M5 的共享根上下文；经批准的 Strategy Recommendation 才可反馈到 Monitoring Scope、Opportunity Card 判断策略和 Task Plan 模板，不自动覆盖现有规则。
 
 ## 5.3 关键业务事件
 
 | ID | 业务事件 | 触发主体 | 触发条件 | 影响的概念实体 |
 |---|---|---|---|---|
 | BE-01 | Signal 被接收或人工录入 | 数据来源、授权用户 | 外部来源提供原始变化，或授权用户提交内部输入。 | CE-02 |
-| BE-02 | Candidate Event 被形成 | 系统、热点/研究运营 | Future Event 到达监测窗口、出现突发 Signal，或二者满足已配置的匹配条件。 | CE-03、CE-04 |
+| BE-02 | Candidate Event 被形成或更新 | 系统、热点/研究运营 | Future Event 自动窗口到达、授权用户手动提前启动、出现突发 Signal，或二者满足已配置的匹配条件；后续触发更新既有 Event。 | CE-03、CE-04、CE-05 |
 | BE-03 | Candidate Event 被处置，并形成或更新 Event | 热点/研究运营 | 候选进入人工处理，或发现重复、粒度不当、无效等处置依据。 | CE-04、CE-05 |
 | BE-04 | Fact 或 Evidence 被确认、质疑、排除或校正 | 热点/研究运营、内容运营 | 出现新增材料、来源冲突、人工核验结论或上下文校正需求。 | CE-05、CE-06、CE-07、CE-08 |
 | BE-05 | Event 与 Event Card 被更新、关闭或再激活 | 系统、热点/研究运营 | 新 Evidence、热度或生命周期变化、窗口到期，或授权用户基于明确依据作出状态更新。 | CE-05、CE-08 |
 | BE-06 | Opportunity Card 被评估并作出四档决策 | 增长负责人、业务所有者 | Event Card 已具备足以评估目标、受众、价值、风险与资源的上下文。 | CE-09 |
-| BE-07 | Task Plan 被草拟、选定、撤销或关闭 | 系统、行动责任人 | Opportunity Card 决定为“优先参与”或“参与”，或既有方案需要调整。 | CE-10 |
-| BE-08 | Execution Deliverable Draft 被生成、审核、修订或驳回 | 系统、类型审核者、品牌/风控 | 已选定 Task Plan 的某渠道需要响应，或草稿提交审核、收到修改意见或形成审核结论。 | CE-11 |
+| BE-07 | Task Plan 被生成、选定、撤销或关闭 | 系统、增长负责人 | Opportunity Card 决定为“优先参与”或“参与”时，系统生成跨渠道行动选项；增长负责人选择推进、拒绝或例外要求修改。 | CE-10 |
+| BE-08 | Execution Deliverable Draft 被生成、预检、审核、修订或驳回 | 系统、类型审核者、品牌/风控 | 合格内容事件默认生成普通社媒内容候选；私域、活动和 KOL 在推荐被选定或按需请求后生成。草稿提交预检、收到修改意见或形成审核结论时更新。 | CE-11 |
 | BE-09 | 渠道级 Action Task 被创建、交接、执行、暂停、完成或取消 | 行动责任人、连接器、平台 | 已选定 Task Plan 的渠道有可交接交付物草稿，并满足适用授权门禁；或执行中出现状态变化。 | CE-12 |
 | BE-10 | Task Receipt 被回传、关联或升级处理 | 行动责任人、连接器、平台 | 接收到发布、发送、回复、进度、异常或完成等真实执行信息。 | CE-13、CE-12 |
 | BE-11 | Outcome 被记录、解释或标记缺失 | 系统、数据团队 | 结果数据可获得、需要补充解释，或到达结果观察窗口但数据缺失/冲突。 | CE-14 |

@@ -1,7 +1,7 @@
 ---
 title: Hotspot Monitor PRD
 status: draft
-version: v2.4-draft
+version: v2.5-draft
 created: 2026-08-06
 updated: 2026-08-10
 product_brief: ../product-brief.md
@@ -17,7 +17,7 @@ guide: ../../../GUIDE.md
 |---|---|
 | 产品 | Hotspot Monitor（热点监控增长运营系统） |
 | 产品定位 | 以 Event 为共享对象的公司级事件驱动增长智能与运营平台 |
-| 版本 | v2.4-draft |
+| 版本 | v2.5-draft |
 | 权威输入 | [Product Brief v1.4（已确认）](../product-brief.md)、[产品模块与业务关系图](./assets/hotspot-monitor-product-architecture.svg)、[文档规范](../../../GUIDE.md) |
 | 文档边界 | 定义业务能力、结果、规则与验收，不定义技术组件、接口或部署方案 |
 | 首个验证环境 | Predx 内容运营的突发热点响应（Phase 0） |
@@ -35,8 +35,8 @@ guide: ../../../GUIDE.md
 | Evidence | 支持或质疑 Fact 的来源材料；事实、热度和价值是独立判断。 |
 | Event Card | 有版本的事件档案，引用并呈现 Event、Fact、Evidence 及热度、风险、窗口和状态；它不改变这些对象的实体边界。 |
 | Opportunity Card | 对 Event 的目标价值、受众、风险、资源、决策与承接路径的统一档案。 |
-| Task Plan | 针对 Opportunity 草拟并选定跨渠道的目标、参与边界、各渠道角色、成功标准、资源与风险边界的大方案。 |
-| Execution Deliverable Draft | 等待人工审核或修订的行动交付物父实体。其交付物类型为社媒内容草稿、私域触达草稿、活动方案草稿和 KOL 触达草稿；类型不另列概念实体编号。 |
+| Task Plan | 系统针对 Opportunity 自动生成的跨渠道大方案和行动选项，包含目标、参与边界、各渠道角色、成功标准、资源与风险边界；增长负责人选定、拒绝或在必要时要求修改。 |
+| Execution Deliverable Draft | 行动交付物父实体。其交付物类型为社媒内容草稿、私域触达草稿、活动方案草稿和 KOL 触达草稿；普通社媒内容可经系统规则预检后供人工选择，高风险或其他类型仍按适用门禁审核；类型不另列概念实体编号。 |
 | Action Task | 基于已选定 Task Plan 和可交接交付物草稿，为每个需要响应的渠道分配的具体规划与执行单元。 |
 | Task Receipt | 专业执行系统或行动责任人回传的接收、进度、异常或完成信息。 |
 | Outcome | 与行动关联的执行、传播、产品、商业、成本或风险结果。 |
@@ -103,6 +103,6 @@ guide: ../../../GUIDE.md
 | 用户旅程 | UJ-1—UJ-5 | `prd-02` |
 | 功能需求 | FR-01—FR-26 | `prd-04` |
 | 概念实体 | CE-01—CE-15 | `prd-05` |
-| 非功能需求 | NFR-01—NFR-10 | `prd-07` |
-| 成功指标 | PM-01—PM-10、P0-01—P0-07 | `prd-08` |
-| 决策 | D-01—D-13 | `prd-09` |
+| 非功能需求 | NFR-01—NFR-11 | `prd-07` |
+| 成功指标 | PM-01—PM-10、P0-01—P0-08 | `prd-08` |
+| 决策 | D-01—D-17 | `prd-09` |

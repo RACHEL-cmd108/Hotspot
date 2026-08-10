@@ -22,7 +22,7 @@
 
 ### Phase 0 验证切片
 
-以 Predx 内容运营的突发热点响应验证 M1 的 X 五地区趋势 Signal、M2 风险分级事件形成与 Event Card、M3 内容类机会判断，以及 M4 的可审核社媒内容草稿最小闭环。Telegram Bot 将草稿投递至管理员批准的审核目标，用于人工审核与结论记录；不直接发送到任何社媒特定账号，实际发布仍由人工筛选与交接。M5 记录投递与审核结果；不服务所有业务线和渠道。
+以 Predx 内容运营的突发热点响应验证 M1 的 X 五地区趋势 Signal、M2 风险分级事件形成与 Event Card、M3 内容类机会判断，以及 M4 的普通社媒内容最短闭环。Phase 0 每小时采集一次热搜；从一次成功采集首次记录到合格触发起，系统在 5 分钟内生成至少 3 条通过规则预检的普通社媒内容候选，并由 Telegram Bot 投递至管理员批准的审核目标。内容运营在投递后 15 分钟内选择一条人工发布并回填实际发布链接；Bot 不直接发送到任何社媒特定账号。高风险内容另行进入人工品牌/风控审核。M5 记录投递、发布链接与窗口结果；不服务所有业务线和渠道。
 
 ### Phase 0 延期项
 
@@ -40,7 +40,7 @@
 
 ![Hotspot Monitor 产品模块与业务关系](./assets/hotspot-monitor-product-architecture.svg)
 
-**正式主链：**M1 形成 Candidate Event → M2 形成 Event，并以 Event Card 作为有版本的统一事件档案 → M3 形成并决定 Opportunity Card → M4 草拟并选定跨渠道 Task Plan，生成并审核各渠道的 Execution Deliverable Draft，再将可交接草稿转为渠道级 Action Task 执行并跟踪 Task Receipt → M5 汇总 Outcome、复盘和 Strategy Recommendation。
+**正式主链：**M1 形成 Candidate Event → M2 形成 Event，并以 Event Card 作为有版本的统一事件档案 → M3 形成并决定 Opportunity Card → M4 自动生成并由人选定跨渠道 Task Plan，按渠道策略生成、预检或审核 Execution Deliverable Draft，再将可交接草稿转为渠道级 Action Task 执行并跟踪 Task Receipt → M5 汇总 Outcome、复盘和 Strategy Recommendation。
 
 **反馈链：**观察的机会回流 M2 事件监测；经批准的 Strategy Recommendation 可反馈优化 M1 Monitoring Scope、M3 Opportunity Card 判断策略和 M4 Task Plan 模板，不自动覆盖现有规则；工作台聚合重点事件、待办、风险提醒、响应窗口、行动进度和执行异常。
 
@@ -57,7 +57,7 @@
 
 ## 3.4 能力关系原则
 
-1. Candidate Event 可由未来预案、突发热点或二者匹配形成；候选不等于事实或机会。
+1. Candidate Event 可由未来事件的自动窗口、授权用户手动提前启动、突发热点或未来事件×实时 Signal 匹配形成；各条路径汇入同一 Event，后续触发更新既有上下文而非重复创建下游行动。候选不等于事实或机会。
 2. Event 是 M2—M5 共享的根上下文；Event Card 是 M3 的直接决策输入，Opportunity Card 是 M4 Task Plan 的唯一业务起点。
 3. M3 的“优先参与/参与”可进入 M4；“观察”回流 M2；“不参与”必须记录原因并进入 M5 复盘。
-4. Hotspot Monitor 拥有内容发布、营销活动、私域触达和 KOL 合作的业务工作流；具体动作可由系统连接器直接执行或由人工/外部工具承接，但权威任务、审核、状态与结果保留在系统内。
+4. Task Plan 由系统生成跨渠道行动选项；增长负责人选择推进、拒绝或在必要时要求修改。合格内容事件默认进入社媒内容候选生成；私域触达、活动方案和 KOL 触达采用“系统推荐 → 人工选择推进/拒绝 → 生成草稿”的路径，并允许授权用户按需请求生成。具体动作可由系统连接器直接执行或由人工/外部工具承接，但权威任务、审核、状态与结果保留在系统内。
