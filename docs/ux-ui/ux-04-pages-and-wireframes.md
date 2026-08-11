@@ -243,6 +243,26 @@ Task Plan 以“行动卡 + 依赖图”呈现，而不是四个互不关联的�
 | [WF-C：规划与执行](assets/lowfi-planning-execution.svg) | PG-09—PG-14 | 四渠道 Task Plan、任务中心、草稿审核、回执、复盘与异常恢复。 |
 | [WF-D：配置](assets/lowfi-configuration.svg) | PG-15、PG-16 | 规则/字段字典，以及连接器和审核目标目录。 |
 
+### 4.6.1 低保真线框图
+
+以下四张图直接展示全部 17 页的默认布局；点击图片可打开原 SVG。它们不取代逐页规格、状态矩阵或无障碍合同。
+
+#### WF-A 基础与双工作台（PG-01、PG-02A、PG-02B）
+
+![WF-A 基础与双工作台](assets/lowfi-foundation-workbenches.svg)
+
+#### WF-B 发现与决策（PG-03—PG-08）
+
+![WF-B 发现与决策](assets/lowfi-discovery-decision.svg)
+
+#### WF-C 规划与执行（PG-09—PG-14）
+
+![WF-C 规划与执行](assets/lowfi-planning-execution.svg)
+
+#### WF-D 配置（PG-15、PG-16）
+
+![WF-D 配置](assets/lowfi-configuration.svg)
+
 - 以下高保真图是本版核心路径的视觉参考，均以本章页面规格及第 05、06、07 章的状态、组件和无障碍合同为准。它们覆盖默认态和关键决策/异常态，不代表省略页不需要实现。
 
 | 资产 | 覆盖页面/状态 | 高保真重点 |

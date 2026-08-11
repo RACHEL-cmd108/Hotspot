@@ -32,6 +32,10 @@
 
 ## 2.4 页面地图
 
+下图是当前版本的可视化信息架构图；它与下方 Mermaid 页面地图表达同一套 `PG` 编号和对象主链，SVG 便于在文档预览、评审和交接时直接查看。
+
+![Hotspot Monitor 信息架构图](assets/ux-information-architecture.svg)
+
 ```mermaid
 flowchart TD
   P1["PG-01 登录与权限"] --> P2A["PG-02A 我的响应台"]

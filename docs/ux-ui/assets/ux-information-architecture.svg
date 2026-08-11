@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Hotspot Monitor 信息架构图</title>
+  <desc id="desc">展示 17 个可深链页面、双层首页、M1 至 M5 的对象主链，以及横向异常和配置入口。蓝色为 Phase 0 优先深化页面，紫色为完整产品页面，白色为横向或基础页面。</desc>
+  <style>
+    .bg{fill:#f6f8fb}.title{font:700 27px system-ui;fill:#18212f}.sub{font:14px system-ui;fill:#667085}.group{font:700 15px system-ui;fill:#344054}.node{fill:#fff;stroke:#d9e0ea;stroke-width:1.5}.p0{fill:#eaf1ff;stroke:#7ca8fa;stroke-width:1.8}.full{fill:#f1edff;stroke:#bcaaf4;stroke-width:1.8}.cross{fill:#fff5df;stroke:#e5b550;stroke-width:1.8}.id{font:700 13px system-ui;fill:#344054}.label{font:700 15px system-ui;fill:#18212f}.small{font:12px system-ui;fill:#667085}.edge{stroke:#9aaabe;stroke-width:2;fill:none;marker-end:url(#arrow)}.dashed{stroke:#9aaabe;stroke-width:2;fill:none;stroke-dasharray:6 6;marker-end:url(#arrow)}
+  </style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9aaabe"/></marker></defs>
+  <rect class="bg" width="1600" height="1120"/>
+  <text x="54" y="58" class="title">Hotspot Monitor · 信息架构与页面关系</text>
+  <text x="54" y="86" class="sub">17 个可深链页面。页面规格为权威；本图说明模块归属、对象主链与横向入口，不取代流程图。</text>
+  <rect x="54" y="110" width="16" height="16" rx="4" class="p0"/><text x="78" y="123" class="sub">Phase 0 优先深化</text><rect x="230" y="110" width="16" height="16" rx="4" class="full"/><text x="254" y="123" class="sub">完整产品</text><rect x="372" y="110" width="16" height="16" rx="4" class="cross"/><text x="396" y="123" class="sub">基础 / 横向</text>
+  <text x="72" y="176" class="group">基础与双层工作台</text>
+  <g transform="translate(72 198)"><rect width="248" height="72" rx="12" class="node"/><text x="18" y="28" class="id">PG-01</text><text x="18" y="52" class="label">登录与权限</text></g>
+  <g transform="translate(372 198)"><rect width="248" height="72" rx="12" class="p0"/><text x="18" y="28" class="id">PG-02A</text><text x="18" y="52" class="label">我的响应台</text></g>
+  <g transform="translate(672 198)"><rect width="248" height="72" rx="12" class="full"/><text x="18" y="28" class="id">PG-02B</text><text x="18" y="52" class="label">全局运营台</text></g>
+  <path d="M320 234H370" class="edge"/><path d="M320 246H670" class="edge"/><path d="M620 220C645 194 646 194 672 220" class="dashed"/><path d="M672 254C645 280 645 280 620 254" class="dashed"/>
+  <text x="72" y="344" class="group">M1 热点发现与准备</text>
+  <g transform="translate(72 366)"><rect width="224" height="86" rx="12" class="p0"/><text x="18" y="28" class="id">PG-03</text><text x="18" y="52" class="label">实时热点雷达</text><text x="18" y="74" class="small">Signal / Top 10 / 来源状态</text></g>
+  <g transform="translate(336 366)"><rect width="224" height="86" rx="12" class="p0"/><text x="18" y="28" class="id">PG-04</text><text x="18" y="52" class="label">候选事件队列</text><text x="18" y="74" class="small">仅归并 / 上下文例外</text></g>
+  <g transform="translate(600 366)"><rect width="224" height="86" rx="12" class="full"/><text x="18" y="28" class="id">PG-05</text><text x="18" y="52" class="label">未来事件中心</text><text x="18" y="74" class="small">窗口 / 预案 / 匹配</text></g>
+  <g transform="translate(864 366)"><rect width="224" height="86" rx="12" class="full"/><text x="18" y="28" class="id">PG-06</text><text x="18" y="52" class="label">监测范围</text><text x="18" y="74" class="small">来源 / 阈值 / 规则</text></g>
+  <path d="M184 270V364" class="edge"/><path d="M296 409H334" class="edge"/><path d="M712 452V494H448V454" class="edge"/><path d="M976 452V478H184V454" class="dashed"/><path d="M976 452V478H712V454" class="dashed"/>
+  <text x="72" y="528" class="group">M2 事件理解</text>
+  <g transform="translate(336 548)"><rect width="272" height="92" rx="12" class="p0"/><text x="18" y="29" class="id">PG-07</text><text x="18" y="54" class="label">Event 工作区</text><text x="18" y="77" class="small">Event Card / Fact / Evidence / 监测</text></g>
+  <path d="M448 452V546" class="edge"/>
+  <text x="72" y="704" class="group">M3 机会决策</text>
+  <g transform="translate(336 726)"><rect width="272" height="86" rx="12" class="p0"/><text x="18" y="28" class="id">PG-08</text><text x="18" y="52" class="label">Opportunity 工作区</text><text x="18" y="74" class="small">整体响应四档决定</text></g>
+  <path d="M472 640V724" class="edge"/>
+  <text x="708" y="344" class="group">M4 任务中心</text>
+  <g transform="translate(708 548)"><rect width="260" height="92" rx="12" class="p0"/><text x="18" y="29" class="id">PG-09</text><text x="18" y="54" class="label">Task Plan 工作区</text><text x="18" y="77" class="small">四渠道选择 / 依赖 / 重规划</text></g>
+  <g transform="translate(1012 548)"><rect width="220" height="92" rx="12" class="p0"/><text x="18" y="29" class="id">PG-10</text><text x="18" y="54" class="label">任务中心</text><text x="18" y="77" class="small">跨类型队列</text></g>
+  <g transform="translate(1276 548)"><rect width="220" height="92" rx="12" class="p0"/><text x="18" y="29" class="id">PG-11</text><text x="18" y="54" class="label">交付物草稿处理</text><text x="18" y="77" class="small">选择 / 审核 / 修订</text></g>
+  <g transform="translate(1276 704)"><rect width="220" height="92" rx="12" class="full"/><text x="18" y="29" class="id">PG-12</text><text x="18" y="54" class="label">行动任务与回执</text><text x="18" y="77" class="small">交接 / Receipt / 接管</text></g>
+  <path d="M608 769H650V594H706" class="edge"/><path d="M968 594H1010" class="edge"/><path d="M1232 594H1274" class="edge"/><path d="M1386 640V702" class="edge"/>
+  <text x="708" y="866" class="group">M5 效果与学习</text>
+  <g transform="translate(1012 888)"><rect width="260" height="86" rx="12" class="full"/><text x="18" y="28" class="id">PG-13</text><text x="18" y="52" class="label">Outcome 与复盘</text><text x="18" y="74" class="small">口径 / 归因 / 策略建议</text></g>
+  <path d="M1386 796V842H1142V886" class="edge"/><path d="M1012 932H956V682H968" class="dashed"/><path d="M1012 948H932V812H608" class="dashed"/>
+  <text x="72" y="866" class="group">横向与配置</text>
+  <g transform="translate(72 888)"><rect width="220" height="86" rx="12" class="cross"/><text x="18" y="28" class="id">PG-14</text><text x="18" y="52" class="label">通知与异常中心</text><text x="18" y="74" class="small">跨对象恢复与升级</text></g>
+  <g transform="translate(336 888)"><rect width="220" height="86" rx="12" class="cross"/><text x="18" y="28" class="id">PG-15</text><text x="18" y="52" class="label">业务字典</text><text x="18" y="74" class="small">共享来源 / 渠道 / 风险</text></g>
+  <g transform="translate(600 888)"><rect width="220" height="86" rx="12" class="cross"/><text x="18" y="28" class="id">PG-16</text><text x="18" y="52" class="label">连接器与目标目录</text><text x="18" y="74" class="small">内部审核 / 外部运营目标</text></g>
+  <path d="M184 888V836H1276" class="dashed"/><path d="M446 888V836H184V452" class="dashed"/><path d="M710 888V836H1386V640" class="dashed"/>
+  <rect x="72" y="1030" width="1424" height="46" rx="10" class="node"/><text x="94" y="1059" class="small">对象主链：Signal → Candidate Event → Event → Event Card → Opportunity → Task Plan → Execution Deliverable Draft → Action Task → Task Receipt → Outcome → Strategy Recommendation</text>
+</svg>
