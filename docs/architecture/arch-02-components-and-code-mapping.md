@@ -12,9 +12,9 @@ sequenceDiagram
   M1->>M2: candidate_event.qualified.v1
   M2->>M4: event.response_rule_matched.v1
   M4->>M4: 对 3 个预配置账号逐一创建/标记异常
-  M4->>AI: 每个可用账号生成 >=3 条专属候选
-  AI-->>M4: 候选/失败
-  U->>M4: 选择、调整、回填 X URL/失败原因
+  M4->>AI: Generation Run（版本快照）生成 >=3 条专属候选
+  AI-->>M4: 候选/失败；仅当前 run 可落库
+  U->>M4: 选择候选→Publication Attempt→回填 X URL/失败原因
   M4->>M5: publication.recorded.v1
 ```
 
@@ -29,4 +29,4 @@ src/hotspot_monitor/apps/
   integrations/        # ports + X/AI/Google adapters
 ```
 
-浏览器仅调用 Django 应用服务。同步命令只校验、写权威状态、审计和 Outbox；Worker 消费 Outbox 后采集 X、调用 AI 或刷新效果。每个 Worker 命令使用持久幂等键；失败留在可见队列，可重试或人工接管。
+浏览器仅调用 Django 应用服务。同步命令只校验、写权威状态、审计和 Outbox；Worker 消费 Outbox 后采集 X、调用 AI 或刷新效果。每个 Worker 命令使用持久幂等键；失败留在可见队列，可重试或人工接管。Event 校正会冻结旧 Generation Run；Worker 必须比较 run 版本后再写入。
