@@ -2,8 +2,8 @@
 
 ## 权威入口
 
-- [`product-brief.md`](product-brief.md)：Product Brief v1.3-final，状态为 approved。
-- [`prd/prd-00-index.md`](prd/prd-00-index.md)：PRD v2.2 的唯一入口与版本索引。
+- [`product-brief.md`](product-brief.md)：当前 Product Brief v1.5 草案。
+- [`prd/prd-00-index.md`](prd/prd-00-index.md)：当前 PRD v2.10-module-v3-v12 草案的唯一入口与版本索引。
 
 ## PRD 文件映射
 
@@ -19,4 +19,4 @@
 | `prd-08-metrics-and-experiments.md` | 指标与 Phase 0 实验 |
 | `prd-09-decisions-and-open-questions.md` | 决策、风险与开放问题 |
 
-历史单篇 PRD、Word/PDF 发布版和重复产品架构文件已移出版本控制，不再作为权威需求来源。
+旧版 PRD、Brief 与生成图已移入本地 `archive/`，不再作为当前需求来源，也不会同步远端。

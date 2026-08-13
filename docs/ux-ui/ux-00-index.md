@@ -1,10 +1,11 @@
 ---
-title: Hotspot Monitor UX/UI
+title: Hotspot Monitor UX/UI — Module v3 Alignment
 status: draft
-version: v1.6
-updated: 2026-08-11
+version: v2.0-module-v3-v13-draft
+created: 2026-08-13
 prd: ../product-requirements/prd/prd-00-index.md
-product_architecture: ../product-requirements/system-design/product-architecture/hotspot-monitor-product-architecture-m4-integrated.svg
+prototype: ./prototype/hotspot-operations-system-final-prototype.html
+previous_ux: ./archive/versions/v1.8/ux-00-index.md
 ---
 
 # Hotspot Monitor UX/UI 设计
@@ -13,67 +14,72 @@ product_architecture: ../product-requirements/system-design/product-architecture
 
 | 项目 | 内容 |
 |---|---|
-| 设计范围 | 完整定义 M1–M5；Phase 0 深化内容运营的突发热点响应，完整产品保留四类 M4 行动设计 |
-| 产品形态 | 内部多角色、桌面优先 Web 工作台；1440px 主画布，1280px 最低完整工作宽度 |
-| 工作台层次 | 同一工作台提供“我的响应台（Phase 0 默认）”与“全局运营台（完整产品）”，系统记忆用户选择 |
-| Phase 0 | 成功小时采集中的合格触发（`T0`）→ 自动形成/更新 Candidate Event、Event / Event Card；策略在 Opportunity 写入“参与”并生成内容型 Task Plan → 自动选入内容发布行动 → 5 分钟内生成并规则预检至少 3 条普通社媒内容候选 → Telegram 内部投递 → 内容运营 15 分钟内选择一条、人工发布并回填链接；高风险内容另走人工审核 |
-| M4 能力 | 内容发布、营销活动、私域触达、KOL 合作；Task Plan 用四张渠道行动卡协调建议、选择、依赖、影响分析和重规划，统一任务中心承接后续交付 |
-| 权威规则 | 系统内部保存交付物、自动触发/预检、选择、审核和状态；Telegram、Google Docs、X 等均为可替换连接器 |
-| 本轮修订 | 已同步页面系统、逐页规格、流程、状态、组件、无障碍与验收；已交付 17 页低保真线框、核心路径高保真参考和覆盖 17 页入口的 v2 可点击原型。剩余工作是补充代表状态视觉稿与原型无障碍实现，而非重绘整套资产。 |
-| 页面约定 | `PG` 为可深链页面，`VW` 为页面内视图，`OV` 为弹层/抽屉，`CP` 为可复用组件；以第 02、04 章为准 |
-
-### PRD 用户旅程映射
-
-| 旅程 | UX 流程 | 核心页面 | 深化程度 |
-|---|---|---|---|
-| UJ-1 突发热点发现 | UX-F01、UX-F04 | PG-02A、PG-03、PG-04、PG-07 | Phase 0 优先 |
-| UJ-2 未来事件准备 | UX-F03 | PG-05、PG-04、PG-07 | 完整产品 |
-| UJ-3 事件理解与机会决策 | UX-F04、UX-F05 | PG-07—PG-09 | Phase 0 优先 |
-| UJ-4 多类型行动与执行协同 | UX-F02、UX-F06—UX-F10 | PG-09—PG-12、PG-14、PG-16 | 内容链为 Phase 0；其余为完整产品 |
-| UJ-5 结果学习与策略反馈 | UX-F11 | PG-13、PG-06、PG-08、PG-09 | 完整产品 |
-
-### 追溯主链
-
-`Signal → Candidate Event → Event → Event Card → Opportunity Card → Task Plan → Execution Deliverable Draft → Action Task → Task Receipt → Outcome → Strategy Recommendation`
+| 本版范围 | 对齐 PRD v2.10-module-v3-v12-draft 与 HTML 原型终稿 v13；作为主文件树中的当前 UX/UI 基线，旧版已移入本地 archive。 |
+| 产品形态 | 内部桌面优先 Web 工作台；共享页面骨架，角色影响操作权限而非页面集合。 |
+| 一级导航 | 运营总览、热点监测、运营排期、事件管理、内容发布、复盘优化、系统设置。 |
+| 核心主链 | Signal / Future Event → Candidate Event → 地区来源聚合与 Event Card → 账号响应任务 → Content Candidate → 人工 X 发布与 URL 回填 → Performance Result → Optimisation Proposal。 |
+| 并行支线 | Event Card → 活动准备建议 → 运营主动启动 → 3 套 Campaign Proposal → 选择、调整、导出/外部交接。 |
+| Phase 0 | X 五地区热搜、每地区详情前三条来源、三个预配置 Predx X 账号各自至少三条候选、系统内选择/复制/调整、X 手动发布与 URL/失败原因回填。 |
+| 原型与一期实现的关系 | HTML 原型用于展示完整产品链路和未来页面关系；一期只接通已确认的 Phase 0 内容响应链。原型中展示的多账号、热点内容或其他后续链路，不等于一期承诺。 |
+| 明确不在当前链 | Opportunity、参与/不参与决策、Task Plan、Telegram 投递、KOL 工作流、私域发送与社群管理。 |
+| 预留能力 | 热点内容、爆款拆解、Content Insight、私域话题讨论建议；未定义输入和输出前必须显示为未启用能力。 |
 
 ## 01 设计目标与基础
 
-定义可信、高密度、自动化优先且保留人工选择/高风险门禁的体验。
+本章定义桌面工作台的设计原则、用户职责、自动化边界和术语规范。
 
 详见：[ux-01-design-goals-and-foundations.md](./ux-01-design-goals-and-foundations.md)。
 
 ## 02 信息架构
 
-定义共享导航、页面/视图/弹层边界、统一任务中心、四类行动视图、对象链和术语。
+本章定义七个一级页面、页面内视图、对象工作区及关键跳转，确保模块能力与运营页面名称不混淆。
 
 详见：[ux-02-information-architecture.md](./ux-02-information-architecture.md)。
 
 ## 03 用户流程
 
-覆盖 UJ-1—UJ-5、Opportunity 四档决定、Task Plan 四渠道协同，以及内容、私域、营销、KOL 四条执行链和恢复路径。
+本章定义 UJ-1—UJ-5 的端到端流程、活动策划并行支线、预留能力边界与恢复路径。
 
 详见：[ux-03-user-flows.md](./ux-03-user-flows.md)。
 
-## 04 页面与线框图
+## 04 页面与线框规格
 
-定义 17 张可深链页面的目标、范围、逐页规格和跳转边界；第 4.6 节已登记低保真、高保真与 v2 可点击原型的覆盖范围。
+本章定义每页回答的问题、必备信息、操作边界、页面间跳转和与 v13 原型的覆盖关系。
 
 详见：[ux-04-pages-and-wireframes.md](./ux-04-pages-and-wireframes.md)。
 
 ## 05 交互与状态
 
-定义 Opportunity 决策、Task Plan 版本、渠道选择与重规划、规则预检、人工选择、高风险审核、人工交接、Bot 发送、KOL 私信和回执。
+本章定义 Candidate Event、Event、账号响应任务、内容候选、发布记录、活动方案和优化建议的状态、门禁与异常恢复。
 
 详见：[ux-05-interaction-and-states.md](./ux-05-interaction-and-states.md)。
 
 ## 06 视觉设计与组件
 
-定义设计变量、高密度布局、审核/风险语法、渠道行动卡、依赖/影响分析和计划版本组件。
+本章提炼终稿原型的视觉语言和可复用组件，规定来源、确认度、风险、预留能力和版本的表达方式。
 
 详见：[ux-06-visual-design-and-components.md](./ux-06-visual-design-and-components.md)。
 
 ## 07 无障碍与验收
 
-定义代表任务、渠道组合变更验收、逐条 FR 追溯、连接器降级和 UX 门禁。
+本章定义桌面 Web 可访问性底线、代表任务、状态覆盖与 FR/NFR 追溯。
 
 详见：[ux-07-accessibility-and-validation.md](./ux-07-accessibility-and-validation.md)。
+
+## 基线与历史
+
+- 当前交互和视觉参考：[HTML 原型终稿 v13](./prototype/hotspot-operations-system-final-prototype.html)。
+- 当前上游需求基线：[PRD v2.10 module v3](../product-requirements/prd/prd-00-index.md)。
+- 旧版 UX/UI 已移入本地 `archive/versions/v1.8/`。它基于旧的四渠道 Task Plan 模型，不能作为本版开发依据，也不会同步远端。
+
+## 设计资产与验收状态
+
+| 资产 | 用途 | 权威位置 |
+|---|---|---|
+| 信息架构图 | 七个一级页面、工作区与对象流转 | [ux-information-architecture-v2.0.svg](./assets/ux-information-architecture-v2.0.svg) |
+| 关键页面低保真线框 | PG-01—PG-07 的稳定区域与跨页关系 | [ux-page-wireframes-v2.0.svg](./assets/ux-page-wireframes-v2.0.svg) |
+| 七个一级页面高保真图 | 当前视觉与页面布局基线 | [PG-01](./assets/hifi-01-operations-overview.svg) · [PG-02](./assets/hifi-02-hotspot-monitoring.svg) · [PG-03](./assets/hifi-03-operations-schedule.svg) · [PG-04](./assets/hifi-04-event-management.svg) · [PG-05](./assets/hifi-05-content-publishing.svg) · [PG-06](./assets/hifi-06-insights-optimization.svg) · [PG-07](./assets/hifi-07-system-configuration.svg) |
+| 可点击高保真 | 完整链路的交互与视觉演示；不等于一期全部接通 | [HTML 原型终稿 v13](./prototype/hotspot-operations-system-final-prototype.html) |
+| 页面状态覆盖与验证 | 默认、等待、空、异常、受限状态及实际测试记录 | [ux-07-accessibility-and-validation.md](./ux-07-accessibility-and-validation.md) |
+
+当前状态：**设计规格待验证**。页面资产、状态和验收要求已登记；真实浏览器、键盘和代表任务的执行记录尚待补充，未完成前不能标记为“开发验收通过”。

@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Hotspot Monitor M4 行动中心模块示意图</title>
+  <desc id="desc">展示机会卡片进入行动方案、任务拆解、人机审核修订、执行协调，并与 X 矩阵运营系统协作及向结果汇总交付的关系。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <marker id="arrow-return" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8B5CF6"/>
+    </marker>
+    <marker id="arrow-external" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563EB"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.08"/>
+    </filter>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #172033; }
+      .title { font-size: 34px; font-weight: 700; }
+      .subtitle { font-size: 17px; fill: #64748B; }
+      .module-title { font-size: 25px; font-weight: 700; }
+      .node-title { font-size: 20px; font-weight: 700; }
+      .node-desc { font-size: 15px; fill: #64748B; }
+      .small-title { font-size: 17px; font-weight: 700; }
+      .small-desc { font-size: 14px; fill: #64748B; }
+      .edge-label { font-size: 14px; font-weight: 600; fill: #475569; }
+      .badge { font-size: 13px; font-weight: 700; }
+      .legend { font-size: 13px; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1080" fill="#FFFFFF"/>
+
+  <text x="70" y="66" class="title">M4 · 行动中心</text>
+  <text x="70" y="98" class="subtitle">将已选机会转化为可审核、可执行、可追踪的详细行动任务包</text>
+
+  <line x1="1080" y1="55" x2="1130" y2="55" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="1142" y="60" class="legend">内部主流程 / 正式交付</text>
+  <line x1="1080" y1="82" x2="1130" y2="82" stroke="#8B5CF6" stroke-width="2.5" stroke-dasharray="8 7" marker-end="url(#arrow-return)"/>
+  <text x="1142" y="87" class="legend">审核退回 / 持续修订</text>
+  <line x1="1080" y1="109" x2="1130" y2="109" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="3 7" marker-end="url(#arrow-external)"/>
+  <text x="1142" y="114" class="legend">外部系统协作</text>
+
+  <!-- Upstream input -->
+  <rect x="70" y="140" width="300" height="86" rx="16" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="94" y="174" class="small-title">来自 M3.3 · 机会生成</text>
+  <text x="94" y="201" class="small-desc">优先参与 / 参与的 Opportunity Card</text>
+
+  <!-- M4 container -->
+  <rect x="70" y="270" width="1120" height="675" rx="28" fill="#FFF7F3" stroke="#F0A27A" stroke-width="2.5"/>
+  <text x="105" y="318" class="module-title">行动任务包生成与交付</text>
+  <text x="105" y="346" class="node-desc">AI 生成方案与任务，人工在关键审核点介入；通过后直接进入执行协调</text>
+
+  <!-- Main flow nodes -->
+  <g filter="url(#shadow)">
+    <rect x="110" y="390" width="290" height="178" rx="20" fill="#FFFFFF" stroke="#F19A6C" stroke-width="2"/>
+    <rect x="425" y="390" width="290" height="178" rx="20" fill="#FFFFFF" stroke="#F19A6C" stroke-width="2"/>
+    <rect x="740" y="390" width="395" height="178" rx="20" fill="#FFFFFF" stroke="#E879A9" stroke-width="2"/>
+  </g>
+
+  <text x="138" y="431" class="node-title">M4.1 · 任务方案</text>
+  <rect x="331" y="407" width="46" height="28" rx="14" fill="#E8F1FF" stroke="#7BA7F7"/>
+  <text x="354" y="426" text-anchor="middle" class="badge" fill="#1D4ED8">AI</text>
+  <text x="138" y="467" class="node-desc">输出一整套行动方案</text>
+  <text x="138" y="495" class="node-desc">行动目标 · 成功标准 · 参与策略</text>
+  <text x="138" y="523" class="node-desc">渠道组合 · 节奏顺序 · 行动边界</text>
+
+  <text x="453" y="431" class="node-title">M4.2 · 任务拆解</text>
+  <rect x="646" y="407" width="46" height="28" rx="14" fill="#E8F1FF" stroke="#7BA7F7"/>
+  <text x="669" y="426" text-anchor="middle" class="badge" fill="#1D4ED8">AI</text>
+  <text x="453" y="467" class="node-desc">按渠道生成详细任务包</text>
+  <text x="453" y="495" class="node-desc">具体动作 · 交付物 · 负责人</text>
+  <text x="453" y="523" class="node-desc">时间节点 · 依赖关系 · 验收标准</text>
+
+  <text x="768" y="431" class="node-title">M4.3 · 审核修订</text>
+  <rect x="998" y="407" width="108" height="28" rx="14" fill="#FCE7F3" stroke="#E879A9"/>
+  <text x="1052" y="426" text-anchor="middle" class="badge" fill="#BE185D">AI + 人工</text>
+  <text x="768" y="467" class="node-desc">系统预检风险、冲突、权限与完整性</text>
+  <text x="768" y="495" class="node-desc">人工确认问题与最终取舍，AI 协助修改</text>
+  <text x="768" y="523" class="node-desc">版本差异可见；审核通过即自动放行</text>
+
+  <path d="M 400 479 L 425 479" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M 715 479 L 740 479" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- AI copilot -->
+  <rect x="110" y="612" width="1025" height="76" rx="18" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.8"/>
+  <text x="138" y="642" class="small-title">AI 协作助手</text>
+  <text x="138" y="670" class="small-desc">解释生成依据 · 对话修改方案与任务 · 提供备选方案 · 展示版本差异；不能代替人工作出最终审核</text>
+  <path d="M 255 612 L 255 568" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-dasharray="5 6"/>
+  <path d="M 570 612 L 570 568" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-dasharray="5 6"/>
+  <path d="M 935 612 L 935 568" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-dasharray="5 6"/>
+
+  <!-- Review return loops -->
+  <path d="M 810 568 C 810 730, 570 730, 570 568" fill="none" stroke="#8B5CF6" stroke-width="2.3" stroke-dasharray="8 7" marker-end="url(#arrow-return)"/>
+  <text x="647" y="722" class="edge-label" fill="#7C3AED">任务问题：返回拆解</text>
+  <path d="M 770 568 C 770 768, 255 768, 255 568" fill="none" stroke="#8B5CF6" stroke-width="2.3" stroke-dasharray="8 7" marker-end="url(#arrow-return)"/>
+  <text x="420" y="760" class="edge-label" fill="#7C3AED">方案问题：返回方案</text>
+
+  <!-- Execution coordination -->
+  <rect x="110" y="800" width="1025" height="110" rx="20" fill="#ECFDF5" stroke="#55B98A" stroke-width="2"/>
+  <text x="138" y="837" class="node-title">M4.4 · 执行协调</text>
+  <text x="138" y="869" class="node-desc">按审核后的任务包分发、跟踪、催办并接收执行回执</text>
+
+  <rect x="430" y="820" width="150" height="62" rx="14" fill="#FFFFFF" stroke="#76C9A2"/>
+  <rect x="598" y="820" width="150" height="62" rx="14" fill="#FFFFFF" stroke="#76C9A2"/>
+  <rect x="766" y="820" width="150" height="62" rx="14" fill="#FFFFFF" stroke="#76C9A2"/>
+  <rect x="934" y="820" width="170" height="62" rx="14" fill="#FFFFFF" stroke="#76C9A2"/>
+  <text x="505" y="847" text-anchor="middle" class="small-title">M4.4.1 热点账号</text>
+  <text x="505" y="870" text-anchor="middle" class="small-desc">路由 · 发布 · 互动</text>
+  <text x="673" y="847" text-anchor="middle" class="small-title">M4.4.2 营销活动</text>
+  <text x="673" y="870" text-anchor="middle" class="small-desc">活动 · 页面 · 激励</text>
+  <text x="841" y="847" text-anchor="middle" class="small-title">M4.4.3 私域触达</text>
+  <text x="841" y="870" text-anchor="middle" class="small-desc">CRM · Push · 社群</text>
+  <text x="1019" y="847" text-anchor="middle" class="small-title">M4.4.4 KOL 合作</text>
+  <text x="1019" y="870" text-anchor="middle" class="small-desc">筛选 · Brief · 回执</text>
+
+  <path d="M 938 568 L 938 600 C 938 720, 622 720, 622 800" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="789" y="702" width="170" height="28" rx="14" fill="#FFFFFF"/>
+  <text x="874" y="722" text-anchor="middle" class="edge-label">审核通过 · 自动放行</text>
+
+  <!-- External system -->
+  <rect x="1240" y="350" width="290" height="252" rx="22" fill="#F2F6FC" stroke="#7896BE" stroke-width="2"/>
+  <text x="1270" y="393" class="node-title">外部执行系统</text>
+  <rect x="1270" y="424" width="230" height="126" rx="16" fill="#FFFFFF" stroke="#7896BE" stroke-width="1.6"/>
+  <text x="1385" y="464" text-anchor="middle" class="small-title">X 矩阵运营系统</text>
+  <text x="1385" y="493" text-anchor="middle" class="small-desc">账号路由 · 内容改编</text>
+  <text x="1385" y="518" text-anchor="middle" class="small-desc">发布互动 · 执行回执</text>
+
+  <path d="M 1135 843 C 1210 843, 1200 500, 1270 500" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-dasharray="3 7" marker-end="url(#arrow-external)"/>
+  <text x="1192" y="673" class="edge-label" fill="#1D4ED8">已审核任务包</text>
+  <path d="M 1270 532 C 1175 532, 1210 882, 1135 882" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-dasharray="3 7" marker-end="url(#arrow-external)"/>
+  <text x="1197" y="748" class="edge-label" fill="#1D4ED8">进度 · 异常 · 回执</text>
+
+  <!-- Main incoming and outgoing flow -->
+  <path d="M 220 226 L 220 390" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="236" y="261" class="edge-label">选定机会卡片</text>
+
+  <rect x="500" y="985" width="390" height="70" rx="18" fill="#EFF6FF" stroke="#60A5FA" stroke-width="2"/>
+  <text x="695" y="1015" text-anchor="middle" class="small-title">交付至 M5.1 · 结果汇总</text>
+  <text x="695" y="1039" text-anchor="middle" class="small-desc">执行状态 · 发布回执 · 异常 · 最终结果</text>
+  <path d="M 622 910 L 622 985" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+</svg>

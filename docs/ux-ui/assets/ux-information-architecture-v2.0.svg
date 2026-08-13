@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1160" viewBox="0 0 1800 1160" role="img" aria-labelledby="title desc">
+  <title id="title">热点运营系统信息架构</title><desc id="desc">按当前原型图的七个一级页面、二级工作区和关键对象流转绘制的信息架构图。</desc>
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5 0 9Z" fill="#087b71"/></marker><marker id="b" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5 0 9Z" fill="#b65e2e"/></marker>
+    <style>.bg{fill:#f5f8f7}.title{font:700 30px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#172421}.sub,.note{font:400 14px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#61716d}.col{font:700 13px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;letter-spacing:1px;fill:#6b7b77}.l1{fill:#0b756d}.l1t{font:700 18px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#fff}.l1e{font:500 12px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#cbe8e3}.card{fill:#fff;stroke:#d9e4e1;stroke-width:1.2}.cardt{font:700 16px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#21302d}.item{font:400 14px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#43534f}.obj{fill:#ecf7f4;stroke:#a7d7cf;stroke-width:1.2}.objt{font:700 14px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#12655e}.reserved{fill:#fbf3ec;stroke:#e6bfa7;stroke-width:1.2;stroke-dasharray:5 4}.reservedt{font:600 13px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#91512f}.small{font:400 12px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#657570}.hier{stroke:#c7d4d1;stroke-width:1.4;fill:none}.flow{stroke:#087b71;stroke-width:2.2;fill:none;marker-end:url(#a)}.dash{stroke:#b65e2e;stroke-width:1.7;stroke-dasharray:7 5;fill:none;marker-end:url(#b)}.flowlabel{font:600 12px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#087b71}.dashlabel{font:600 12px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#a75a2e}.lane{fill:#fff;stroke:#d9e4e1;stroke-width:1.2}.lanet{font:700 14px -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#1d302c}</style>
+  </defs>
+  <rect class="bg" width="1800" height="1160"/>
+  <text x="50" y="55" class="title">热点运营系统 · 信息架构</text><text x="50" y="83" class="sub">v2.0｜对齐当前可点击原型与 PRD v2.10-module-v3-v12｜浅灰为层级归属，绿色实线为关键流转，橙色虚线为审批后规则反馈</text>
+  <text x="50" y="132" class="col">一级页面</text><text x="385" y="132" class="col">二级页面 / 工作区</text><text x="1010" y="132" class="col">关键对象与操作</text>
+  <g>
+    <rect x="50" y="155" width="275" height="70" rx="12" class="l1"/><text x="72" y="184" class="l1t">运营总览</text><text x="72" y="206" class="l1e">Operations Overview</text>
+    <rect x="50" y="250" width="275" height="70" rx="12" class="l1"/><text x="72" y="279" class="l1t">热点监测</text><text x="72" y="301" class="l1e">Hotspot Monitoring</text>
+    <rect x="50" y="345" width="275" height="70" rx="12" class="l1"/><text x="72" y="374" class="l1t">运营排期</text><text x="72" y="396" class="l1e">Operations Schedule</text>
+    <rect x="50" y="440" width="275" height="70" rx="12" class="l1"/><text x="72" y="469" class="l1t">事件管理</text><text x="72" y="491" class="l1e">Event Management</text>
+    <rect x="50" y="535" width="275" height="70" rx="12" class="l1"/><text x="72" y="564" class="l1t">内容发布</text><text x="72" y="586" class="l1e">Content Publishing</text>
+    <rect x="50" y="630" width="275" height="70" rx="12" class="l1"/><text x="72" y="659" class="l1t">复盘优化</text><text x="72" y="681" class="l1e">Insights &amp; Optimization</text>
+    <rect x="50" y="725" width="275" height="70" rx="12" class="l1"/><text x="72" y="754" class="l1t">系统配置</text><text x="72" y="776" class="l1e">System Configuration</text>
+  </g>
+  <g class="hier"><path d="M325 190H365"/><path d="M325 285H365"/><path d="M325 380H365"/><path d="M325 475H365"/><path d="M325 570H365"/><path d="M325 665H365"/><path d="M325 760H365"/></g>
+  <g>
+    <rect x="385" y="155" width="515" height="70" rx="12" class="card"/><text x="410" y="183" class="cardt">今日运营态势</text><text x="410" y="206" class="item">进行中响应 · 结果数据 · 重点 / 热度暴涨事件 · 仅人工介入事项</text>
+    <rect x="385" y="240" width="515" height="90" rx="12" class="card"/><text x="410" y="268" class="cardt">热点雷达</text><text x="410" y="292" class="item">平台与地区 Top 30 · 趋势变动 · 追踪主题 / 跨区比较</text><rect x="688" y="298" width="183" height="22" rx="6" class="reserved"/><text x="700" y="314" class="reservedt">热门内容（预留）</text>
+    <rect x="385" y="335" width="515" height="90" rx="12" class="card"/><text x="410" y="363" class="cardt">未来事件中心</text><text x="410" y="387" class="item">日历与导入 · 事件准备库 · 预测响应窗口 · 重点事件预测图</text><text x="410" y="408" class="small">进入窗口自动触发；也可人工提前启动</text>
+    <rect x="385" y="430" width="515" height="90" rx="12" class="card"/><text x="410" y="458" class="cardt">事件中心</text><text x="410" y="482" class="item">候选队列 · 自动聚合 / 去重 / 核验 · Event Card · 异常人工校正</text><text x="410" y="503" class="small">事实、证据、置信度、热度、窗口、综合评估均在同一张事件卡片</text>
+    <rect x="385" y="525" width="515" height="90" rx="12" class="card"/><text x="410" y="553" class="cardt">内容行动</text><text x="410" y="577" class="item">账号响应任务 · 账号承接推荐 · 候选生成与筛选 · 手动发布回填</text><text x="410" y="598" class="small">Phase 0：X 单主账号，每个 Event 至少生成 3 条候选</text>
+    <rect x="385" y="620" width="515" height="70" rx="12" class="card"/><text x="410" y="648" class="cardt">效果复盘</text><text x="410" y="671" class="item">结果归因 · 内容 / 活动评估 · 优化建议与版本对比</text>
+    <rect x="385" y="705" width="515" height="90" rx="12" class="card"/><text x="410" y="733" class="cardt">配置与治理</text><text x="410" y="757" class="item">数据源 · 主题 · Future Event · 账号与 Skill · 规则 / 风险 · 版本审计</text><text x="410" y="778" class="small">登录与权限位于全局右上角，不另设业务一级页</text>
+  </g>
+  <g>
+    <rect x="1010" y="155" width="325" height="70" rx="12" class="obj"/><text x="1033" y="183" class="objt">运营注意事项</text><text x="1033" y="206" class="small">跳转至事件、内容任务或异常处理</text>
+    <rect x="1010" y="250" width="325" height="70" rx="12" class="obj"/><text x="1033" y="278" class="objt">具体趋势项</text><text x="1033" y="301" class="small">实时信号进入候选事件的入口</text>
+    <rect x="1010" y="345" width="325" height="70" rx="12" class="obj"/><text x="1033" y="373" class="objt">Future Event</text><text x="1033" y="396" class="small">来源、置信度、预测窗口、触发状态</text>
+    <rect x="1010" y="430" width="325" height="90" rx="12" class="obj"/><text x="1033" y="458" class="objt">Candidate Event → Event Card</text><text x="1033" y="482" class="small">候选 → 自动核验 / 聚合 → 可追溯事件对象</text><text x="1033" y="503" class="small">异常时合并、拆分或校正并留痕</text>
+    <rect x="1370" y="430" width="325" height="90" rx="12" class="obj"/><text x="1393" y="458" class="objt">活动规划支线（M3）</text><text x="1393" y="482" class="small">活动建议 → 人工启动 → 3 个方案草稿</text><text x="1393" y="503" class="small">选择 / 调整 / 导出或交接外部系统</text>
+    <rect x="1010" y="535" width="205" height="70" rx="12" class="obj"/><text x="1033" y="563" class="objt">账号响应任务</text><text x="1033" y="586" class="small">规则匹配账号与 Skill</text>
+    <rect x="1250" y="535" width="205" height="70" rx="12" class="obj"/><text x="1273" y="563" class="objt">内容候选</text><text x="1273" y="586" class="small">至少 3 条 · 运营选择</text>
+    <rect x="1490" y="535" width="205" height="70" rx="12" class="obj"/><text x="1513" y="563" class="objt">发布记录</text><text x="1513" y="586" class="small">X URL / 失败回填</text>
+    <rect x="1010" y="620" width="325" height="70" rx="12" class="obj"/><text x="1033" y="648" class="objt">Performance Result</text><text x="1033" y="671" class="small">可归因结果、复盘结论、优化提案</text>
+    <rect x="1010" y="715" width="325" height="70" rx="12" class="obj"/><text x="1033" y="743" class="objt">已批准规则 / 版本</text><text x="1033" y="766" class="small">批准后才反馈到后续生成</text>
+  </g>
+  <g class="hier"><path d="M900 190H1010"/><path d="M900 285H1010"/><path d="M900 380H1010"/><path d="M900 475H1010"/><path d="M900 570H1010"/><path d="M900 655H1010"/><path d="M900 750H1010"/></g>
+  <path d="M1335 475H1370" class="flow"/><text x="1339" y="460" class="flowlabel">并行</text><path d="M1215 570H1250" class="flow"/><path d="M1455 570H1490" class="flow"/>
+  <rect x="50" y="845" width="1695" height="250" rx="16" class="lane"/><text x="78" y="879" class="lanet">关键页面关系与对象流转（只展示主链与活动规划支线）</text><text x="78" y="905" class="note">实时热点与未来事件在事件中心汇合；同一份 Event Card 同时为内容响应和活动规划提供可追溯输入。</text>
+  <rect x="80" y="945" width="180" height="55" rx="10" class="obj"/><text x="99" y="978" class="objt">热点监测 / 运营排期</text><rect x="330" y="945" width="190" height="55" rx="10" class="obj"/><text x="350" y="978" class="objt">事件管理 · Event Card</text><rect x="590" y="945" width="175" height="55" rx="10" class="obj"/><text x="614" y="978" class="objt">账号响应任务</text><rect x="835" y="945" width="175" height="55" rx="10" class="obj"/><text x="860" y="978" class="objt">内容候选与选择</text><rect x="1080" y="945" width="175" height="55" rx="10" class="obj"/><text x="1102" y="978" class="objt">手动发布 / URL 回填</text><rect x="1325" y="945" width="175" height="55" rx="10" class="obj"/><text x="1350" y="978" class="objt">复盘优化 · 结果</text>
+  <path d="M260 973H330" class="flow"/><path d="M520 973H590" class="flow"/><path d="M765 973H835" class="flow"/><path d="M1010 973H1080" class="flow"/><path d="M1255 973H1325" class="flow"/>
+  <path d="M425 945V924H1485V912" class="flow"/><text x="760" y="935" class="flowlabel">活动规划：活动建议 → 人工启动 → 3 个方案草稿 → 外部交接</text>
+  <path d="M1412 945V880H1518V785" class="dash"/><text x="1526" y="840" class="dashlabel">批准后更新规则 / Skill / 版本</text>
+  <text x="80" y="1040" class="note">注：热门内容 / 爆款拆解为预留能力，不纳入当前可执行链路；活动方案与内容响应并行，不改变内容发布任务状态。</text>
+</svg>

@@ -1,8 +1,8 @@
 # Hotspot Monitor
 
-Hotspot Monitor（热点监控增长运营系统）是一个事件驱动的增长智能与运营项目。它把外部信号转化为可核验的事件、机会判断和行动任务，并保留执行结果与复盘记录。
+Hotspot Monitor（热点内容运营系统）帮助运营人员把外部信号转化为可追溯的 Event 上下文、账号专属内容候选、人工发布回填与复盘记录。
 
-当前仓库包含：已批准的 Product Brief、拆分式 PRD v2.2、架构参考资料、Phase 0 内容生成 MVP、测试、样例和文档生成工具。项目仍处于产品定义、可行性验证和架构整理阶段，不代表生产系统已经完成。
+当前仓库包含：Product Brief v1.5、拆分式 PRD v2.10、UX/UI 设计草案、架构参考资料、Phase 0 内容生成 MVP、测试、样例和文档生成工具。项目仍处于产品定义、设计与验证阶段，不代表生产系统已经完成。
 
 ## 文档门禁
 
@@ -10,10 +10,10 @@ Hotspot Monitor（热点监控增长运营系统）是一个事件驱动的增�
 
 | 阶段 | 状态 | 权威入口 |
 |---|---|---|
-| Product Brief | 已批准 | [`docs/product-requirements/product-brief.md`](docs/product-requirements/product-brief.md) |
-| PRD | 草稿 v2.2 | [`docs/product-requirements/prd/prd-00-index.md`](docs/product-requirements/prd/prd-00-index.md) |
-| UX/UI | 尚未建立 | — |
-| Architecture | 待标准化 | [`docs/architecture/arch-00-index.md`](docs/architecture/arch-00-index.md) |
+| Product Brief | 草稿 v1.5 | [`docs/product-requirements/product-brief.md`](docs/product-requirements/product-brief.md) |
+| PRD | 草稿 v2.10-module-v3-v12 | [`docs/product-requirements/prd/prd-00-index.md`](docs/product-requirements/prd/prd-00-index.md) |
+| UX/UI | 草稿 v2.0-module-v3-v13 | [`docs/ux-ui/ux-00-index.md`](docs/ux-ui/ux-00-index.md) |
+| Architecture | 草稿 v0.2 | [`docs/architecture/arch-00-index.md`](docs/architecture/arch-00-index.md) |
 | Epics & Stories | 尚未建立 | — |
 | Implementation Readiness | 尚未执行 | — |
 
@@ -29,8 +29,9 @@ Hotspot Monitor（热点监控增长运营系统）是一个事件驱动的增�
 │   ├── README.md                    # 文档总入口
 │   ├── product-requirements/
 │   │   ├── README.md
-│   │   ├── product-brief.md         # 已批准的 Product Brief
-│   │   └── prd/                     # PRD v2.2，prd-00 至 prd-09
+│   │   ├── product-brief.md         # 当前 Product Brief v1.5
+│   │   └── prd/                     # 当前 PRD v2.10，prd-00 至 prd-09
+│   ├── ux-ui/                       # 当前 UX/UI 设计文档集
 │   ├── architecture/                # 架构入口、现状参考和图示
 │   └── research/                    # 研究与可行性实验记录
 ├── src/content_mvp/                 # Phase 0 内容生成 MVP
@@ -44,6 +45,8 @@ Hotspot Monitor（热点监控增长运营系统）是一个事件驱动的增�
 ```
 
 `workspace/`、`.agents/`、虚拟环境、外部依赖仓库、运行数据库和渲染产物仅用于本机工作，已从版本控制中排除。
+
+各文档阶段目录中的 `archive/` 仅保存本地历史版本，同样不会同步远端。主文件树只保留当前版本；当用户明确确认新版本为最终版时，旧版本移入对应 `archive/`，新版本接替标准路径。
 
 ## 环境要求
 

@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1480" viewBox="0 0 2400 1480" role="img" aria-labelledby="title desc">
+  <title id="title">Hotspot Monitor 顶层概念实体关系图 v12</title>
+  <desc id="desc">面向产品、UX 与研发的顶层概念实体关系图。以 Event 为中心，展示热点与未来事件输入、爆款内容洞察、活动策划、账号内容响应和效果学习的核心业务实体及关系基数。</desc>
+  <defs>
+    <style>
+      .t{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif;fill:#202b3c}
+      .title{font-size:32px;font-weight:700}.sub{font-size:17px;fill:#667085}.ctx{font-size:25px;font-weight:700}.ctxen{font-size:15px;fill:#667085}
+      .name{font-size:18px;font-weight:700}.en{font-size:14px;fill:#667085}.detail{font-size:13px;fill:#596579}.note{font-size:13px;fill:#667085}
+      .root{fill:#fff;stroke:#263244;stroke-width:3}.entity{fill:#fff;stroke-width:1.7}.view{fill:#fff;stroke:#778592;stroke-width:1.8;stroke-dasharray:8 6}
+      .rel{fill:none;stroke:#35414d;stroke-width:2.4}.optional{fill:none;stroke:#778592;stroke-width:2.2;stroke-dasharray:8 6}
+      .label-bg{fill:#fff}.label{font-size:13px;fill:#465363}.card{font-size:13px;font-weight:700;fill:#263244}
+    </style>
+  </defs>
+  <rect width="2400" height="1480" fill="#fff"/>
+  <text x="42" y="50" class="t title">Hotspot Monitor｜顶层概念实体关系图 v12</text>
+  <text x="42" y="80" class="t sub">定义核心业务对象、归属边界与关系基数｜不展开版本、生成批次、预检、审核、通知或物理数据库字段</text>
+  <g transform="translate(1710 35)">
+    <rect x="0" y="0" width="135" height="32" rx="8" class="root"/><text x="68" y="21" text-anchor="middle" class="t note">聚合根</text>
+    <rect x="155" y="0" width="135" height="32" rx="8" class="entity" stroke="#667085"/><text x="223" y="21" text-anchor="middle" class="t note">实体</text>
+    <rect x="310" y="0" width="145" height="32" rx="8" class="view"/><text x="383" y="21" text-anchor="middle" class="t note">读模型（非实体）</text>
+    <path d="M480 16 H540" class="rel"/><text x="555" y="21" class="t note">实体关系</text>
+  </g>
+
+  <!-- Discovery -->
+  <rect x="35" y="120" width="640" height="500" rx="22" fill="#edf6ff" stroke="#70b7ff" stroke-width="2"/>
+  <text x="62" y="160" class="t ctx">发现上下文</text><text x="62" y="185" class="t ctxen">M1 · Hotspot Discovery</text>
+  <rect x="70" y="230" width="190" height="92" rx="11" class="entity" stroke="#70b7ff"/>
+  <text x="90" y="261" class="t name">E01 信号</text><text x="90" y="285" class="t en">Signal</text><text x="90" y="307" class="t detail">一次原始趋势观察</text>
+  <rect x="300" y="230" width="210" height="92" rx="11" class="root"/>
+  <text x="320" y="261" class="t name">E02 未来事件</text><text x="320" y="285" class="t en">Future Event</text><text x="320" y="307" class="t detail">排期、确认度与窗口</text>
+  <rect x="165" y="395" width="230" height="96" rx="11" class="root"/>
+  <text x="185" y="426" class="t name">E03 候选事件</text><text x="185" y="450" class="t en">Candidate Event</text><text x="185" y="473" class="t detail">待核验、形成、合并或忽略</text>
+  <path d="M165 322 V350 H230 V385" class="rel"/><text x="170" y="344" class="t card">0..*</text>
+  <path d="M405 322 V350 H330 V385" class="rel"/><text x="390" y="344" class="t card">0..*</text>
+  <rect x="128" y="356" width="305" height="24" rx="8" class="label-bg"/><text x="280" y="373" text-anchor="middle" class="t label">实时触发｜排期/人工触发｜未来事件 × 实时信号</text>
+
+  <rect x="470" y="370" width="170" height="96" rx="11" class="root"/>
+  <text x="490" y="401" class="t name">E04 热点内容样本</text><text x="490" y="425" class="t en">Hot Content Sample</text><text x="490" y="448" class="t detail">一条具体高传播内容</text>
+  <rect x="470" y="505" width="170" height="96" rx="11" class="root"/>
+  <text x="490" y="536" class="t name">E05 内容洞察</text><text x="490" y="560" class="t en">Content Insight</text><text x="490" y="583" class="t detail">Hook、结构与复刻边界</text>
+  <path d="M555 466 V495" class="rel"/><text x="565" y="488" class="t card">1 : 0..*</text>
+  <text x="70" y="583" class="t note">热点内容支线独立存在，不自动形成 Candidate Event，也不提供 Event 事实。</text>
+
+  <!-- Event Intelligence -->
+  <rect x="710" y="120" width="760" height="500" rx="22" fill="#eefbf5" stroke="#69c59d" stroke-width="2"/>
+  <text x="737" y="160" class="t ctx">事件智能上下文</text><text x="737" y="185" class="t ctxen">M2 · Event Intelligence</text>
+  <rect x="985" y="220" width="220" height="96" rx="11" class="root"/>
+  <text x="1005" y="251" class="t name">E06 事件</text><text x="1005" y="275" class="t en">Event</text><text x="1005" y="298" class="t detail">全系统共享的事件根对象</text>
+  <rect x="755" y="380" width="190" height="92" rx="11" class="entity" stroke="#69c59d"/>
+  <text x="775" y="411" class="t name">E07 事实</text><text x="775" y="435" class="t en">Fact</text><text x="775" y="458" class="t detail">可核验事实声明</text>
+  <rect x="1010" y="380" width="190" height="92" rx="11" class="entity" stroke="#69c59d"/>
+  <text x="1030" y="411" class="t name">E08 证据</text><text x="1030" y="435" class="t en">Evidence</text><text x="1030" y="458" class="t detail">支持或质疑事实的材料</text>
+  <rect x="1265" y="380" width="165" height="92" rx="11" class="entity" stroke="#69c59d"/>
+  <text x="1285" y="411" class="t name">E09 事件关系</text><text x="1285" y="435" class="t en">Event Relation</text><text x="1285" y="458" class="t detail">后续、反转或相关</text>
+  <path d="M1035 316 L850 370" class="rel"/><text x="862" y="360" class="t card">0..*</text>
+  <path d="M1095 316 V370" class="rel"/><text x="1105" y="360" class="t card">0..*</text>
+  <path d="M1160 316 L1348 370" class="rel"/><text x="1320" y="360" class="t card">0..*</text>
+  <path d="M945 426 H1000" class="rel"/><text x="972" y="417" text-anchor="middle" class="t card">0..* ↔ 0..*</text>
+  <rect x="900" y="520" width="390" height="72" rx="11" class="view"/>
+  <text x="920" y="548" class="t name">Event Card｜事件工作台（非实体）</text>
+  <text x="920" y="574" class="t detail">Event 当前版本 + Fact/Evidence + 热度、风险、窗口与关联事件</text>
+  <path d="M850 472 V495 H940 V510" class="optional"/><path d="M1105 472 V510" class="optional"/><path d="M1348 472 V495 H1250 V510" class="optional"/>
+
+  <!-- Candidate to Event -->
+  <path d="M395 443 H435 V205 H975 V268" class="rel"/>
+  <rect x="570" y="193" width="150" height="24" rx="8" class="label-bg"/><text x="645" y="210" text-anchor="middle" class="t label">核验后形成 0..1 Event</text>
+  <!-- Insight may relate Event -->
+  <path d="M640 553 H690 V635 H1230 V268 H1215" class="optional"/>
+  <text x="760" y="630" class="t label">Content Insight 可关联 0..* Event，但不是 Fact/Evidence</text>
+
+  <!-- Campaign -->
+  <rect x="1505" y="120" width="860" height="500" rx="22" fill="#fff5ec" stroke="#f2a36b" stroke-width="2"/>
+  <text x="1532" y="160" class="t ctx">活动策划上下文</text><text x="1532" y="185" class="t ctxen">M3 · Campaign Planning</text>
+  <rect x="1580" y="260" width="260" height="120" rx="11" class="root"/>
+  <text x="1600" y="291" class="t name">E10 活动策划</text><text x="1600" y="315" class="t en">Campaign Case</text>
+  <text x="1600" y="338" class="t detail">受众匹配、目标价值、风险与资源</text><text x="1600" y="359" class="t detail">绑定策划所用 Event 版本</text>
+  <rect x="1975" y="260" width="270" height="120" rx="11" class="entity" stroke="#f2a36b"/>
+  <text x="1995" y="291" class="t name">E11 活动方案</text><text x="1995" y="315" class="t en">Campaign Proposal</text>
+  <text x="1995" y="338" class="t detail">目标、受众、机制、资源与风险</text><text x="1995" y="359" class="t detail">可修改、比较、导出或交接</text>
+  <path d="M1840 320 H1965" class="rel"/><text x="1865" y="310" class="t card">1</text><text x="1955" y="310" text-anchor="end" class="t card">每轮固定 3</text>
+  <path d="M1205 268 H1490 V320 H1570" class="rel"/>
+  <rect x="1285" y="256" width="205" height="24" rx="8" class="label-bg"/><text x="1387" y="273" text-anchor="middle" class="t label">一个 Event 可有 0..* 次活动策划</text>
+  <text x="1580" y="455" class="t note">受众匹配与综合评估是 Campaign Case 的形成过程，不单列实体。</text>
+  <text x="1580" y="485" class="t note">Campaign Proposal 不代表活动已批准、上线或执行。</text>
+
+  <!-- Content Response -->
+  <rect x="35" y="665" width="1495" height="445" rx="22" fill="#fff0f2" stroke="#e98996" stroke-width="2"/>
+  <text x="62" y="705" class="t ctx">内容响应上下文</text><text x="62" y="730" class="t ctxen">M4 · Content Response</text>
+  <rect x="100" y="805" width="275" height="120" rx="11" class="root"/>
+  <text x="120" y="836" class="t name">E12 账号响应任务</text><text x="120" y="860" class="t en">Account Response Task</text>
+  <text x="120" y="883" class="t detail">唯一 Event × 唯一承接账号</text><text x="120" y="904" class="t detail">绑定 Content Skill 与规则版本</text>
+  <rect x="550" y="805" width="260" height="120" rx="11" class="entity" stroke="#e98996"/>
+  <text x="570" y="836" class="t name">E13 内容候选</text><text x="570" y="860" class="t en">Content Candidate</text>
+  <text x="570" y="883" class="t detail">账号专属内容及版本历史</text><text x="570" y="904" class="t detail">保留事实、来源和洞察引用</text>
+  <rect x="1000" y="805" width="280" height="120" rx="11" class="entity" stroke="#e98996"/>
+  <text x="1020" y="836" class="t name">E14 发布记录</text><text x="1020" y="860" class="t en">Publication Record</text>
+  <text x="1020" y="883" class="t detail">发布尝试、URL 或失败原因</text><text x="1020" y="904" class="t detail">引用实际发布的候选版本</text>
+  <path d="M375 865 H540" class="rel"/><text x="400" y="855" class="t card">1</text><text x="530" y="855" text-anchor="end" class="t card">1..*</text>
+  <path d="M810 865 H990" class="rel"/><text x="835" y="855" class="t card">1</text><text x="980" y="855" text-anchor="end" class="t card">0..*</text>
+  <path d="M985 268 H700 V640 H238 V795" class="rel"/>
+  <rect x="475" y="631" width="335" height="24" rx="8" class="label-bg"/><text x="642" y="648" text-anchor="middle" class="t label">已核验且命中内容响应规则：Event 1 → 0..* 账号任务</text>
+  <path d="M555 601 V690 H680 V795" class="optional"/>
+  <rect x="530" y="680" width="340" height="24" rx="8" class="label-bg"/><text x="700" y="697" text-anchor="middle" class="t label">Content Insight 0..* ↔ 0..* Content Candidate（可选灵感）</text>
+  <text x="100" y="1008" class="t note">账号匹配、内容生成、预检、审核修订与内部通知是任务内部过程；详细状态与审计记录在二级逻辑模型展开。</text>
+  <text x="100" y="1038" class="t note">Publication Record 是真实发布事实，不等于传播效果。</text>
+
+  <!-- Measurement -->
+  <rect x="1565" y="665" width="800" height="445" rx="22" fill="#f4f1ff" stroke="#9879d8" stroke-width="2"/>
+  <text x="1592" y="705" class="t ctx">效果与学习上下文</text><text x="1592" y="730" class="t ctxen">M5 · Measurement &amp; Learning</text>
+  <rect x="1605" y="805" width="210" height="120" rx="11" class="entity" stroke="#9879d8"/>
+  <text x="1625" y="836" class="t name">E15 表现结果</text><text x="1625" y="860" class="t en">Performance Result</text>
+  <text x="1625" y="883" class="t detail">发布后的传播与账号表现</text><text x="1625" y="904" class="t detail">保留观察窗口与数据状态</text>
+  <rect x="1860" y="805" width="210" height="120" rx="11" class="root"/>
+  <text x="1880" y="836" class="t name">E16 效果评估</text><text x="1880" y="860" class="t en">Evaluation Report</text>
+  <text x="1880" y="883" class="t detail">样本、指标口径与结论</text><text x="1880" y="904" class="t detail">明确异常和因果限制</text>
+  <rect x="2115" y="805" width="210" height="120" rx="11" class="root"/>
+  <text x="2135" y="836" class="t name">E17 优化建议</text><text x="2135" y="860" class="t en">Optimisation Proposal</text>
+  <text x="2135" y="883" class="t detail">目标配置、证据和范围</text><text x="2135" y="904" class="t detail">待批准 / 已批准 / 已拒绝</text>
+  <path d="M1815 865 H1850" class="rel"/><text x="1798" y="855" class="t card">1..*</text><text x="1857" y="855" class="t card">1</text>
+  <path d="M2070 865 H2105" class="rel"/><text x="2073" y="855" class="t card">1</text><text x="2102" y="855" text-anchor="end" class="t card">0..*</text>
+  <path d="M1280 865 H1555" class="rel"/><text x="1375" y="855" class="t label">成功发布后产生 0..* 结果</text>
+  <path d="M2110 380 V645 H1965 V795" class="optional"/><text x="1980" y="636" class="t label">活动采用与外部结果（如可获得）</text>
+  <rect x="1830" y="980" width="385" height="70" rx="11" class="view"/>
+  <text x="1850" y="1008" class="t name">结果汇总看板（非实体）</text><text x="1850" y="1034" class="t detail">按 Event、任务、账号、洞察和活动方案组合查询结果与评估</text>
+
+  <!-- Shared references -->
+  <rect x="35" y="1155" width="2330" height="245" rx="22" fill="#f7f5ff" stroke="#b5a3e8" stroke-width="2"/>
+  <text x="62" y="1195" class="t ctx">共享参照与版本治理</text>
+  <text x="350" y="1195" class="t note">不是主业务实体：只定义跨上下文必须统一、且需要保留版本的业务口径</text>
+  <rect x="70" y="1245" width="410" height="92" rx="11" class="entity" stroke="#b5a3e8"/>
+  <text x="90" y="1277" class="t name">来源与可信等级</text><text x="90" y="1302" class="t detail">Signal、Future Event、Evidence、Hot Content Sample 引用</text>
+  <rect x="520" y="1245" width="410" height="92" rx="11" class="entity" stroke="#b5a3e8"/>
+  <text x="540" y="1277" class="t name">监测、响应与风险规则版本</text><text x="540" y="1302" class="t detail">Candidate Event、Event、账号响应任务与候选引用</text>
+  <rect x="970" y="1245" width="410" height="92" rx="11" class="entity" stroke="#b5a3e8"/>
+  <text x="990" y="1277" class="t name">承接账号与 Content Skill 版本</text><text x="990" y="1302" class="t detail">Account Response Task 与 Content Candidate 引用</text>
+  <rect x="1420" y="1245" width="410" height="92" rx="11" class="entity" stroke="#b5a3e8"/>
+  <text x="1440" y="1277" class="t name">活动建议、受众与资源口径</text><text x="1440" y="1302" class="t detail">Campaign Case 与 Campaign Proposal 引用</text>
+  <rect x="1870" y="1245" width="455" height="92" rx="11" class="entity" stroke="#b5a3e8"/>
+  <text x="1890" y="1277" class="t name">目标、指标与观察窗口版本</text><text x="1890" y="1302" class="t detail">Performance Result、Evaluation Report 与优化建议引用</text>
+  <path d="M2220 925 V1130 H725 V1235" class="optional"/><text x="1480" y="1121" text-anchor="middle" class="t label">优化建议获批后产生新的共享配置版本；不改写历史实体</text>
+
+  <text x="42" y="1445" class="t sub">下一层逻辑模型再展开：Event 版本与热度快照｜候选生成批次、预检和审核记录｜活动方案版本与交接记录｜表现采集快照。</text>
+</svg>

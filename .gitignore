@@ -25,6 +25,10 @@ tmp/
 ~$*
 workspace/
 
+# Local document version archives (never sync to remote)
+**/archive/
+**/archive/**
+
 # Local Codex/BMad installations and generated output
 .agents/
 _bmad/render/**
