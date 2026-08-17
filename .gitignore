@@ -37,3 +37,11 @@ _bmad/config.user.toml
 _bmad/custom/config.user.toml
 _bmad-output/*
 !_bmad-output/README.md
+
+# Canonical SPEC deliverables (track only the index and one SPEC.md per topic)
+!_bmad-output/specs/
+_bmad-output/specs/*
+!_bmad-output/specs/README.md
+!_bmad-output/specs/spec-*/
+_bmad-output/specs/spec-*/*
+!_bmad-output/specs/spec-*/SPEC.md
