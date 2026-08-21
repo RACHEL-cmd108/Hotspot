@@ -8,6 +8,7 @@
 | 2 | [主题圈雷达](./spec-topic-circle-radar/SPEC.md) | 主题圈账号、采集、同一事件识别、关注度指标与触发规则 |
 | 3 | [未来事件运营排期](./spec-future-event-operations/SPEC.md) | 未来事件来源、证据、窗口、X Post Count、Action Score 与响应机制 |
 | 4 | [热点内容生成 Skill](./spec-hotspot-content-generation-skill/SPEC.md) | 三条自动内容生产线、生产线—账号映射、三候选合同与九个账号运营 Skill |
+| 5 | [Event 重复响应](./spec-event-repeat-response/SPEC.md) | 合格 Signal 的 24 小时多次响应窗口、五项增量条件、独立 Event 创建与响应基线 |
 
 ## 权威边界
 
@@ -15,6 +16,7 @@
 - 主题圈细则只在“主题圈雷达”维护。
 - 未来事件细则只在“未来事件运营排期”维护。
 - 内容生成 Skill 清单与职责只在“热点内容生成 Skill”维护。
+- 同一事件发展线的 24 小时多次响应、增量指标和再次创建 Event 规则只在“Event 重复响应”维护。
 - 专项 SPEC 与平台总规则冲突时：专项内部规则以专项 SPEC 为准，跨模块 Event、风险、发布和审计合同以平台总规则为准。
 
 历史 Phase 0、重复解释稿和过渡性拆分文件已移至 `_bmad-output/archive/specs/`，不再作为当前实现依据。
