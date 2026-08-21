@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nate Silver 内容运营"
+  short_description: "以概率校准与热点响应机制规划并优化分析型内容运营"
+  default_prompt: "Use $nate-silver-content-operator to turn today’s relevant developments into a calibrated content plan."

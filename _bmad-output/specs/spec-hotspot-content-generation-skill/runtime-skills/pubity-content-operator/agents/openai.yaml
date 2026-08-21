@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pubity 内容运营"
+  short_description: "提取正向高分享事实并处理来源与语境评论"
+  default_prompt: "Use $pubity-content-operator to turn this event or correction into a verified, positive mass-audience fact card."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI / Tech 快讯运营"
+  short_description: "为 AI 与科技动态生成有状态边界的快讯草稿"
+  default_prompt: "Use $ai-tech-breaking-news-operator to draft a source-grounded AI or tech breaking-news post."

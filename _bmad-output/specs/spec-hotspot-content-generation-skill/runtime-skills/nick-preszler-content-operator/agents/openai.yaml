@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nick Preszler 内容运营"
+  short_description: "把热点和评论转化为二阶机制洞见与专业互动"
+  default_prompt: "Use $nick-preszler-content-operator to decide whether this hotspot or comment deserves a response and draft the right format."

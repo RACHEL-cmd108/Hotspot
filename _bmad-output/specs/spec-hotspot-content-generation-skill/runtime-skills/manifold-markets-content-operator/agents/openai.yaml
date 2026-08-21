@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manifold Markets 内容运营"
+  short_description: "把不确定热点和评论转化为概率问题与社区参与"
+  default_prompt: "Use $manifold-markets-content-operator to turn this uncertain event or comment into appropriate participatory brand content."

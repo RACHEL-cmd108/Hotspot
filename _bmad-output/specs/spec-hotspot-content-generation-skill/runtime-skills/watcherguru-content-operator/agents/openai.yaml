@@ -1,0 +1,4 @@
+interface:
+  display_name: "WatcherGuru 内容运营"
+  short_description: "高速核实并封装金融快讯、更新与事实型评论回复"
+  default_prompt: "Use $watcherguru-content-operator to verify and package this event or factual comment as an alert, update, or correction."

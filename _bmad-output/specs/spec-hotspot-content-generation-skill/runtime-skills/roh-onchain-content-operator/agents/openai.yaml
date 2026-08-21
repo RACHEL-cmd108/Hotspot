@@ -1,0 +1,4 @@
+interface:
+  display_name: "RohOnChain 内容运营"
+  short_description: "把技术热点和评论转化为可收藏的教程与学习路径"
+  default_prompt: "Use $roh-onchain-content-operator to turn this trend or question into verified, save-worthy educational content."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Domer 内容运营"
+  short_description: "用事件调查、仓位证据与动态篇幅路由规划高信号内容运营"
+  default_prompt: "Use $domer-content-operator to turn a prediction-market event into the right content format."

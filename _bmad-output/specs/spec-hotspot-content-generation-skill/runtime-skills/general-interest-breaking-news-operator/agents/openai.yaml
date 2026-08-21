@@ -1,0 +1,4 @@
+interface:
+  display_name: "通用热点快讯运营"
+  short_description: "为非敏感大众热点提供来源清晰的克制事实快讯草稿"
+  default_prompt: "Use $general-interest-breaking-news-operator to draft a source-grounded non-sensitive general-interest breaking-news post."

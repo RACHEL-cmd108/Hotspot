@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Loud 内容运营"
+  short_description: "封装视觉娱乐热点并处理纠错、授权与敏感评论"
+  default_prompt: "Use $daily-loud-content-operator to verify and package this culture event or moderate a sensitive comment response."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unusual Whales 内容运营"
+  short_description: "提取热点中的资金权力后果并处理证据型评论"
+  default_prompt: "Use $unusual-whales-content-operator to extract the money-and-power consequence and handle any evidence-bearing comment."
