@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1180" viewBox="0 0 1600 1180" role="img" aria-labelledby="title desc">
+  <title id="title">热点运营 Agent 第一期产品模块架构</title>
+  <desc id="desc">从项目配置和系统主动发现来源，经采集与Signal层、热点对象层、机会层进入产品看板和对象详情，仅在热门内容场景生成内容草稿并形成反馈闭环。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#EEF2FF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748B"/>
+    </marker>
+    <style>
+      .title { font: 700 34px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #0F172A; }
+      .subtitle { font: 400 17px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #64748B; }
+      .layer { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #334155; letter-spacing: 1px; }
+      .box-title { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #0F172A; }
+      .box-text { font: 400 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #475569; }
+      .small { font: 500 13px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #64748B; }
+      .inverse-title { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #FFFFFF; }
+      .inverse-text { font: 400 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #DBEAFE; }
+      .connector { stroke: #64748B; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .soft-connector { stroke: #94A3B8; stroke-width: 1.8; stroke-dasharray: 7 6; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1180" fill="url(#bg)"/>
+  <text x="70" y="66" class="title">热点运营 Agent · 第一期产品模块架构</text>
+  <text x="70" y="98" class="subtitle">以系统主动发现、热点对象和运营机会为主链路；用户侧 AI 仅用于基于热门内容生成新草稿或视频参考脚本</text>
+
+  <!-- Cross-cutting configuration -->
+  <rect x="70" y="135" width="1460" height="116" rx="18" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#shadow)"/>
+  <rect x="70" y="135" width="190" height="116" rx="18" fill="#1E3A8A"/>
+  <path d="M242 135h18v116h-18z" fill="#1E3A8A"/>
+  <text x="102" y="181" class="inverse-title">系统设置</text>
+  <text x="102" y="210" class="inverse-text">项目配置中心</text>
+
+  <g>
+    <rect x="292" y="158" width="200" height="70" rx="12" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <text x="314" y="187" class="box-title">监控范围</text>
+    <text x="314" y="211" class="box-text">榜单 · 圈层 · 账号</text>
+
+    <rect x="510" y="158" width="200" height="70" rx="12" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <text x="532" y="187" class="box-title">YouTube 来源</text>
+    <text x="532" y="211" class="box-text">榜单 · 关键词 · 频道</text>
+
+    <rect x="728" y="158" width="220" height="70" rx="12" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <text x="750" y="187" class="box-title">产品画像与边界</text>
+    <text x="750" y="211" class="box-text">行业 · 用户 · 允许/禁用表达</text>
+
+    <rect x="966" y="158" width="200" height="70" rx="12" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <text x="988" y="187" class="box-title">竞品配置</text>
+    <text x="988" y="211" class="box-text">官方 · 人物 · 社区账号</text>
+
+    <rect x="1184" y="158" width="314" height="70" rx="12" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <text x="1206" y="187" class="box-title">默认机会与内容偏好</text>
+    <text x="1206" y="211" class="box-text">机会类型 · 角色 · 受众 · 语气</text>
+  </g>
+
+  <!-- Sources -->
+  <text x="70" y="302" class="layer">01 · 发现来源</text>
+  <g filter="url(#shadow)">
+    <rect x="70" y="322" width="210" height="92" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="300" y="322" width="210" height="92" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="530" y="322" width="210" height="92" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="760" y="322" width="210" height="92" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="990" y="322" width="210" height="92" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="1220" y="322" width="310" height="92" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
+  </g>
+  <text x="92" y="359" class="box-title">X 热搜榜</text><text x="92" y="386" class="box-text">5 地区 · 每榜 Top 30</text>
+  <text x="322" y="359" class="box-title">主题圈账号</text><text x="322" y="386" class="box-text">5 圈层 · 50 个账号</text>
+  <text x="552" y="359" class="box-title">未来事件</text><text x="552" y="386" class="box-text">排期 · 临近节点</text>
+  <text x="782" y="359" class="box-title">竞品监控</text><text x="782" y="386" class="box-text">账号 · 行业讨论</text>
+  <text x="1012" y="359" class="box-title">YouTube</text><text x="1012" y="386" class="box-text">热门 · 关键词 · 频道</text>
+  <text x="1242" y="359" class="box-title">重点关键词</text><text x="1242" y="386" class="box-text">X · YouTube 已配置关键词</text>
+
+  <!-- Signal layer -->
+  <path d="M800 414v45" class="connector"/>
+  <rect x="210" y="462" width="1180" height="92" rx="18" fill="#E0F2FE" stroke="#7DD3FC"/>
+  <text x="250" y="499" class="box-title">Signal 层 · 采集、快照、去重与来源追溯</text>
+  <text x="250" y="528" class="box-text">记录平台变化、榜单位置、账号内容、排期节点和公开数据；Signal 为后台对象，不是普通运营首页</text>
+  <rect x="1196" y="483" width="158" height="48" rx="24" fill="#FFFFFF" stroke="#7DD3FC"/>
+  <text x="1225" y="513" class="small">高级追溯 / 纠错</text>
+
+  <!-- Object layer -->
+  <path d="M800 554v48" class="connector"/>
+  <text x="70" y="610" class="layer">02 · 热点对象理解</text>
+  <g filter="url(#shadow)">
+    <rect x="110" y="632" width="400" height="154" rx="18" fill="#FFFFFF" stroke="#A5B4FC"/>
+    <rect x="600" y="632" width="400" height="154" rx="18" fill="#FFFFFF" stroke="#C4B5FD"/>
+    <rect x="1090" y="632" width="400" height="154" rx="18" fill="#FFFFFF" stroke="#F9A8D4"/>
+  </g>
+  <rect x="110" y="632" width="400" height="10" rx="5" fill="#4F46E5"/>
+  <text x="140" y="678" class="box-title">Event · 现实或未来事件</text>
+  <text x="140" y="708" class="box-text">单个或多个 Signal 均可创建 / 更新</text>
+  <text x="140" y="734" class="box-text">Fact · Evidence · Event Relation</text>
+  <text x="140" y="760" class="box-text">Event Context Pack · Response Moment</text>
+
+  <rect x="600" y="632" width="400" height="10" rx="5" fill="#7C3AED"/>
+  <text x="630" y="678" class="box-title">Discussion · 热点讨论（暂定）</text>
+  <text x="630" y="708" class="box-text">观点 · 争议 · 情绪 · 热梗 · 集体注意力</text>
+  <text x="630" y="734" class="box-text">代表内容 · 观点结构 · 注意力变化</text>
+  <text x="630" y="760" class="box-text">来源可追溯 ≠ 主张已被证实</text>
+
+  <rect x="1090" y="632" width="400" height="10" rx="5" fill="#DB2777"/>
+  <text x="1120" y="678" class="box-title">Hot Content Sample · 热门内容</text>
+  <text x="1120" y="708" class="box-text">X 帖子 · YouTube 视频</text>
+  <text x="1120" y="734" class="box-text">当前公开表现 · Content Insight</text>
+  <text x="1120" y="760" class="box-text">可迁移机制 · 不可复制边界</text>
+
+  <path d="M510 708h80" class="soft-connector"/>
+  <path d="M1000 708h80" class="soft-connector"/>
+
+  <!-- Opportunity -->
+  <path d="M800 786v50" class="connector"/>
+  <rect x="170" y="840" width="1260" height="106" rx="20" fill="#FFF7ED" stroke="#FDBA74" filter="url(#shadow)"/>
+  <text x="210" y="878" class="box-title">Operational Opportunity · 动态机会判断与排序</text>
+  <text x="210" y="907" class="box-text">热点响应 · 内容复刻 · 选题发现 · 用户洞察 · 竞品响应 · 互动参与</text>
+  <text x="210" y="932" class="small">回答：为什么是现在 · 为什么与项目有关 · 可以做什么 · 响应窗口 · 来源状态 · 风险与限制</text>
+
+  <!-- Product surfaces and workspace -->
+  <path d="M800 946v42" class="connector"/>
+  <text x="70" y="998" class="layer">03 · 用户产品界面与行动闭环</text>
+  <rect x="70" y="1018" width="300" height="112" rx="18" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#shadow)"/>
+  <text x="98" y="1056" class="box-title">今日运营机会</text>
+  <text x="98" y="1083" class="box-text">首页 · 动态排序 · 机会卡片</text>
+  <text x="98" y="1108" class="small">查看 · 收藏 · 观察 · 采用 · 纠错</text>
+
+  <rect x="402" y="1018" width="300" height="112" rx="18" fill="#FFFFFF" stroke="#CBD5E1" filter="url(#shadow)"/>
+  <text x="430" y="1056" class="box-title">发现看板</text>
+  <text x="430" y="1083" class="box-text">事件与讨论 · 热门内容</text>
+  <text x="430" y="1108" class="small">对象卡片 · 标签 · 筛选 · 排序</text>
+
+  <rect x="734" y="1000" width="492" height="148" rx="20" fill="#172554" stroke="#1E40AF" filter="url(#shadow)"/>
+  <text x="766" y="1040" class="inverse-title">对象详情与热门内容生成</text>
+  <text x="766" y="1068" class="inverse-text">Event / Discussion：阅读完整分析、来源、机会与角度</text>
+  <text x="766" y="1094" class="inverse-text">Hot Content：查看 Content Insight 并选择 Angle</text>
+  <text x="766" y="1120" class="inverse-text">结构化生成 → X 草稿 / Thread / 视频大纲 / 参考脚本</text>
+
+  <rect x="1258" y="1018" width="272" height="112" rx="18" fill="#ECFDF5" stroke="#6EE7B7" filter="url(#shadow)"/>
+  <text x="1286" y="1056" class="box-title">人工反馈闭环</text>
+  <text x="1286" y="1083" class="box-text">采用 · 编辑 · 发布回填</text>
+  <text x="1286" y="1108" class="small">偏好反馈 ≠ 质量纠错</text>
+
+  <path d="M370 1074h22" class="connector"/>
+  <path d="M702 1074h22" class="connector"/>
+  <path d="M1226 1074h22" class="connector"/>
+  <path d="M1394 1018 C1394 970 1450 954 1430 892" class="soft-connector"/>
+
+  <!-- Responsibility strip -->
+  <rect x="70" y="1154" width="1460" height="1" fill="#CBD5E1"/>
+  <text x="70" y="1174" class="small">Hybrid：程序负责采集、去重、状态与校验 · Agent 负责理解、推荐与生成 · 人工负责纠错、高风险确认、采用与发布</text>
+</svg>

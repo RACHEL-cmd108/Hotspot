@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760" role="img" aria-labelledby="title desc">
+  <title id="title">热点运营平台三大子系统模块架构</title>
+  <desc id="desc">展示热点监控与事件情报、内容智能与生产、发布运营三个子系统的核心模块、标准交付物和结果反馈关系。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#15213a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .title { font: 700 34px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #14213d; }
+      .subtitle { font: 400 16px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #64748b; }
+      .system-title { font: 700 23px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #ffffff; }
+      .system-tag { font: 500 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: rgba(255,255,255,.88); }
+      .module-title { font: 650 17px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #1e293b; }
+      .module-desc { font: 400 13px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #64748b; }
+      .pack-label { font: 650 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #1d4ed8; }
+      .flow-label { font: 500 13px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #475569; }
+      .footer { font: 500 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="760" fill="#f7f9fc"/>
+  <text x="720" y="58" text-anchor="middle" class="title">热点运营平台 · 三大子系统模块架构</text>
+  <text x="720" y="88" text-anchor="middle" class="subtitle">各自独立闭环，通过标准交付物组合成完整业务链路</text>
+
+  <!-- System 1 -->
+  <g filter="url(#shadow)">
+    <rect x="55" y="125" width="390" height="510" rx="22" fill="#ffffff"/>
+    <path d="M77 125 H423 Q445 125 445 147 V213 H55 V147 Q55 125 77 125 Z" fill="#2563eb"/>
+  </g>
+  <text x="250" y="163" text-anchor="middle" class="system-title">热点监控与事件情报</text>
+  <text x="250" y="190" text-anchor="middle" class="system-tag">回答：发生了什么？</text>
+
+  <g>
+    <rect x="82" y="240" width="336" height="70" rx="13" fill="#eff6ff" stroke="#bfdbfe"/>
+    <circle cx="111" cy="275" r="16" fill="#2563eb"/><text x="111" y="281" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">1</text>
+    <text x="141" y="269" class="module-title">监控配置与信号采集</text>
+    <text x="141" y="291" class="module-desc">平台、地区、主题圈、热搜和 Future Event</text>
+
+    <rect x="82" y="326" width="336" height="70" rx="13" fill="#eff6ff" stroke="#bfdbfe"/>
+    <circle cx="111" cy="361" r="16" fill="#2563eb"/><text x="111" y="367" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">2</text>
+    <text x="141" y="355" class="module-title">热点识别与事件聚合</text>
+    <text x="141" y="377" class="module-desc">触发、去重、合并、拆分和生命周期</text>
+
+    <rect x="82" y="412" width="336" height="70" rx="13" fill="#eff6ff" stroke="#bfdbfe"/>
+    <circle cx="111" cy="447" r="16" fill="#2563eb"/><text x="111" y="453" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">3</text>
+    <text x="141" y="441" class="module-title">事实、证据与风险研判</text>
+    <text x="141" y="463" class="module-desc">确认等级、冲突、时间精度和表达边界</text>
+
+    <rect x="82" y="498" width="336" height="70" rx="13" fill="#eff6ff" stroke="#bfdbfe"/>
+    <circle cx="111" cy="533" r="16" fill="#2563eb"/><text x="111" y="539" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">4</text>
+    <text x="141" y="527" class="module-title">事件工作台与规则优化</text>
+    <text x="141" y="549" class="module-desc">关注、纠错、补证和误报漏报反馈</text>
+  </g>
+
+  <!-- System 2 -->
+  <g filter="url(#shadow)">
+    <rect x="525" y="125" width="390" height="510" rx="22" fill="#ffffff"/>
+    <path d="M547 125 H893 Q915 125 915 147 V213 H525 V147 Q525 125 547 125 Z" fill="#7c3aed"/>
+  </g>
+  <text x="720" y="163" text-anchor="middle" class="system-title">内容智能与生产</text>
+  <text x="720" y="190" text-anchor="middle" class="system-tag">回答：应该写什么？</text>
+
+  <g>
+    <rect x="552" y="240" width="336" height="70" rx="13" fill="#f5f3ff" stroke="#ddd6fe"/>
+    <circle cx="581" cy="275" r="16" fill="#7c3aed"/><text x="581" y="281" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">1</text>
+    <text x="611" y="269" class="module-title">爆款样本与内容洞察</text>
+    <text x="611" y="291" class="module-desc">爆款判定、结构拆解和 Insight 生命周期</text>
+
+    <rect x="552" y="326" width="336" height="70" rx="13" fill="#f5f3ff" stroke="#ddd6fe"/>
+    <circle cx="581" cy="361" r="16" fill="#7c3aed"/><text x="581" y="367" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">2</text>
+    <text x="611" y="355" class="module-title">账号与 Content Skill</text>
+    <text x="611" y="377" class="module-desc">定位、受众、语气、结构偏好和风险规则</text>
+
+    <rect x="552" y="412" width="336" height="70" rx="13" fill="#f5f3ff" stroke="#ddd6fe"/>
+    <circle cx="581" cy="447" r="16" fill="#7c3aed"/><text x="581" y="453" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">3</text>
+    <text x="611" y="441" class="module-title">Brief 与 AI 候选生成</text>
+    <text x="611" y="463" class="module-desc">上下文组装、多账号和多候选生成</text>
+
+    <rect x="552" y="498" width="336" height="70" rx="13" fill="#f5f3ff" stroke="#ddd6fe"/>
+    <circle cx="581" cy="533" r="16" fill="#7c3aed"/><text x="581" y="539" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">4</text>
+    <text x="611" y="527" class="module-title">质量审核与内容学习</text>
+    <text x="611" y="549" class="module-desc">预检、修改、批准和 Skill / Insight 优化</text>
+  </g>
+
+  <!-- System 3 -->
+  <g filter="url(#shadow)">
+    <rect x="995" y="125" width="390" height="510" rx="22" fill="#ffffff"/>
+    <path d="M1017 125 H1363 Q1385 125 1385 147 V213 H995 V147 Q995 125 1017 125 Z" fill="#0f9f6e"/>
+  </g>
+  <text x="1190" y="163" text-anchor="middle" class="system-title">发布运营</text>
+  <text x="1190" y="190" text-anchor="middle" class="system-tag">回答：是否真正发出？</text>
+
+  <g>
+    <rect x="1022" y="240" width="336" height="70" rx="13" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <circle cx="1051" cy="275" r="16" fill="#0f9f6e"/><text x="1051" y="281" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">1</text>
+    <text x="1081" y="269" class="module-title">内容接收与版本校验</text>
+    <text x="1081" y="291" class="module-desc">批准状态、目标账号、版本和有效期</text>
+
+    <rect x="1022" y="326" width="336" height="70" rx="13" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <circle cx="1051" cy="361" r="16" fill="#0f9f6e"/><text x="1051" y="367" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">2</text>
+    <text x="1081" y="355" class="module-title">账号授权与发布排期</text>
+    <text x="1081" y="377" class="module-desc">账号健康、权限、时间窗口和任务队列</text>
+
+    <rect x="1022" y="412" width="336" height="70" rx="13" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <circle cx="1051" cy="447" r="16" fill="#0f9f6e"/><text x="1051" y="453" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">3</text>
+    <text x="1081" y="441" class="module-title">发布执行与真实回执</text>
+    <text x="1081" y="463" class="module-desc">人工发布、尝试记录、URL 和平台内容 ID</text>
+
+    <rect x="1022" y="498" width="336" height="70" rx="13" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <circle cx="1051" cy="533" r="16" fill="#0f9f6e"/><text x="1051" y="539" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">4</text>
+    <text x="1081" y="527" class="module-title">异常处置与表现复盘</text>
+    <text x="1081" y="549" class="module-desc">失败、重试、更正、撤回和内容表现</text>
+  </g>
+
+  <!-- Main handoffs -->
+  <path d="M445 368 C478 368 492 368 525 368" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <rect x="448" y="327" width="74" height="27" rx="13.5" fill="#dbeafe"/>
+  <text x="485" y="346" text-anchor="middle" class="pack-label">事件上下文</text>
+
+  <path d="M915 368 C948 368 962 368 995 368" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <rect x="919" y="327" width="72" height="27" rx="13.5" fill="#dbeafe"/>
+  <text x="955" y="346" text-anchor="middle" class="pack-label">批准内容</text>
+
+  <!-- Feedback -->
+  <path d="M1190 635 C1190 704 870 708 766 635" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#arrow)"/>
+  <text x="1000" y="701" text-anchor="middle" class="flow-label">发布结果与内容表现回流</text>
+
+  <text x="720" y="742" text-anchor="middle" class="footer">三个系统均支持人工输入独立运行；组合后形成“发现事件 → 生产内容 → 真实发布 → 结果学习”的完整闭环</text>
+</svg>

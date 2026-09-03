@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">热点运营 Agent V1 产品模块架构</title>
+  <desc id="desc">热点运营 Agent 由今日运营机会、热点发现、对象工作台、内容生产、关注反馈和项目配置六个产品模块组成。</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#173b33" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .title{font:700 32px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#172522}
+      .subtitle{font:400 15px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#6a7773}
+      .module-title{font:700 20px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#172522}
+      .module-sub{font:400 14px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#586762}
+      .hub-title{font:700 25px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#fff}
+      .hub-sub{font:400 14px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#d9eee8}
+      .number{font:700 13px Inter,system-ui,sans-serif;fill:#126153}
+      .line{fill:none;stroke:#abc5bd;stroke-width:2.5}
+    </style>
+  </defs>
+
+  <rect width="1400" height="820" fill="#f5f8f6"/>
+  <text x="70" y="72" class="title">热点运营 Agent V1 · 产品模块架构</text>
+  <text x="70" y="101" class="subtitle">围绕“发现机会—理解对象—形成内容—记录反馈”的运营工作空间</text>
+
+  <!-- module connections -->
+  <path class="line" d="M420 240 C520 240 540 300 600 330"/>
+  <path class="line" d="M420 485 C520 485 545 430 600 400"/>
+  <path class="line" d="M980 240 C880 240 860 300 800 330"/>
+  <path class="line" d="M980 485 C880 485 855 430 800 400"/>
+  <path class="line" d="M700 590 L700 475"/>
+  <path class="line" d="M700 260 L700 295"/>
+
+  <!-- central product hub -->
+  <rect x="575" y="295" width="250" height="180" rx="26" fill="#126153" filter="url(#shadow)"/>
+  <circle cx="700" cy="342" r="25" fill="#ffffff" fill-opacity="0.15"/>
+  <text x="700" y="348" text-anchor="middle" style="font:700 14px Inter,system-ui,sans-serif;fill:#fff">HX</text>
+  <text x="700" y="395" text-anchor="middle" class="hub-title">热点运营 Agent</text>
+  <text x="700" y="424" text-anchor="middle" class="hub-sub">热点情报与响应策略中心</text>
+  <text x="700" y="449" text-anchor="middle" class="hub-sub">X / Twitter · YouTube</text>
+
+  <!-- module 1 -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="150" width="350" height="180" rx="18" fill="#ffffff"/>
+  </g>
+  <circle cx="108" cy="190" r="18" fill="#e3f2ed"/>
+  <text x="108" y="195" text-anchor="middle" class="number">01</text>
+  <text x="140" y="196" class="module-title">今日运营机会</text>
+  <text x="100" y="238" class="module-sub">• 机会推荐与动态排序</text>
+  <text x="100" y="267" class="module-sub">• 响应窗口、证据与风险</text>
+  <text x="100" y="296" class="module-sub">• 收藏、观察、采用或拒绝</text>
+
+  <!-- module 2 -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="390" width="350" height="190" rx="18" fill="#ffffff"/>
+  </g>
+  <circle cx="108" cy="430" r="18" fill="#eaf2fa"/>
+  <text x="108" y="435" text-anchor="middle" class="number">02</text>
+  <text x="140" y="436" class="module-title">热点发现</text>
+  <text x="100" y="478" class="module-sub">• 事件与讨论看板</text>
+  <text x="100" y="507" class="module-sub">• X 帖子与 YouTube 热门内容</text>
+  <text x="100" y="536" class="module-sub">• 用户提交链接即时分析</text>
+
+  <!-- module 3 -->
+  <g filter="url(#shadow)">
+    <rect x="980" y="150" width="350" height="180" rx="18" fill="#ffffff"/>
+  </g>
+  <circle cx="1018" cy="190" r="18" fill="#f0ecfa"/>
+  <text x="1018" y="195" text-anchor="middle" class="number">03</text>
+  <text x="1050" y="196" class="module-title">对象工作台</text>
+  <text x="1010" y="238" class="module-sub">• Event Context Pack / Content Insight</text>
+  <text x="1010" y="267" class="module-sub">• 事实、证据、时间线与版本</text>
+  <text x="1010" y="296" class="module-sub">• 对象范围内的 Agent 对话</text>
+
+  <!-- module 4 -->
+  <g filter="url(#shadow)">
+    <rect x="980" y="390" width="350" height="190" rx="18" fill="#ffffff"/>
+  </g>
+  <circle cx="1018" cy="430" r="18" fill="#fff0e6"/>
+  <text x="1018" y="435" text-anchor="middle" class="number">04</text>
+  <text x="1050" y="436" class="module-title">内容生产</text>
+  <text x="1010" y="478" class="module-sub">• 承接角度探索与选择</text>
+  <text x="1010" y="507" class="module-sub">• X 单帖 / Thread / 视频脚本</text>
+  <text x="1010" y="536" class="module-sub">• 草稿编辑、版本与人工采用</text>
+
+  <!-- module 5 -->
+  <g filter="url(#shadow)">
+    <rect x="510" y="590" width="380" height="170" rx="18" fill="#ffffff"/>
+  </g>
+  <circle cx="548" cy="630" r="18" fill="#fcecef"/>
+  <text x="548" y="635" text-anchor="middle" class="number">05</text>
+  <text x="580" y="636" class="module-title">关注、反馈与复盘</text>
+  <text x="540" y="678" class="module-sub">• 已收藏 / 继续观察 / 已处理</text>
+  <text x="540" y="707" class="module-sub">• 偏好反馈 / 质量纠错 / 运营指标</text>
+  <text x="540" y="736" class="module-sub">• 采用情况与时效、可信度复盘</text>
+
+  <!-- module 6 -->
+  <g filter="url(#shadow)">
+    <rect x="510" y="135" width="380" height="125" rx="18" fill="#ffffff"/>
+  </g>
+  <circle cx="548" cy="175" r="18" fill="#e3f2ed"/>
+  <text x="548" y="180" text-anchor="middle" class="number">06</text>
+  <text x="580" y="181" class="module-title">项目配置中心</text>
+  <text x="540" y="220" class="module-sub">监控范围 · 主题圈与账号 · 产品画像 · 表达边界 · 内容偏好</text>
+</svg>

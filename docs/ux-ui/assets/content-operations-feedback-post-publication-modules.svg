@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" role="img" aria-labelledby="title desc">
+  <title id="title">内容运营与反馈中心：发布后产品模块设计</title>
+  <desc id="desc">从发布回填、效果追踪、结果沉淀、评估复盘到优化建议和人工审批回写的完整产品模块闭环。</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#12382f" flood-opacity="0.09"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#6f9d91"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#dc8555"/>
+    </marker>
+    <style>
+      .title{font:700 31px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#152520}
+      .subtitle{font:400 14px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#667570}
+      .section{font:700 13px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;letter-spacing:.08em;fill:#477066}
+      .cardTitle{font:700 18px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#172923}
+      .body{font:400 13px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#56645f}
+      .small{font:400 12px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#687671}
+      .label{font:700 12px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#176251}
+      .num{font:700 12px Inter,system-ui,sans-serif;fill:#176251}
+      .whiteLabel{font:700 13px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#d9eee8}
+      .whiteText{font:600 14px Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#fff}
+      .flow{fill:none;stroke:#6f9d91;stroke-width:2.4;marker-end:url(#arrow)}
+      .feedback{fill:none;stroke:#dc8555;stroke-width:2.3;stroke-dasharray:8 7;marker-end:url(#arrowOrange)}
+      .divider{stroke:#e2ebe7;stroke-width:1}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1040" fill="#f5f8f6"/>
+  <text x="70" y="60" class="title">内容运营与反馈中心 · 发布后产品模块设计</text>
+  <text x="70" y="88" class="subtitle">将一次真实发布转化为可追踪结果、可信评估和经过审批的下一轮优化</text>
+
+  <rect x="70" y="120" width="1460" height="74" rx="16" fill="#fff0e6"/>
+  <text x="98" y="148" class="label">上游输入｜内容发布</text>
+  <text x="98" y="174" class="body">Account Response Task　·　最终 Content Candidate 版本　·　Publication Receipt（真实 URL / 失败原因）　·　Event / 账号 / Skill / 规则版本</text>
+
+  <text x="70" y="234" class="section">A　数据接入与追踪</text>
+  <text x="625" y="234" class="section">B　结果理解与复盘</text>
+  <text x="1180" y="234" class="section">C　受控优化闭环</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="258" width="250" height="228" rx="18" fill="#fff"/>
+    <rect x="350" y="258" width="250" height="228" rx="18" fill="#fff"/>
+    <rect x="625" y="258" width="250" height="228" rx="18" fill="#fff"/>
+    <rect x="905" y="258" width="250" height="228" rx="18" fill="#fff"/>
+    <rect x="1180" y="258" width="350" height="228" rx="18" fill="#fff"/>
+  </g>
+
+  <circle cx="104" cy="294" r="17" fill="#fff0e6"/><text x="104" y="299" text-anchor="middle" class="num">01</text>
+  <text x="132" y="300" class="cardTitle">发布回填与建档</text>
+  <line x1="94" y1="320" x2="296" y2="320" class="divider"/>
+  <text x="96" y="348" class="body">• 校验真实发布 URL</text>
+  <text x="96" y="376" class="body">• 绑定账号、候选与任务</text>
+  <text x="96" y="404" class="body">• 固化发布时版本快照</text>
+  <text x="96" y="432" class="body">• 记录失败、放弃与原因</text>
+  <text x="96" y="462" class="small">输出：Publication Record</text>
+
+  <circle cx="384" cy="294" r="17" fill="#e3f2ed"/><text x="384" y="299" text-anchor="middle" class="num">02</text>
+  <text x="412" y="300" class="cardTitle">效果数据追踪</text>
+  <line x1="374" y1="320" x2="576" y2="320" class="divider"/>
+  <text x="376" y="348" class="body">• 平台指标定时采集</text>
+  <text x="376" y="376" class="body">• 观察窗口与内容帖龄</text>
+  <text x="376" y="404" class="body">• 延迟、缺失与重试状态</text>
+  <text x="376" y="432" class="body">• 修订数据追加留痕</text>
+  <text x="376" y="462" class="small">输出：Metric Observation</text>
+
+  <circle cx="659" cy="294" r="17" fill="#e3f2ed"/><text x="659" y="299" text-anchor="middle" class="num">03</text>
+  <text x="687" y="300" class="cardTitle">表现结果沉淀</text>
+  <line x1="649" y1="320" x2="851" y2="320" class="divider"/>
+  <text x="651" y="348" class="body">• 发布与传播基础表现</text>
+  <text x="651" y="376" class="body">• 账号与内容类型切片</text>
+  <text x="651" y="404" class="body">• 可识别增长结果</text>
+  <text x="651" y="432" class="body">• 暂定 / 最终数据状态</text>
+  <text x="651" y="462" class="small">输出：Performance Result</text>
+
+  <circle cx="939" cy="294" r="17" fill="#fcecef"/><text x="939" y="299" text-anchor="middle" class="num">04</text>
+  <text x="967" y="300" class="cardTitle">效果评估与复盘</text>
+  <line x1="929" y1="320" x2="1131" y2="320" class="divider"/>
+  <text x="931" y="348" class="body">• 对比可比基线与样本</text>
+  <text x="931" y="376" class="body">• 分析 Event / Skill / 账号</text>
+  <text x="931" y="404" class="body">• 汇总异常与人工反馈</text>
+  <text x="931" y="432" class="body">• 标注限制与非因果解释</text>
+  <text x="931" y="462" class="small">输出：Evaluation Report</text>
+
+  <circle cx="1214" cy="294" r="17" fill="#fff0e6"/><text x="1214" y="299" text-anchor="middle" class="num">05</text>
+  <text x="1242" y="300" class="cardTitle">优化建议与审批</text>
+  <line x1="1204" y1="320" x2="1506" y2="320" class="divider"/>
+  <text x="1206" y="348" class="body">• 建议对象、证据与适用范围</text>
+  <text x="1206" y="376" class="body">• 预期影响、风险与验证方式</text>
+  <text x="1206" y="404" class="body">• 待批准 / 批准 / 拒绝 / 归档</text>
+  <text x="1206" y="432" class="body">• 获批后生成配置变更草稿</text>
+  <text x="1206" y="462" class="small">输出：Optimisation Proposal</text>
+
+  <path d="M320 372 H340" class="flow"/>
+  <path d="M600 372 H615" class="flow"/>
+  <path d="M875 372 H895" class="flow"/>
+  <path d="M1155 372 H1170" class="flow"/>
+
+  <text x="70" y="548" class="section">横向支撑能力</text>
+  <g filter="url(#shadow)">
+    <rect x="70" y="570" width="345" height="164" rx="16" fill="#fff"/>
+    <rect x="438" y="570" width="345" height="164" rx="16" fill="#fff"/>
+    <rect x="806" y="570" width="345" height="164" rx="16" fill="#fff"/>
+    <rect x="1174" y="570" width="356" height="164" rx="16" fill="#fff"/>
+  </g>
+  <text x="96" y="608" class="cardTitle">指标口径与可比基线</text>
+  <text x="96" y="640" class="body">指标定义 · 观察窗口 · 内容帖龄</text>
+  <text x="96" y="668" class="body">账号基线 · 内容类型 · 样本资格</text>
+  <text x="96" y="704" class="small">防止不同口径和不同帖龄直接比较</text>
+
+  <text x="464" y="608" class="cardTitle">异常与数据质量</text>
+  <text x="464" y="640" class="body">追踪失败 · 指标缺失 · 数据延迟</text>
+  <text x="464" y="668" class="body">重复数据 · 平台修订 · 人工纠错</text>
+  <text x="464" y="704" class="small">异常进入责任、恢复和审计链路</text>
+
+  <text x="832" y="608" class="cardTitle">版本与审计</text>
+  <text x="832" y="640" class="body">候选 · Skill · 规则 · 指标模型版本</text>
+  <text x="832" y="668" class="body">建议审批 · 配置变更 · 历史重算记录</text>
+  <text x="832" y="704" class="small">保证历史结果可解释、可复现</text>
+
+  <text x="1200" y="608" class="cardTitle">权限与人工门禁</text>
+  <text x="1200" y="640" class="body">查看范围 · 复盘权限 · 审批权限</text>
+  <text x="1200" y="668" class="body">高风险升级 · 变更范围 · 回滚能力</text>
+  <text x="1200" y="704" class="small">系统只提案，不静默修改生产配置</text>
+
+  <rect x="70" y="790" width="1460" height="124" rx="18" fill="#155f50"/>
+  <text x="100" y="822" class="whiteLabel">获批建议的反馈目标</text>
+  <line x1="100" y1="840" x2="1500" y2="840" stroke="#4f8b7d"/>
+  <text x="100" y="873" class="whiteText">热点发现规则 / 热点内容拆解规则</text>
+  <text x="505" y="873" class="whiteText">账号画像 / Content Skill / 生成与预检规则</text>
+  <text x="1015" y="873" class="whiteText">活动建议规则 / 指标与实验配置</text>
+  <path d="M1355 790 V760 H1460 V500" class="feedback"/>
+  <text x="1372" y="752" class="small" fill="#b86d44">仅经人工批准后回写</text>
+
+  <rect x="70" y="950" width="1460" height="48" rx="12" fill="#e8efec"/>
+  <text x="800" y="980" text-anchor="middle" class="body">产品边界：不自动发布　·　不承诺精确因果归因　·　不以少量样本自动改规则　·　不覆盖历史版本</text>
+</svg>

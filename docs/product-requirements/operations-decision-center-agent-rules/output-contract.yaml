@@ -1,0 +1,134 @@
+schema_version: odc-decision-result-v0.1
+
+decision_result:
+  decision_id: string
+  event_ref:
+    event_id: string|null
+    context_version: string
+    source_type: intelligence_center|manual|external_api|other
+    evaluated_at: ISO-8601
+  event_summary: string
+  context_status: sufficient|partial|insufficient
+  material_gaps: []
+
+  entry_assessment:
+    public_attention:
+      result: met|not_met|uncertain
+      platform: X
+      growth_rank: integer|null
+      captured_at: ISO-8601|null
+      evidence_refs: []
+      policy_version: string
+    live_market_match:
+      result: met|not_met|uncertain
+      market_match_ids: []
+    product_value_match:
+      result: met|not_met|uncertain
+      product_fact_ids: []
+      rationale: string
+
+  recommendation:
+    result: recommended|review_required|context_required|not_recommended
+    entry_reasons: []
+    bridge_type: market|product_value|attention_only|none
+    handling: immediate|today|none
+    urgency_trigger_id: URG-01|URG-02|URG-03|null
+    urgency_evidence: []
+    recommended_review_deadline: ISO-8601|string|null
+    rationale: string
+    uncertainty: []
+    risk_level: low|medium|high|blocked
+
+  market_matches:
+    - match_id: string
+      market_id: string
+      market_url: string
+      market_question: string
+      match_type: direct|related|possible|none
+      event_evidence_ids: []
+      match_basis: string
+      resolution_alignment: aligned|partial|conflict|unknown
+      market_status: open|closed|resolved|paused|unknown
+      snapshot:
+        probability: number|null
+        volume: number|null
+        liquidity: number|null
+        captured_at: ISO-8601
+        freshness: fresh|stale|unknown
+
+  product_value_matches:
+    - match_id: string
+      product_fact_ids: []
+      capability_or_scenario: string
+      target_user: string
+      user_value: string
+      rationale: string
+
+  angle_set:
+    version: string
+    generated_at: ISO-8601
+    based_on_versions:
+      event_context: string
+      product_profile: string
+      market_snapshot: string|null
+      market_freshness_policy: string
+      entry_policy: string
+      market_match_policy: string
+      angle_policy: string
+    generation:
+      trigger: initial|edit|replace_one|regenerate_unkept|regenerate_all|add_human_angle
+      previous_angle_set_version: string|null
+      preserved_angle_ids: []
+      replaced_angle_ids: []
+      added_angle_ids: []
+      feedback_refs: []
+      change_summary: string|null
+    status: ready|needs_review|no_mature_angle
+    angles:
+      - angle_id: string
+        angle_family: string
+        core_claim: string
+        bridge_type: market|product_value
+        bridge_object: string
+        event_stage: string
+        target_user: string
+        user_value: string
+        operational_goal: string
+        supporting_evidence_ids: []
+        market_snapshot_refs: []
+        required_data: []
+        quality:
+          product_connection: strong|moderate|weak
+          user_value: clear|partial|unclear
+          evidence_readiness: ready|needs_data|unsupported
+          timeliness: immediate|current|evergreen|expired
+          distinctiveness: distinct|overlapping|duplicate
+          risk: low|medium|high|blocked
+          maturity: ready|needs_data|exploratory|rejected
+        risk_notes: []
+        recommended_content_question: string|null
+
+  human_review:
+    required: boolean
+    reasons: []
+    resolved_by: string|null
+    resolved_at: ISO-8601|null
+
+  operator_outcome:
+    status: directly_adopted|adopted_after_edit|replaced_by_human|not_adopted|null
+    selected_angle_id: string|null
+    original_angle: string|null
+    final_angle: string|null
+    feedback_reasons: []
+    feedback_note: string|null
+    regeneration_count: integer
+    operator_id: string|null
+    reviewed_at: ISO-8601|null
+
+  audit:
+    agent_version: string
+    rule_versions: []
+    previous_decision_id: string|null
+    supersedes: string|null
+    actor_type: agent|human|program
+    created_at: ISO-8601

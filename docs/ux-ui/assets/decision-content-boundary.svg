@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050" role="img" aria-labelledby="title desc">
+  <title id="title">运营决策系统与内容发布反馈系统边界图</title>
+  <desc id="desc">一个事件在运营决策系统中形成多角度组合，通过内容任务包交接给内容发布与反馈系统，再由多个账号分别承接、制作、发布和反馈。单账号发布不代表事件结束。</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#17382f" flood-opacity="0.10"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#42655c"/></marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#126153"/></marker>
+    <style>
+      text{font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;fill:#17231f}
+      .title{font-size:34px;font-weight:700}.subtitle{font-size:17px;fill:#697570}
+      .system-title{font-size:24px;font-weight:700}.system-sub{font-size:15px;fill:#697570}
+      .node-title{font-size:18px;font-weight:700}.node-text{font-size:14px;fill:#53615d}.label{font-size:13px;font-weight:700;fill:#126153}
+      .box{fill:#fff;stroke:#dce5e1;stroke-width:1.5}.soft{fill:#f4f7f5}.green{fill:#e4f2ed;stroke:#86aa9e;stroke-width:1.5}.orange{fill:#fff0e6;stroke:#e3b798;stroke-width:1.5}
+      .line{fill:none;stroke:#42655c;stroke-width:2.2;marker-end:url(#arrow)}.green-line{fill:none;stroke:#126153;stroke-width:2.4;marker-end:url(#arrowGreen)}.feedback{fill:none;stroke:#7a918a;stroke-width:2;stroke-dasharray:8 7;marker-end:url(#arrow)}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1050" fill="#f4f7f5"/>
+  <text x="70" y="65" class="title">一个事件，如何跨两个系统被多个账号持续承接</text>
+  <text x="70" y="96" class="subtitle">运营决策系统管理“角度组合”；内容发布与反馈系统管理“账号承接组合”</text>
+
+  <g filter="url(#shadow)">
+    <rect x="625" y="125" width="350" height="86" rx="16" class="box"/>
+    <text x="800" y="158" text-anchor="middle" class="label">共同起点</text>
+    <text x="800" y="188" text-anchor="middle" class="node-title">热点事件：GPT-6 API 发布</text>
+  </g>
+
+  <path d="M800 211V250H365V287" class="line"/>
+
+  <rect x="55" y="275" width="620" height="540" rx="22" fill="#ffffff" stroke="#cfdcd7" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="55" y="275" width="620" height="88" rx="22" fill="#eaf2fa"/>
+  <path d="M55 341V363H675V341" fill="#eaf2fa"/>
+  <text x="85" y="315" class="system-title">① 运营决策系统</text>
+  <text x="85" y="343" class="system-sub">负责：为什么做、做什么；可以保留多个战略角度</text>
+
+  <rect x="85" y="390" width="560" height="84" rx="13" class="soft"/>
+  <text x="110" y="422" class="node-title">运营判断</text>
+  <text x="110" y="450" class="node-text">是否值得做 · 服务哪个产品 · 面向谁 · 为什么现在做</text>
+  <path d="M365 474V500" class="line"/>
+
+  <text x="85" y="531" class="label">ANGLE PORTFOLIO · 多角度保留</text>
+  <rect x="85" y="548" width="170" height="112" rx="12" class="green"/>
+  <text x="105" y="578" class="node-title">主角度</text>
+  <text x="105" y="606" class="node-text">是否应该立即迁移</text>
+  <text x="105" y="630" class="node-text">本轮传播核心判断</text>
+
+  <rect x="280" y="548" width="170" height="112" rx="12" class="box"/>
+  <text x="300" y="578" class="node-title">一并采用</text>
+  <text x="300" y="606" class="node-text">哪些信息已确认</text>
+  <text x="300" y="630" class="node-text">可交给其他账号</text>
+
+  <rect x="475" y="548" width="170" height="112" rx="12" class="orange"/>
+  <text x="495" y="578" class="node-title">备选保留</text>
+  <text x="495" y="606" class="node-text">对 Agent 成本影响</text>
+  <text x="495" y="630" class="node-text">暂不制作，不删除</text>
+
+  <path d="M365 660V686" class="line"/>
+  <rect x="85" y="686" width="560" height="98" rx="13" class="soft"/>
+  <text x="110" y="717" class="node-title">决策退出机制</text>
+  <text x="110" y="748" class="node-text">进入内容制作　｜　保存策略草稿　｜　暂不响应事件</text>
+  <text x="110" y="771" class="node-text">只有“进入内容制作”会生成系统间交接包</text>
+
+  <path d="M675 545H720" class="green-line"/>
+  <g filter="url(#shadow)">
+    <rect x="720" y="407" width="230" height="276" rx="18" class="green"/>
+    <text x="835" y="444" text-anchor="middle" class="label">系统交接对象</text>
+    <text x="835" y="477" text-anchor="middle" class="node-title">内容任务包</text>
+    <line x1="750" y1="495" x2="920" y2="495" stroke="#a9c7bd"/>
+    <text x="750" y="527" class="node-text">• 事件事实与依据</text>
+    <text x="750" y="557" class="node-text">• 主角度与可用角度</text>
+    <text x="750" y="587" class="node-text">• 目标受众与产品</text>
+    <text x="750" y="617" class="node-text">• 表达边界</text>
+    <text x="750" y="647" class="node-text">• 时效窗口与停止条件</text>
+  </g>
+  <path d="M950 545H995" class="green-line"/>
+
+  <rect x="995" y="275" width="550" height="670" rx="22" fill="#ffffff" stroke="#cfdcd7" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="995" y="275" width="550" height="88" rx="22" fill="#e4f2ed"/>
+  <path d="M995 341V363H1545V341" fill="#e4f2ed"/>
+  <text x="1025" y="315" class="system-title">② 内容发布与反馈系统</text>
+  <text x="1025" y="343" class="system-sub">负责：由哪些账号、以什么形式执行和持续传播</text>
+
+  <rect x="1025" y="390" width="490" height="72" rx="13" class="soft"/>
+  <text x="1050" y="420" class="node-title">账号承接规划</text>
+  <text x="1050" y="446" class="node-text">系统推荐账号与承接方式，由运营人员确认组合</text>
+
+  <path d="M1270 462V492" class="line"/>
+
+  <rect x="1025" y="492" width="490" height="82" rx="12" class="box"/>
+  <text x="1050" y="522" class="node-title">Predx Official</text>
+  <text x="1050" y="548" class="node-text">确认信息 · X 短帖</text>
+  <text x="1468" y="536" text-anchor="end" class="label">已发布</text>
+
+  <rect x="1025" y="588" width="490" height="82" rx="12" class="green"/>
+  <text x="1050" y="618" class="node-title">Predx Insights</text>
+  <text x="1050" y="644" class="node-text">迁移成本判断 · X Thread</text>
+  <text x="1468" y="632" text-anchor="end" class="label">编辑中</text>
+
+  <rect x="1025" y="684" width="490" height="82" rx="12" class="box"/>
+  <text x="1050" y="714" class="node-title">Predx Learn</text>
+  <text x="1050" y="740" class="node-text">迁移判断标准 · 长文</text>
+  <text x="1468" y="728" text-anchor="end" class="label">待制作</text>
+
+  <rect x="1025" y="780" width="490" height="82" rx="12" class="orange"/>
+  <text x="1050" y="810" class="node-title">Predx Video</text>
+  <text x="1050" y="836" class="node-text">迁移三问 · 视频脚本</text>
+  <text x="1468" y="824" text-anchor="end" class="label">暂未启用</text>
+
+  <path d="M1270 862V884" class="line"/>
+  <rect x="1025" y="884" width="490" height="40" rx="10" class="soft"/>
+  <text x="1270" y="910" text-anchor="middle" class="node-text">汇总发布链接、采用记录与账号反馈</text>
+
+  <path d="M1270 945V975H800" class="line"/>
+  <rect x="530" y="968" width="540" height="62" rx="15" class="orange"/>
+  <text x="800" y="994" text-anchor="middle" class="node-title">事件什么时候结束？</text>
+  <text x="800" y="1017" text-anchor="middle" class="node-text">不是某个账号发完；而是全部计划任务处理完，并由运营人员确认收口</text>
+
+  <path d="M1025 904H930V750H675" class="feedback"/>
+  <rect x="690" y="722" width="220" height="42" rx="9" fill="#f4f7f5"/>
+  <text x="800" y="748" text-anchor="middle" class="node-text">效果反馈供后续决策学习</text>
+</svg>

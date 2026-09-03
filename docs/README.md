@@ -8,6 +8,7 @@
 
 - [Product Brief](product-requirements/product-brief.md)：草稿，版本 v1.5。
 - [PRD 总入口](product-requirements/prd/prd-00-index.md)：草稿，版本 v2.10-module-v3-v12。
+- [业务可扩展性需求](product-requirements/business-extensibility-requirements.md)：扩展性总清单、优先级、设计图与验收方向。
 - [产品需求目录说明](product-requirements/README.md)。
 
 ## 产品设计

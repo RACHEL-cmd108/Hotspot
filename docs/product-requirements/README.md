@@ -2,8 +2,10 @@
 
 ## 权威入口
 
+- [`hotspot-agent-v1-working-definition.md`](hotspot-agent-v1-working-definition.md)：本轮热点运营 Agent 第一期产品重构的持续工作底稿；完成评审前不直接替代现有 Brief/PRD。
 - [`product-brief.md`](product-brief.md)：当前 Product Brief v1.5 草案。
 - [`prd/prd-00-index.md`](prd/prd-00-index.md)：当前 PRD v2.10-module-v3-v12 草案的唯一入口与版本索引。
+- [`business-extensibility-requirements.md`](business-extensibility-requirements.md)：业务可扩展性需求基线，定义扩展性总清单、优先级、设计图与验收方向。
 
 ## PRD 文件映射
 

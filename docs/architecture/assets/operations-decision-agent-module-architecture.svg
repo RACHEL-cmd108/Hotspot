@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc">
+  <title id="title">运营决策与 Agent 中心模块架构</title>
+  <desc id="desc">热点情报中心向运营决策与 Agent 中心提供情报上下文，系统通过决策上下文、机会判断、人机协同决策、策略与交付四个核心模块形成决策包，并接收内容运营与反馈中心的执行反馈。</desc>
+  <defs>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#172554" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#7c3aed"/>
+    </marker>
+    <style>
+      .title { font: 700 34px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #172033; }
+      .subtitle { font: 400 16px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #64748b; }
+      .system-title { font: 700 23px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #ffffff; }
+      .system-subtitle { font: 400 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: rgba(255,255,255,.88); }
+      .side-title { font: 650 19px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #1e293b; }
+      .side-desc { font: 400 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #64748b; }
+      .module-title { font: 650 18px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #312e81; }
+      .module-desc { font: 400 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #64748b; }
+      .support-title { font: 650 17px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #4c1d95; }
+      .support-desc { font: 400 13px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #6b7280; }
+      .label { font: 600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #475569; }
+      .number { font: 700 15px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #ffffff; }
+      .boundary { font: 500 13px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #6d28d9; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="820" fill="#f7f8fc"/>
+  <text x="720" y="58" text-anchor="middle" class="title">运营决策与 Agent 中心 · 模块架构</text>
+  <text x="720" y="88" text-anchor="middle" class="subtitle">把可信热点上下文转化为可执行、可追溯的运营决策包</text>
+
+  <!-- Upstream -->
+  <g filter="url(#shadow)">
+    <rect x="55" y="270" width="245" height="235" rx="20" fill="#ffffff"/>
+    <path d="M75 270 H280 Q300 270 300 290 V345 H55 V290 Q55 270 75 270 Z" fill="#2563eb"/>
+  </g>
+  <text x="177.5" y="304" text-anchor="middle" class="system-title">热点情报中心</text>
+  <text x="177.5" y="328" text-anchor="middle" class="system-subtitle">上游子系统</text>
+  <text x="177.5" y="385" text-anchor="middle" class="side-title">情报上下文包</text>
+  <text x="177.5" y="416" text-anchor="middle" class="side-desc">热点对象 · 事实与证据</text>
+  <text x="177.5" y="442" text-anchor="middle" class="side-desc">热度变化 · 响应时点</text>
+  <text x="177.5" y="468" text-anchor="middle" class="side-desc">风险与表达边界</text>
+
+  <!-- Decision subsystem -->
+  <g filter="url(#shadow)">
+    <rect x="365" y="125" width="710" height="570" rx="24" fill="#ffffff"/>
+    <path d="M389 125 H1051 Q1075 125 1075 149 V215 H365 V149 Q365 125 389 125 Z" fill="#7c3aed"/>
+  </g>
+  <text x="720" y="164" text-anchor="middle" class="system-title">运营决策与 Agent 中心</text>
+  <text x="720" y="191" text-anchor="middle" class="system-subtitle">拥有机会判断、运营选择与决策交付</text>
+
+  <!-- Core modules -->
+  <g>
+    <rect x="405" y="250" width="295" height="130" rx="16" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <circle cx="438" cy="284" r="18" fill="#7c3aed"/>
+    <text x="438" y="290" text-anchor="middle" class="number">1</text>
+    <text x="470" y="290" class="module-title">决策上下文</text>
+    <text x="438" y="325" class="module-desc">装配产品、目标、受众、账号角色</text>
+    <text x="438" y="350" class="module-desc">以及当前运营策略</text>
+
+    <rect x="740" y="250" width="295" height="130" rx="16" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <circle cx="773" cy="284" r="18" fill="#7c3aed"/>
+    <text x="773" y="290" text-anchor="middle" class="number">2</text>
+    <text x="805" y="290" class="module-title">机会判断</text>
+    <text x="773" y="325" class="module-desc">评估相关性、时效、证据</text>
+    <text x="773" y="350" class="module-desc">可承接性与风险，形成排序</text>
+
+    <rect x="405" y="410" width="295" height="130" rx="16" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <circle cx="438" cy="444" r="18" fill="#7c3aed"/>
+    <text x="438" y="450" text-anchor="middle" class="number">3</text>
+    <text x="470" y="450" class="module-title">人机协同决策</text>
+    <text x="438" y="485" class="module-desc">机会工作台 + 决策 Agent</text>
+    <text x="438" y="510" class="module-desc">采用、观察、拒绝与理由记录</text>
+
+    <rect x="740" y="410" width="295" height="130" rx="16" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <circle cx="773" cy="444" r="18" fill="#7c3aed"/>
+    <text x="773" y="450" text-anchor="middle" class="number">4</text>
+    <text x="805" y="450" class="module-title">策略与交付</text>
+    <text x="773" y="485" class="module-desc">形成承接角度与响应策略</text>
+    <text x="773" y="510" class="module-desc">输出版本化 Decision Package</text>
+  </g>
+
+  <!-- Internal relationships -->
+  <path d="M700 315 H740" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+  <path d="M887.5 380 V410" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+  <path d="M740 475 H700" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+  <path d="M552.5 380 V410" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+  <path d="M700 475 H740" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+
+  <!-- Supporting module -->
+  <rect x="405" y="575" width="630" height="78" rx="15" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="720" y="607" text-anchor="middle" class="support-title">决策配置、质量学习与治理</text>
+  <text x="720" y="633" text-anchor="middle" class="support-desc">机会类型与 Playbook · 规则版本 · 反馈分析 · 权限审计 · 可解释性</text>
+  <path d="M552.5 575 V540" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M887.5 575 V540" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="5 5"/>
+
+  <!-- Downstream -->
+  <g filter="url(#shadow)">
+    <rect x="1140" y="270" width="245" height="235" rx="20" fill="#ffffff"/>
+    <path d="M1160 270 H1365 Q1385 270 1385 290 V345 H1140 V290 Q1140 270 1160 270 Z" fill="#0f9f6e"/>
+  </g>
+  <text x="1262.5" y="304" text-anchor="middle" class="system-title">内容运营与反馈</text>
+  <text x="1262.5" y="328" text-anchor="middle" class="system-subtitle">下游子系统</text>
+  <text x="1262.5" y="385" text-anchor="middle" class="side-title">决策包</text>
+  <text x="1262.5" y="416" text-anchor="middle" class="side-desc">已选角度 · 目标与受众</text>
+  <text x="1262.5" y="442" text-anchor="middle" class="side-desc">响应窗口 · 证据引用</text>
+  <text x="1262.5" y="468" text-anchor="middle" class="side-desc">风险和表达边界</text>
+
+  <!-- Handoffs -->
+  <path d="M300 387.5 H365" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="332.5" y="371" text-anchor="middle" class="label">输入</text>
+  <path d="M1075 387.5 H1140" fill="none" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <text x="1107.5" y="371" text-anchor="middle" class="label">交付</text>
+
+  <!-- Feedback loop -->
+  <path d="M1262.5 505 V735 H720 V653" fill="none" stroke="#64748b" stroke-width="2.2" stroke-dasharray="7 7" marker-end="url(#arrow)"/>
+  <text x="1000" y="758" text-anchor="middle" class="label">采用、修改、执行与效果反馈</text>
+
+  <text x="720" y="790" text-anchor="middle" class="boundary">边界：不改写热点事实，不生产或发布最终内容</text>
+</svg>
