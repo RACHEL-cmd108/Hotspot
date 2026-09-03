@@ -1,0 +1,2316 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>热点运营系统 · 内容运营可交互原型</title>
+  <style>
+    :root {
+      --bg: #f4f7f5;
+      --paper: #ffffff;
+      --ink: #17221f;
+      --muted: #6f7b77;
+      --soft: #e5f2ee;
+      --soft-2: #f1f8f5;
+      --line: #d8e2de;
+      --line-2: #eaf0ed;
+      --green: #0f6b5d;
+      --green-2: #2f8375;
+      --blue: #426f8b;
+      --blue-bg: #eaf3f7;
+      --red: #b4495c;
+      --red-bg: #fff0f2;
+      --orange: #ad632f;
+      --orange-bg: #fff1e7;
+      --shadow: 0 1px 2px rgba(20, 38, 32, .04);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 14px/1.5 -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    button, textarea, input { font: inherit; }
+    button { cursor: pointer; }
+    textarea, input { color: var(--ink); }
+
+    .app {
+      display: grid;
+      grid-template-columns: 226px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      background: var(--paper);
+      border-right: 1px solid var(--line);
+      padding: 23px 12px 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 10px 28px;
+    }
+
+    .logo {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      background: var(--green-2);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .brand-title { font-weight: 800; line-height: 1.2; }
+    .en, .tiny { display: block; color: #909c98; font-size: 11px; font-weight: 500; }
+    .side-label {
+      color: #9aa4a1;
+      font-size: 11px;
+      padding: 0 10px 15px;
+    }
+
+    .side-nav { display: grid; gap: 4px; }
+    .nav-btn {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #4f5c58;
+      text-align: left;
+      border-radius: 7px;
+      padding: 12px 10px;
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+    }
+
+    .nav-btn.active {
+      background: var(--soft);
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .nav-icon { font-size: 16px; color: currentColor; }
+    .prototype-note {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: #899590;
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .main { min-width: 0; }
+    .topbar {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      background: rgba(255, 255, 255, .92);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .crumb { color: #53615d; }
+    .crumb b { color: var(--ink); }
+    .top-status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      font-size: 13px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .avatar {
+      width: 31px;
+      height: 31px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--soft);
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .page {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 28px 30px 88px;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 10px;
+      letter-spacing: 5px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .page-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 30px; line-height: 1.16; margin-bottom: 8px; }
+    h2 { font-size: 21px; line-height: 1.25; margin-bottom: 9px; }
+    h3 { font-size: 16px; line-height: 1.35; margin-bottom: 6px; }
+    p { margin-bottom: 0; }
+    .muted { color: var(--muted); }
+    .small { color: var(--muted); font-size: 12px; }
+
+    .btn {
+      min-height: 38px;
+      border: 1px solid #cbd7d2;
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 8px 13px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .btn.primary {
+      color: #fff;
+      background: var(--green-2);
+      border-color: var(--green-2);
+    }
+
+    .btn.ghost {
+      border-color: transparent;
+      background: transparent;
+      color: var(--green);
+      min-height: 0;
+      padding: 0;
+    }
+
+    .btn.danger { color: var(--red); }
+    .btn.block { width: 100%; justify-content: center; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 4px 9px;
+      background: #eef2f0;
+      color: #53615d;
+      font-size: 11px;
+      font-weight: 750;
+      line-height: 1;
+      width: max-content;
+    }
+
+    .pill.green { color: var(--green); background: var(--soft); }
+    .pill.blue { color: var(--blue); background: var(--blue-bg); }
+    .pill.orange { color: var(--orange); background: var(--orange-bg); }
+    .pill.red { color: var(--red); background: var(--red-bg); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .metric {
+      padding: 18px 20px;
+      border-right: 1px solid var(--line);
+    }
+
+    .metric:last-child { border-right: 0; }
+    .metric strong { display: block; font-size: 29px; line-height: 1.1; margin-bottom: 6px; }
+    .metric span { color: var(--muted); font-size: 12px; }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: 13px 16px;
+      margin-bottom: 18px;
+    }
+
+    .toolbar-label { font-weight: 800; margin-right: 3px; }
+    .seg { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip-btn {
+      border: 1px solid #cbd7d2;
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-weight: 650;
+    }
+
+    .chip-btn.active {
+      color: #fff;
+      background: var(--green-2);
+      border-color: var(--green-2);
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-main-aside { display: grid; grid-template-columns: minmax(0, 1fr) 350px; gap: 14px; }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .recommend-card {
+      padding: 18px;
+      cursor: pointer;
+      transition: border-color .15s, background .15s;
+    }
+
+    .recommend-card:hover { border-color: #88aba0; }
+    .recommend-card h3 { font-size: 18px; margin: 12px 0 7px; }
+    .card-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .reason {
+      margin-top: 14px;
+      padding: 10px 12px;
+      background: #f1f6f4;
+      border-left: 3px solid var(--green-2);
+      font-size: 13px;
+    }
+
+    .market-box {
+      margin-top: 11px;
+      border: 1px solid #cbe1dc;
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: #f8fcfa;
+      font-size: 12px;
+    }
+
+    .market-box strong { color: var(--green); }
+
+    .section-title-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 12px 0 10px;
+    }
+
+    .section-title-row h2 { margin-bottom: 0; }
+    .hint-right { color: var(--muted); font-size: 12px; }
+
+    .inbox-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 14px;
+    }
+
+    .table {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: minmax(260px, 1.4fr) 140px 160px 120px;
+      gap: 12px;
+      align-items: center;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line-2);
+    }
+
+    .table-row:last-child { border-bottom: 0; }
+    .table-row.header {
+      background: #fafcfb;
+      color: var(--muted);
+      font-size: 12px;
+      cursor: default;
+    }
+
+    .click-row { cursor: pointer; }
+    .click-row:hover { background: #fbfdfc; }
+    .table-row .red { color: var(--red); font-weight: 750; }
+    .quick-import { padding: 18px; }
+    .quick-import textarea {
+      width: 100%;
+      min-height: 152px;
+      resize: vertical;
+      border: 1px solid #cbd7d2;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 14px 0 12px;
+      background: #fff;
+    }
+
+    .task-list { display: grid; gap: 10px; }
+    .task-row {
+      display: grid;
+      grid-template-columns: minmax(320px, 1fr) 145px 150px 130px 116px;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      cursor: pointer;
+    }
+
+    .task-row:hover { border-color: #88aba0; }
+    .task-title { font-weight: 850; margin-bottom: 5px; }
+    .angle { color: var(--green); font-weight: 750; font-size: 13px; }
+
+    .workspace-shell { min-height: calc(100vh - 64px); }
+    .workspace-back {
+      height: 46px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 0 28px;
+    }
+
+    .workspace {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 27px 30px 90px;
+    }
+
+    .event-head {
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .event-head h1 {
+      font-size: 30px;
+      margin: 12px 0 10px;
+    }
+
+    .badges { display: flex; gap: 7px; flex-wrap: wrap; }
+    .latest {
+      margin-top: 18px;
+      background: #f7faf8;
+      border-left: 3px solid var(--green-2);
+      padding: 11px 13px;
+      width: min(100%, 900px);
+      font-size: 13px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 22px;
+    }
+
+    .tab-btn {
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      padding: 14px 13px 12px;
+      font-weight: 700;
+    }
+
+    .tab-btn.active {
+      color: var(--green);
+      border-bottom-color: var(--green-2);
+    }
+
+    .workspace-section h2 { font-size: 24px; }
+    .workspace-section > p { margin-bottom: 14px; }
+    .opportunity {
+      padding: 17px;
+      margin-bottom: 13px;
+    }
+
+    .opportunity.selected {
+      border: 2px solid var(--green-2);
+      background: var(--soft-2);
+      padding: 16px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .info-panel { padding: 18px; }
+    .info-row {
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .info-row:first-of-type { border-top: 0; padding-top: 6px; }
+    .angle-card {
+      padding: 17px;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+
+    .angle-card.selected {
+      border: 2px solid var(--green-2);
+      background: var(--soft-2);
+      padding: 16px;
+    }
+
+    .angle-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .kitchen-modal {
+      min-height: 100vh;
+      background: var(--paper);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kitchen-top {
+      height: 103px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 20px 27px;
+    }
+
+    .kitchen-top h1 {
+      font-size: 25px;
+      margin: 0 0 3px;
+    }
+
+    .close-btn {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #cbd7d2;
+      background: #fff;
+      border-radius: 10px;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .wizard-progress {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      padding: 34px 27px 0;
+      position: relative;
+    }
+
+    .wizard-progress:before {
+      content: "";
+      position: absolute;
+      left: 27px;
+      right: 27px;
+      top: 45px;
+      height: 2px;
+      background: var(--line);
+    }
+
+    .progress-step {
+      position: relative;
+      border: 0;
+      background: transparent;
+      text-align: left;
+      padding-top: 22px;
+      color: #65716d;
+      font-size: 16px;
+      font-family: inherit;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .progress-step:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #cbd8d4;
+    }
+
+    .progress-step.done, .progress-step.active { color: var(--green); font-weight: 850; }
+    .progress-step.done:before, .progress-step.active:before { background: var(--green); }
+
+    .kitchen-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 365px;
+      gap: 38px;
+      padding: 42px 27px 22px;
+      flex: 1;
+    }
+
+    .kitchen-main h2 {
+      font-size: 28px;
+      margin-bottom: 9px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .select-card {
+      min-height: 96px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      text-align: left;
+      padding: 18px 18px 15px;
+      position: relative;
+    }
+
+    .select-card.large { min-height: 124px; }
+    .select-card.selected {
+      border: 2px solid var(--green);
+      background: #eff8f5;
+      padding: 17px 17px 14px;
+    }
+
+    .select-card h3 { font-size: 19px; margin-bottom: 5px; }
+    .select-card .check {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: none;
+      place-items: center;
+      background: var(--green);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .select-card.selected .check { display: grid; }
+    .inline-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 26px;
+      margin-bottom: 11px;
+    }
+
+    .inline-title b { font-size: 16px; }
+    .custom-wide {
+      width: 100%;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      justify-content: flex-start;
+      border-style: dashed;
+    }
+
+    .plus {
+      display: inline-grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .custom-panel {
+      margin-top: 14px;
+      padding: 16px;
+      background: #fbfdfc;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      display: none;
+    }
+
+    .custom-panel.open { display: block; }
+    .field-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: #53615d;
+      margin-bottom: 7px;
+    }
+
+    .input, .textarea {
+      width: 100%;
+      border: 1px solid #cbd7d2;
+      border-radius: 8px;
+      background: #fff;
+      padding: 11px 12px;
+    }
+
+    .textarea { min-height: 104px; resize: vertical; }
+    .mini-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+
+    .summary-panel {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 22px 22px 18px;
+      height: max-content;
+      background: #fbfdfc;
+    }
+
+    .summary-panel h3 { font-size: 20px; margin-bottom: 19px; }
+    .summary-row {
+      border-top: 1px solid var(--line);
+      padding: 13px 0;
+      font-size: 18px;
+    }
+
+    .summary-row:first-of-type { border-top: 0; }
+    .summary-row span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+
+    .kitchen-footer {
+      border-top: 1px solid var(--line);
+      padding: 15px 27px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      background: var(--paper);
+      position: sticky;
+      bottom: 0;
+    }
+
+    .reader-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 19px 0 22px;
+    }
+
+    .reader-chip {
+      border: 1px solid #cbd7d2;
+      background: #fff;
+      border-radius: 11px;
+      padding: 11px 20px;
+      font-weight: 800;
+    }
+
+    .reader-chip.selected {
+      color: #fff;
+      background: #10211d;
+      border-color: #10211d;
+    }
+
+    .skill-import {
+      grid-column: 1 / -1;
+      border: 1px dashed #9eb8b1;
+      border-radius: 9px;
+      background: #fbfdfc;
+      padding: 18px;
+    }
+
+    .import-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .parse-box {
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 13px;
+      background: #fff;
+    }
+
+    .assist-row {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin: 18px 0;
+    }
+
+    .draft-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .candidate-tabs {
+      display: flex;
+      width: max-content;
+      border: 1px solid #cbd7d2;
+      border-radius: 9px;
+      overflow: hidden;
+      margin: 0 auto 16px;
+    }
+
+    .candidate-tab {
+      border: 0;
+      background: #fff;
+      padding: 11px 30px;
+      font-weight: 800;
+    }
+
+    .candidate-tab.active { color: #fff; background: var(--green); }
+    .draft {
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      min-height: 252px;
+      padding: 18px 20px;
+      font-size: 16px;
+      white-space: pre-line;
+    }
+
+    .ai-box {
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 15px 16px;
+    }
+
+    .ai-chat {
+      display: grid;
+      gap: 10px;
+      margin: 13px 0;
+    }
+
+    .bubble {
+      max-width: 82%;
+      border-radius: 9px;
+      padding: 11px 13px;
+      background: #eef2f0;
+    }
+
+    .bubble.ai {
+      border: 1px solid #cfe1db;
+      background: #fbfdfc;
+      max-width: 100%;
+    }
+
+    .diff {
+      display: grid;
+      grid-template-columns: 1fr 28px 1fr;
+      gap: 11px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .diff-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fff;
+      min-height: 68px;
+    }
+
+    .diff-card.before { color: #bd334e; background: #fff6f7; }
+    .diff-card.after { color: var(--green); background: #f2faf7; }
+    .input-row { display: grid; grid-template-columns: minmax(0, 1fr) 96px; gap: 9px; }
+
+    .publish-layout {
+      display: grid;
+      grid-template-columns: 420px minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 15px;
+    }
+
+    .publish-card {
+      padding: 16px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .publish-card.selected {
+      border: 2px solid var(--green-2);
+      background: var(--soft-2);
+      padding: 15px;
+    }
+
+    .publish-detail { padding: 18px; }
+    .empty-state {
+      border: 1px dashed #b9cbc5;
+      border-radius: 9px;
+      padding: 24px;
+      background: #fbfdfc;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .status-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .draft-preview {
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      padding: 16px;
+      min-height: 220px;
+      white-space: pre-line;
+      margin: 14px 0;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .toast {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      padding: 11px 14px;
+      color: #fff;
+      background: #10211d;
+      border-radius: 9px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .18s, transform .18s;
+      z-index: 30;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1120px) {
+      .grid-main-aside, .inbox-layout, .kitchen-body, .publish-layout { grid-template-columns: 1fr; }
+      .summary-panel { order: -1; }
+      .task-row { grid-template-columns: minmax(250px, 1fr) 130px 120px; }
+      .task-row > :nth-child(3), .task-row > :nth-child(4) { display: none; }
+      .import-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .app { grid-template-columns: 74px minmax(0, 1fr); }
+      .sidebar { padding-left: 9px; padding-right: 9px; }
+      .brand { padding-left: 2px; }
+      .brand-title, .side-label, .nav-btn .nav-text, .prototype-note { display: none; }
+      .nav-btn { grid-template-columns: 1fr; place-items: center; padding: 13px 6px; }
+      .nav-icon { font-size: 18px; }
+      .topbar { padding: 0 16px; }
+      .top-status span:not(.avatar):not(.status-dot) { display: none; }
+      .page, .workspace { padding-left: 16px; padding-right: 16px; }
+      .page-head, .section-title-row { align-items: flex-start; flex-direction: column; }
+      .metrics, .grid-2, .choice-grid, .info-grid, .form-grid { grid-template-columns: 1fr; }
+      .table-row { grid-template-columns: 1fr 110px; }
+      .table-row > :nth-child(3), .table-row > :nth-child(4) { display: none; }
+      .wizard-progress { grid-template-columns: 1fr 1fr; row-gap: 14px; }
+      .wizard-progress:before { display: none; }
+      .kitchen-top { height: auto; }
+      .progress-step { padding-top: 20px; }
+      .diff { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const state = {
+      page: "recommend",
+      lastValidPage: "recommend",
+      recommendBasisFilter: "全部",
+      recommendPaceFilter: "全部",
+      inboxFilter: "全部",
+      creationFilter: "全部任务",
+      publishFilter: "全部",
+      workspace: false,
+      workspaceSource: "recommend",
+      workspaceTab: "product",
+      lastValidWorkspaceTab: "product",
+      kitchenOpen: false,
+      kitchenStep: 1,
+      selectedAngle: 0,
+      goals: ["把事情讲清楚", "提供有用判断"],
+      goalError: "",
+      customGoalOpen: false,
+      customGoalText: "",
+      customGoals: [],
+      readers: ["AI 开发者"],
+      secondaryReaders: [],
+      customReaders: [],
+      customReaderOpen: false,
+      selectedSkill: "快讯账号",
+      skillImportOpen: false,
+      skillMarkdown: "",
+      skillParsed: false,
+      format: "X Thread",
+      assists: ["补充可信依据"],
+      extraRequest: "前三行先给结论；不要复述新闻；不要把免费额度写成已确认事实。",
+      candidate: "候选 1",
+      candidateDrafts: {
+        "候选 1": "GPT-6 API 已经开放，但“新模型上线”不等于“现在就该迁移”。\n\n先回答三个问题：\n1. 你的任务是否真的需要新增能力？\n2. 成本能否覆盖质量增益？\n3. 现有工具链是否兼容？\n\n免费额度尚未得到官方确认。不要把社区猜测写进迁移预算。",
+        "候选 2": "GPT-6 API 开放后，团队真正要判断的不是“要不要追新”，而是迁移是否能带来可验证的收益。\n\n把判断拆成三层：任务收益、单位成本、工具链兼容。任一层不清楚，都不该直接迁移。"
+      },
+      draftHistory: [],
+      aiSuggestion: null,
+      draft: "GPT-6 API 已经开放，但“新模型上线”不等于“现在就该迁移”。\n\n先回答三个问题：\n1. 你的任务是否真的需要新增能力？\n2. 成本能否覆盖质量增益？\n3. 现有工具链是否兼容？\n\n免费额度尚未得到官方确认。不要把社区猜测写进迁移预算。",
+      selectedPublish: 0,
+      publishLink: "",
+      publishStatus: "待发布",
+      savedDraft: false,
+      quickImportSaved: false
+    };
+
+    const navItems = [
+      ["recommend", "◇", "选题推荐", "Topic Recommendations"],
+      ["inbox", "↓", "上下文收件箱", "Context Inbox"],
+      ["creation", "✦", "AI 创作中心", "AI Creation Center"],
+      ["publish", "↗", "内容发布", "Content Publishing"]
+    ];
+
+    const event = {
+      title: "OpenAI 正式发布 GPT-6 API",
+      subtitle: "热点情报系统收集的事件信息与上游判断，已完整带入本次内容制作。",
+      tags: ["Event", "官方确认", "Context Pack v4"],
+      latest: "多个地区上榜 · 1 小时上升 12 位",
+      angle: "开发者迁移判断清单"
+    };
+
+    const recommendations = [
+      {
+        title: "OpenAI 确认下周举行产品发布会",
+        desc: "OpenAI 官方确认下周举行产品发布会，讨论快速扩散，PredX 市场开始重新评估 GPT-6 的发布时间。",
+        reason: "公共热度与实时市场承接同时成立；事件可能直接改变市场判断依据。",
+        market: "OpenAI 是否会在 9 月前发布 GPT-6？",
+        pct: "64%",
+        change: "24h +9.2% · 刚刚更新",
+        next: "发布会信息如何改变市场对 GPT-6 发布时间的预期？",
+        time: "12 分钟前",
+        tags: ["公共热度", "实时市场", "立即响应"]
+      },
+      {
+        title: "美国预测市场监管听证会释放新信号",
+        desc: "听证会讨论市场准入、事件结算与用户保护，新表述可能影响行业监管预期。",
+        reason: "匹配开放中的 PredX 监管市场，且事件与市场结算条件具有具体关系。",
+        market: "美国会在 2026 年通过预测市场新监管法案吗？",
+        pct: "42%",
+        change: "24h -3.8% · 刚刚更新",
+        next: "听证会释放了哪些足以改变监管概率的新信息？",
+        time: "38 分钟前",
+        tags: ["实时市场", "今日处理"]
+      },
+      {
+        title: "“一句话拆复杂概念”内容结构走红",
+        desc: "一种用单句冲突和三个解释节点拆解复杂概念的内容结构正在多个圈层扩散。",
+        reason: "可连接产品价值：帮助用户把复杂判断拆成市场问题和证据链。",
+        market: "暂未匹配市场",
+        pct: "",
+        change: "产品价值承接",
+        next: "用同一结构解释和事件研究价值。",
+        time: "1 小时前",
+        tags: ["产品价值", "今日处理"]
+      },
+      {
+        title: "全球多地同时讨论 AI Agent 安全事故",
+        desc: "多个圈层集中讨论同类 Agent 安全事件，目前尚未匹配直接市场，产品连接也不够成熟。",
+        reason: "公共热度准入成立，因此进入运营视野；承接方式仍需人工探索。",
+        market: "暂未匹配市场",
+        pct: "",
+        change: "待判断",
+        next: "是否只做观点收集，不进入正式创作？",
+        time: "22 分钟前",
+        tags: ["公共热度", "立即响应"]
+      }
+    ];
+
+    const inboxRows = [
+      ["OpenAI 确认下周举行产品发布会", "热点情报中心", "已进入选题推荐", "12 分钟前"],
+      ["美国预测市场监管听证会释放新信号", "外部 API", "已进入选题推荐", "38 分钟前"],
+      ["某 AI 公司可能发布新品", "人工提交", "需要补充", "1 小时前"],
+      ["“一句话拆复杂概念”内容结构走红", "人工提交", "已进入选题推荐", "1 小时前"],
+      ["某创始人关于 AI 可靠性的观点引发讨论", "人工提交", "不进入推荐 · 已生成承接角度", "1 小时前"],
+      ["某娱乐事件引发集中讨论", "外部 API", "暂不推荐 · 暂无自然承接", "1 小时前"],
+      ["AI Agent 开源工具数量快速增长", "热点情报中心", "不进入推荐 · 已生成承接角度", "2 小时前"]
+    ];
+
+    const angles = [
+      ["把发布新闻翻译成开发者迁移判断清单", "候选表达方向 · 点击选择"],
+      ["从定价变化讨论 Agent 产品的成本结构", "候选表达方向 · 点击选择"],
+      ["只解释模型能力边界，不复述发布新闻", "候选表达方向 · 点击选择"]
+    ];
+
+    const formats = [
+      ["X 短帖", "生成后可继续编辑或派生"],
+      ["X Thread", "适合连续解释与判断框架"],
+      ["回复 / 引用帖", "生成后可继续编辑或派生"],
+      ["图文事实卡", "生成后可继续编辑或派生"],
+      ["短视频脚本", "生成后可继续编辑或派生"],
+      ["长文 / Newsletter", "生成后可继续编辑或派生"]
+    ];
+
+    const publishing = [
+      { title:"GPT-6 API：开发者迁移判断", format:"X Thread", note:"已采用候选 1", status:"待发布", link:"", draft:"" },
+      { title:"AI 团队成本结构长文", format:"长文 / Newsletter", note:"已采用候选 2", status:"待发布", link:"", draft:"AI 团队的真实成本，来自模型价格、上下文长度、失败重试与人工复核的共同作用。" },
+      { title:"60 秒迁移判断视频脚本", format:"短视频脚本", note:"已复制待回填", status:"已复制", link:"", draft:"60 秒判断是否值得迁移：先看任务收益，再看单位成本，最后验证工具链。" },
+      { title:"模型能力边界解释", format:"图文事实卡", note:"外部发布中", status:"等待回填", link:"", draft:"能力提升并不代表每一种任务都会获得同等收益。" }
+    ];
+
+    const app = document.querySelector("#app");
+    const toast = document.querySelector("#toast");
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 1700);
+    }
+
+    function pill(text, tone = "") {
+      return `<span class="pill ${tone}">${escapeHtml(text)}</span>`;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[char]);
+    }
+
+    function renderShell(content, currentName) {
+      return `
+        <div class="app">
+          <aside class="sidebar">
+            <div class="brand">
+              <span class="logo" aria-hidden="true">PX</span>
+              <div class="brand-title">热点运营系统<span class="en">Operations OS</span></div>
+            </div>
+            <div class="side-label">运营工作区</div>
+            <nav class="side-nav">
+              ${navItems.map(item => `
+                <button class="nav-btn ${state.page === item[0] ? "active" : ""}" data-page="${item[0]}">
+                  <span class="nav-icon" aria-hidden="true">${item[1]}</span>
+                  <span class="nav-text">${item[2]}<span class="en">${item[3]}</span></span>
+                </button>
+              `).join("")}
+            </nav>
+            <div class="prototype-note">PROTOTYPE · 四页面信息架构<br>产品与规则复用全系统配置</div>
+          </aside>
+          <main class="main">
+            <header class="topbar">
+              <div class="crumb">工作区　/　<b>${currentName}</b></div>
+              <div class="top-status">
+                <span class="status-dot"></span>
+                <span>市场数据与 Agent 正常</span>
+                <button class="btn">待补充 1</button>
+                <span class="avatar">RY</span>
+              </div>
+            </header>
+            ${content}
+          </main>
+        </div>
+      `;
+    }
+
+    function metrics(items) {
+      return `<div class="metrics">${items.map(item => `
+        <div class="metric"><strong>${item[0]}</strong><span>${item[1]}</span></div>
+      `).join("")}</div>`;
+    }
+
+    function matchesRecommendation(item) {
+      const basisOk = state.recommendBasisFilter === "全部" || item.tags.includes(state.recommendBasisFilter);
+      const paceOk = state.recommendPaceFilter === "全部" || item.tags.includes(state.recommendPaceFilter);
+      return basisOk && paceOk;
+    }
+
+    function matchesInbox(row) {
+      const result = row[2];
+      if (state.inboxFilter === "全部") return true;
+      if (state.inboxFilter === "已进入推荐") return result.includes("已进入选题推荐");
+      if (state.inboxFilter === "已生成角度") return result.includes("已生成承接角度");
+      if (state.inboxFilter === "需要补充") return result.includes("需要补充");
+      if (state.inboxFilter === "暂不推荐") return result.includes("暂不推荐") || result.includes("不进入推荐");
+      return true;
+    }
+
+    function creationRows() {
+      return [
+        ["GPT-6 API：开发者迁移判断", "Angle · 开发者迁移判断清单", state.savedDraft ? "待选择候选" : "待制作", "当前内容：2 个候选", state.savedDraft ? "继续制作" : "开始制作"],
+        ["AI 团队成本结构长文", "Angle · 开发者迁移判断清单", "待制作", "当前内容：3 个候选", "开始制作"],
+        ["60 秒迁移判断视频脚本", "Angle · 开发者迁移判断清单", "编辑中", "当前内容：3 个候选", "继续编辑"]
+      ];
+    }
+
+    function matchesCreation(row) {
+      if (state.creationFilter === "全部任务") return true;
+      return row[2] === state.creationFilter;
+    }
+
+    function matchesPublishing(item) {
+      if (state.publishFilter === "全部") return true;
+      return item.status === state.publishFilter;
+    }
+
+    function renderRecommend() {
+      const visible = recommendations.filter(matchesRecommendation);
+      const cards = visible.map(item => `
+        <article class="card recommend-card" data-open-workspace>
+          <div class="card-top">
+            <div>
+              ${item.tags.map((tag, index) => pill(tag, index === 0 ? "red" : index === 1 ? "green" : "orange")).join(" ")}
+              <h3>${item.title}</h3>
+            </div>
+            <span class="small">${item.time}</span>
+          </div>
+          <p class="muted">${item.desc}</p>
+          <div class="reason"><b>推荐原因：</b>${item.reason}</div>
+          <div class="market-box">
+            <strong>匹配的 PredX 实时市场</strong>
+            <div class="card-top">
+              <span>${item.market}<br><span class="small">${item.change}</span></span>
+              <strong style="font-size:26px">${item.pct}</strong>
+            </div>
+          </div>
+          <p class="angle" style="margin-top:12px">建议优先探索：${item.next}</p>
+          <div style="display:flex;justify-content:flex-end;margin-top:12px">
+            <button class="btn">查看判断</button>
+          </div>
+        </article>
+      `).join("") || `<div class="empty-state">当前筛选下没有推荐选题。</div>`;
+
+      return renderShell(`
+        <section class="page">
+          <div class="eyebrow">OPPORTUNITY DECISION</div>
+          <div class="page-head">
+            <div>
+              <h1>选题推荐</h1>
+              <p class="muted">这里只呈现已通过准入判断的事件；点击任一选题查看证据、产品承接与候选角度。</p>
+            </div>
+            <button class="btn primary" data-page="inbox">＋ 导入事件上下文</button>
+          </div>
+          ${metrics([["4", "今日推荐"], ["2", "公共热度"], ["2", "实时市场承接"], ["1", "产品价值承接"]])}
+          <div class="toolbar">
+            <span class="toolbar-label">推荐依据</span>
+            <span class="seg">
+              ${["全部", "公共热度", "实时市场", "产品价值"].map(item => `<button class="chip-btn ${state.recommendBasisFilter === item ? "active" : ""}" data-recommend-basis="${item}">${item}</button>`).join("")}
+            </span>
+            <span class="toolbar-label">处理节奏</span>
+            <span class="seg">
+              ${["全部", "立即响应", "今日处理"].map(item => `<button class="chip-btn ${state.recommendPaceFilter === item ? "active" : ""}" data-recommend-pace="${item}">${item}</button>`).join("")}
+            </span>
+          </div>
+          <div class="section-title-row">
+            <h2>优先处理</h2>
+            <span class="hint-right">当前显示 ${visible.length} 条 · 卡片直接呈现推荐依据与承接对象</span>
+          </div>
+          <div class="grid-2">${cards}</div>
+        </section>
+      `, "选题推荐");
+    }
+
+    function renderInbox() {
+      const visible = inboxRows.filter(matchesInbox);
+      return renderShell(`
+        <section class="page">
+          <div class="eyebrow">CONTEXT INTAKE</div>
+          <div class="page-head">
+            <div>
+              <h1>上下文收件箱</h1>
+              <p class="muted">导入任意来源的事件上下文；Agent 同时完成选题推荐判断与 PredX 承接角度研判。</p>
+            </div>
+            <button class="btn primary">＋ 完整提交</button>
+          </div>
+          ${metrics([["7", "全部上下文"], ["3", "已进入选题推荐"], ["2", "已生成承接角度"], ["1", "需要补充"]])}
+          <div class="toolbar">
+            <span class="toolbar-label">研判结果</span>
+            ${["全部", "已进入推荐", "已生成角度", "需要补充", "暂不推荐"].map(item => `<button class="chip-btn ${state.inboxFilter === item ? "active" : ""}" data-inbox-filter="${item}">${item}</button>`).join("")}
+            <span class="hint-right">当前 ${visible.length} 条</span>
+          </div>
+          <div class="inbox-layout">
+            <section class="table">
+              <div class="table-row header">
+                <span>事件上下文</span><span>来源</span><span>研判结果</span><span>接收时间</span>
+              </div>
+              ${visible.map(row => `
+                <div class="table-row click-row" data-open-workspace>
+                  <span><b>${row[0]}</b><small>${row[2].includes("需要") ? "查看需要补充的内容" : "查看选题推荐"}</small></span>
+                  <span>${row[1]}</span>
+                  <span class="${row[2].includes("需要") ? "red" : ""}">${row[2]}</span>
+                  <span>${row[3]}</span>
+                </div>
+              `).join("") || `<div class="empty-state">当前筛选下没有上下文。</div>`}
+            </section>
+            <aside class="card quick-import">
+              <h2>快速导入</h2>
+              <p class="muted">一次导入，系统同时给出：是否进入选题推荐，以及是否存在自然的 PredX 承接角度。</p>
+              <textarea placeholder="粘贴事件描述、原文、已有判断或相关讨论……"></textarea>
+              <label class="field-label">来源链接（选填）</label>
+              <input class="input" placeholder="https://" />
+              <div class="mini-actions">
+                <button class="btn primary" data-open-workspace>开始研判</button>
+                <button class="btn" data-save-quick-import>保存草稿</button>
+              </div>
+              ${state.quickImportSaved ? `<div class="status-line">${pill("草稿已保存", "green")}<span>不会进入推荐，直到你开始研判。</span></div>` : ""}
+            </aside>
+          </div>
+        </section>
+      `, "上下文收件箱");
+    }
+
+    function renderCreation() {
+      const rows = creationRows();
+      const visible = rows.filter(matchesCreation);
+      const topRows = visible.filter(row => row[2] !== "编辑中");
+      const editingRows = visible.filter(row => row[2] === "编辑中");
+
+      return renderShell(`
+        <section class="page">
+          <div class="page-head">
+            <div>
+              <h1>AI 创作中心</h1>
+              <p class="muted">lead 的制作任务队列；内容厨房在任务内完成候选与终稿。</p>
+            </div>
+            <button class="btn primary" data-page="inbox">＋ 从收件箱新建</button>
+          </div>
+          ${metrics([["5", "今日推荐"], ["2", "待创作"], ["1", "待选择候选"], ["3", "待人工发布"]])}
+          <div class="toolbar">
+            ${["全部任务", "待制作", "待选择候选", "编辑中"].map(item => `<button class="chip-btn ${state.creationFilter === item ? "active" : ""}" data-creation-filter="${item}">${item}</button>`).join("")}
+            <span class="hint-right">当前 ${visible.length} 条</span>
+          </div>
+          <div class="section-title-row"><h2>优先开始</h2></div>
+          <div class="task-list">
+            ${topRows.map((row, index) => `
+              <article class="card task-row" data-open-workspace>
+                <div><div class="task-title">${row[0]}<span class="small"> Context Pack 已就绪</span></div><div class="angle">${row[1]}</div></div>
+                <span>${pill(row[2], "orange")}</span>
+                <span class="small">${row[3]}</span>
+                <span class="small">${index === 0 ? "内容厨房" : "可从 Step 1 开始"}</span>
+                <button class="btn">${row[4]} →</button>
+              </article>
+            `).join("") || `<div class="empty-state">当前筛选下没有优先开始的任务。</div>`}
+          </div>
+          <div class="section-title-row" style="margin-top:28px"><h2>进行中的创作</h2></div>
+          <div class="task-list">
+            ${editingRows.map(row => `
+              <article class="card task-row" data-open-workspace>
+                <div><div class="task-title">${row[0]}<span class="small"> Context Pack 已就绪</span></div><div class="angle">${row[1]}</div></div>
+                <span>${pill(row[2], "blue")}</span>
+                <span class="small">${row[3]}</span>
+                <span class="small">已进入 Step 4</span>
+                <button class="btn">${row[4]} →</button>
+              </article>
+            `).join("") || `<div class="empty-state">当前筛选下没有进行中的创作。</div>`}
+          </div>
+        </section>
+      `, "AI 创作中心");
+    }
+
+    function renderPublishing() {
+      const active = publishing[state.selectedPublish];
+      if (!active.draft) active.draft = state.draft;
+      const visible = publishing.filter(matchesPublishing);
+      if (!visible.includes(active) && visible.length) state.selectedPublish = publishing.indexOf(visible[0]);
+      const selected = publishing[state.selectedPublish];
+      if (!selected.draft) selected.draft = state.draft;
+      const counts = {
+        all: publishing.length,
+        waiting: publishing.filter(item => item.status === "待发布").length,
+        copied: publishing.filter(item => item.status === "已复制").length,
+        backfill: publishing.filter(item => item.status === "等待回填").length
+      };
+      return renderShell(`
+        <section class="page">
+          <div class="eyebrow">PUBLISHING LOOP</div>
+          <div class="page-head">
+            <div>
+              <h1>内容发布</h1>
+              <p class="muted">选好的终稿进入这里。运营人员复制内容，到外部平台粘贴发布，再回填链接或结果。</p>
+            </div>
+            <button class="btn primary" data-add-publish>＋ 手动新增终稿</button>
+          </div>
+          ${metrics([[counts.all, "待处理终稿"], [counts.waiting, "待发布"], [counts.copied, "已复制"], [counts.backfill, "等待回填"]])}
+          <div class="toolbar">
+            ${["全部", "待发布", "已复制", "等待回填", "已发布", "暂缓"].map(item => `<button class="chip-btn ${state.publishFilter === item ? "active" : ""}" data-publish-filter="${item}">${item}</button>`).join("")}
+            <span class="hint-right">当前 ${visible.length} 条</span>
+          </div>
+          <div class="publish-layout">
+            <section>
+              ${visible.map(item => {
+                const index = publishing.indexOf(item);
+                return `
+                <article class="card publish-card ${state.selectedPublish === index ? "selected" : ""}" data-publish="${index}" tabindex="0" role="button">
+                  <div class="card-top">
+                    <div>
+                      <h3>${escapeHtml(item.title)}</h3>
+                      <p class="muted">${escapeHtml(item.format)} · ${escapeHtml(item.note)}</p>
+                    </div>
+                    ${pill(item.status, item.status === "已发布" ? "green" : item.status === "已复制" ? "blue" : item.status === "暂缓" ? "red" : "orange")}
+                  </div>
+                </article>
+              `}).join("") || `<div class="empty-state">当前筛选下没有待发布内容。</div>`}
+            </section>
+            <section class="card publish-detail">
+              <div class="card-top">
+                <div>
+                  <h2>${escapeHtml(selected.title)}</h2>
+                  <p class="muted">${escapeHtml(selected.format)} · 来自内容厨房采用稿</p>
+                </div>
+                ${pill(selected.status, selected.status === "已发布" ? "green" : selected.status === "已复制" ? "blue" : selected.status === "暂缓" ? "red" : "orange")}
+              </div>
+              <div class="draft-preview">${escapeHtml(selected.draft)}</div>
+              <div class="mini-actions">
+                <button class="btn primary" data-copy>复制正文</button>
+                <button class="btn" data-open-platform>打开 X 发布页</button>
+                <button class="btn" data-return-kitchen>退回内容厨房修改</button>
+              </div>
+              <div class="form-grid">
+                <label><span class="field-label">发布链接</span><input class="input" id="publish-link" value="${escapeHtml(selected.link)}" placeholder="发布后粘贴 URL" /></label>
+                <label><span class="field-label">发布状态</span><input class="input" value="${escapeHtml(selected.status)}" readonly /></label>
+              </div>
+              <div class="mini-actions">
+                <button class="btn primary" data-mark-published>标记已发布</button>
+                <button class="btn" data-mark-copied>标记已复制</button>
+                <button class="btn danger" data-mark-paused>暂缓发布</button>
+              </div>
+            </section>
+          </div>
+        </section>
+      `, "内容发布");
+    }
+
+    function renderWorkspace() {
+      return renderShell(`
+        <div class="workspace-shell">
+          <div class="workspace-back">
+            <button class="btn ghost" data-close-workspace>← 返回来源列表</button>
+          </div>
+          <section class="workspace">
+            ${renderEventHead()}
+            <nav class="tabs">
+              ${[
+                ["product", "产品承接机会"],
+                ["info", "相关信息"],
+                ["angle", "内容创作角度"],
+                ["kitchen", "内容厨房"]
+              ].map(tab => `<button class="tab-btn ${state.workspaceTab === tab[0] ? "active" : ""}" data-workspace-tab="${tab[0]}">${tab[1]}</button>`).join("")}
+            </nav>
+            ${renderWorkspaceTab()}
+          </section>
+        </div>
+      `, "内容工作台");
+    }
+
+    function renderEventHead() {
+      return `
+        <header class="event-head">
+          <button class="btn ghost" data-close-workspace>← 返回来源列表</button>
+          <div class="badges" style="margin-top:10px">
+            ${event.tags.map((tag, index) => pill(tag, index === 0 ? "blue" : index === 1 ? "green" : "")).join("")}
+          </div>
+          <h1>${event.title}</h1>
+          <p class="muted">${event.subtitle}</p>
+          <div class="latest"><b>最新变化：</b>${event.latest}</div>
+        </header>
+      `;
+    }
+
+    function renderWorkspaceTab() {
+      if (state.workspaceTab === "product") {
+        return `
+          <section class="workspace-section">
+            <h2>产品承接机会</h2>
+            <p class="muted">实时市场和产品价值关联是上游已经打包好的内容输入。</p>
+            <article class="card opportunity selected">
+              <h3>PredX 实时市场</h3>
+              <div class="market-box">
+                <strong>GPT-6 API 会在本周引发大规模生产迁移吗？　41%</strong><br>
+                24h +7pt · 12 分钟前更新<br>
+                <span class="angle">在 PredX 打开这个市场 ↗</span>
+              </div>
+            </article>
+            <article class="card opportunity">
+              <h3>产品价值关联</h3>
+              <p>用条件、概率和新证据更新，帮助用户拆解“是否迁移”的判断。</p>
+            </article>
+          </section>
+        `;
+      }
+
+      if (state.workspaceTab === "info") {
+        return `
+          <section class="workspace-section">
+            <h2>相关信息</h2>
+            <p class="muted">来自热点情报系统的事件全量信息；内容制作时可随时查阅。</p>
+            <div class="info-grid">
+              <section class="card info-panel">
+                <h3>事件画像</h3>
+                <div class="info-row"><b>所属领域</b><br>AI / 大模型 / 开发者工具</div>
+                <div class="info-row"><b>事件类型</b><br>官方产品发布</div>
+                <div class="info-row"><b>发生时间</b><br>今天 10:42</div>
+                <div class="info-row"><b>当前热度</b><br>多个地区上榜 · 1 小时上升 12 位</div>
+              </section>
+              <section class="card info-panel">
+                <h3>来源与素材</h3>
+                <div class="info-row"><b>OpenAI 官方公告</b><br><span class="angle">打开来源 ↗</span></div>
+                <div class="info-row"><b>API 文档与定价页</b><br><span class="angle">打开来源 ↗</span></div>
+                <div class="info-row"><b>开发者社区讨论</b><br><span class="angle">打开来源 ↗</span></div>
+              </section>
+            </div>
+            <section class="card info-panel" style="margin-top:14px">
+              <h3>事实与表达边界</h3>
+              <p>已确认：API 已开放给符合条件的开发者。待确认：免费额度。不得写成：所有用户可用、迁移必然降本。</p>
+            </section>
+          </section>
+        `;
+      }
+
+      if (state.workspaceTab === "angle") {
+        return `
+          <section class="workspace-section">
+            <div class="section-title-row">
+              <div>
+                <h2>内容创作角度</h2>
+                <p class="muted">选择内容主张；可直接采用、修改后采用、重新推荐或暂不采用。</p>
+              </div>
+              <button class="btn">重新推荐</button>
+            </div>
+            ${angles.map((angle, index) => `
+              <article class="card angle-card ${state.selectedAngle === index ? "selected" : ""}" data-angle="${index}">
+                <h3>0${index + 1} · ${angle[0]}</h3>
+                <p class="muted">${angle[1]}</p>
+              </article>
+            `).join("")}
+            <div class="angle-actions">
+              <button class="btn">暂不采用</button>
+              <button class="btn">修改后采用</button>
+              <button class="btn primary" data-open-kitchen>直接采用并制作</button>
+            </div>
+          </section>
+        `;
+      }
+
+      return `
+        <section class="workspace-section">
+          <div class="section-title-row">
+            <div>
+              <h2>内容厨房</h2>
+              <p class="muted">沿着四步完成一次内容制作；上游 Angle、事实和表达边界保持只读继承。</p>
+            </div>
+            <button class="btn primary" data-open-kitchen>打开内容厨房</button>
+          </div>
+          <section class="card info-panel">
+            <h3>本次默认制作输入</h3>
+            <div class="info-row"><b>已继承 Angle</b><br>${event.angle}</div>
+            <div class="info-row"><b>事实边界</b><br>免费额度待确认，不写成事实；避免替 OpenAI 承诺迁移收益。</div>
+            <div class="info-row"><b>推荐制作路径</b><br>提供有用判断 · AI 开发者 · 快讯账号 · X Thread</div>
+          </section>
+        </section>
+      `;
+    }
+
+    function renderKitchen() {
+      return `
+        <div class="kitchen-modal">
+          <header class="kitchen-top">
+            <div>
+              <h1>内容厨房</h1>
+              <p class="muted">来源：OpenAI 正式发布 GPT-6 API · 角度 01</p>
+            </div>
+            <button class="close-btn" data-close-kitchen aria-label="关闭内容厨房">×</button>
+          </header>
+          <div class="wizard-progress">
+            ${["这条内容要做什么", "给谁看、怎么说", "做成什么内容", "生成并修改"].map((label, index) => `
+              <button class="progress-step ${state.kitchenStep === index + 1 ? "active" : state.kitchenStep > index + 1 ? "done" : ""}" data-kstep="${index + 1}">${index + 1} ${label}</button>
+            `).join("")}
+          </div>
+          <section class="kitchen-body">
+            <main class="kitchen-main">${renderKitchenStep()}</main>
+            ${renderKitchenSummary()}
+          </section>
+          <footer class="kitchen-footer">
+            <button class="btn" data-close-kitchen>保存并退出</button>
+            ${state.kitchenStep > 1 ? `<button class="btn" data-prev-step>上一步</button>` : ""}
+            <button class="btn primary" data-next-step>${state.kitchenStep === 4 ? "标记采用" : "下一步"}</button>
+          </footer>
+        </div>
+      `;
+    }
+
+    function renderKitchenSummary() {
+      return `
+        <aside class="summary-panel">
+          <h3>本次制作</h3>
+          <div class="summary-row"><span>已继承角度</span>${event.angle}</div>
+          <div class="summary-row"><span>主要目标</span>${escapeHtml(state.goals[0] || "未选择")}</div>
+          <div class="summary-row"><span>补充目标</span>${escapeHtml(state.goals.slice(1).join("、") || "未选择")}</div>
+          <div class="summary-row"><span>目标读者</span>${escapeHtml(state.readers.join("、"))}</div>
+          <div class="summary-row"><span>表达人设</span>${escapeHtml(state.selectedSkill)}</div>
+          <div class="summary-row"><span>主要成品</span>${escapeHtml(state.format)}</div>
+          <div class="summary-row"><span>额外帮助</span>${escapeHtml(state.assists.join("、") || "未选择")}</div>
+        </aside>
+      `;
+    }
+
+    function renderGoalCard(title, desc, reason) {
+      const selected = state.goals.includes(title);
+      return `
+        <button class="select-card ${selected ? "selected" : ""}" data-goal="${escapeHtml(title)}">
+          <span class="check">✓</span>
+          <h3>${escapeHtml(title)}</h3>
+          <p class="muted">${escapeHtml(desc)}</p>
+          ${reason ? `<span class="pill green" style="margin-top:12px">推荐</span><p class="small" style="margin-top:8px">${reason}</p>` : ""}
+        </button>
+      `;
+    }
+
+    function renderKitchenStep() {
+      if (state.kitchenStep === 1) {
+        return `
+          <h2>发这条内容，你最想实现什么？</h2>
+          <p class="muted">选择这次发布最重要的目标，最多选择 3 个。你也可以添加自己的目标。</p>
+          <div class="choice-grid">
+            ${renderGoalCard("把事情讲清楚", "让更多人快速了解发生了什么", "推荐理由：当前事件是官方发布，读者需要先理解事实。")}
+            ${renderGoalCard("提供有用判断", "帮读者判断该怎么看、怎么选", "推荐理由：当前 Angle 是开发者迁移判断清单。")}
+            ${renderGoalCard("分享观点和分析", "解释背后的原因、影响或趋势")}
+            ${renderGoalCard("教会一个方法", "提供步骤、教程或可执行清单")}
+            ${renderGoalCard("引发讨论", "鼓励回复、引用或表达不同观点")}
+            ${renderGoalCard("引导采取行动", "引导关注、订阅、报名或使用产品")}
+            ${state.customGoals.map(goal => renderGoalCard(goal, "自定义目标 · 原句已保留给 Agent")).join("")}
+          </div>
+          ${state.goalError ? `<div class="summary" style="border-color:var(--red);background:var(--red-bg);color:var(--red)">${state.goalError}</div>` : ""}
+          <button class="select-card custom-wide" data-toggle-custom-goal style="margin-top:16px">
+            <span class="plus">＋</span>
+            <span><h3>自定义目标</h3><p class="muted">用自己的话描述这次发布想实现的结果</p></span>
+          </button>
+          <div class="custom-panel ${state.customGoalOpen ? "open" : ""}">
+            <label class="field-label">自定义目标原句</label>
+            <textarea class="textarea" id="custom-goal" placeholder="例如：希望读者看完后，重新检查团队当前的模型迁移计划。">${escapeHtml(state.customGoalText)}</textarea>
+            <div class="mini-actions">
+              <button class="btn primary" data-add-custom-goal>加入本次目标</button>
+              <button class="btn">保存为常用目标</button>
+            </div>
+          </div>
+          <div class="summary"><b>规则：</b>推荐目标默认选中，但用户可以取消、替换或增加；超过 3 个时就地提示。</div>
+        `;
+      }
+
+      if (state.kitchenStep === 2) {
+        const readers = ["AI 开发者", "产品经理 / 创业者", "普通科技用户", "已有社群用户"];
+        const skills = [
+          ["快讯账号", "结论前置，短句表达，事实优先", "内置 Spec"],
+          ["官方账号", "准确克制，只使用已确认信息", "内置 Spec"],
+          ["专业 KOL", "观点明确，强调经验与判断", "内置 Spec"],
+          ["中性编辑", "不加载人设，按任务与事实边界生成", "默认"]
+        ];
+
+        return `
+          <h2>这条内容说给谁听？用哪种表达方式？</h2>
+          <p class="muted">先选择目标读者，再选择一种表达人设。两项都可以使用预设或自行添加。</p>
+          <div class="inline-title"><b>目标读者</b><span class="angle">可添加</span></div>
+          <div class="reader-row">
+            ${[...readers, ...state.customReaders].map(reader => `<button class="reader-chip ${state.readers.includes(reader) ? "selected" : ""}" data-reader="${escapeHtml(reader)}">${escapeHtml(reader)}</button>`).join("")}
+            <button class="reader-chip" data-toggle-custom-reader>＋ 添加目标读者</button>
+          </div>
+          <div class="custom-panel ${state.customReaderOpen ? "open" : ""}" style="margin-bottom:18px">
+            <label class="field-label">目标读者描述</label>
+            <input class="input" id="custom-reader" placeholder="例如：正在评估是否迁移 GPT-6 API 的中小团队技术负责人" />
+            <div class="mini-actions">
+              <button class="btn primary" data-add-custom-reader>加入读者</button>
+              <button class="btn">保存为常用读者</button>
+            </div>
+          </div>
+          <div class="inline-title"><b>表达人设</b><span>选择一个内置 Spec，或添加自己的 Spec</span></div>
+          <div class="choice-grid">
+            ${skills.map(skill => `
+              <button class="select-card large ${state.selectedSkill === skill[0] ? "selected" : ""}" data-skill="${skill[0]}">
+                <span class="check">✓</span>
+                <h3>${skill[0]}</h3>
+                <p class="muted">${skill[1]}</p>
+                ${pill(skill[2], skill[2] === "默认" ? "" : "green")}
+              </button>
+            `).join("")}
+            <section class="skill-import">
+              <button class="btn ghost" data-toggle-skill-import><span class="plus">＋</span> 添加表达人设 Spec</button>
+              <p class="muted">创建、导入或复用自己的表达规范。这里贴入 Markdown 后，系统解析成当前任务可用的 Content Skill 快照。</p>
+              ${state.skillImportOpen ? `
+                <div class="import-layout">
+                  <div>
+                    <label class="field-label">粘贴 Markdown</label>
+                    <textarea class="textarea" id="skill-md" style="min-height:180px" placeholder="# 我的账号人设&#10;- 核心身份：...&#10;- 事实边界：...">${escapeHtml(state.skillMarkdown)}</textarea>
+                    <div class="mini-actions">
+                      <button class="btn primary" data-parse-skill>解析 Markdown</button>
+                      <label class="btn" for="skill-file">上传 .md 文件</label>
+                      <input id="skill-file" type="file" accept=".md,text/markdown" hidden />
+                    </div>
+                  </div>
+                  <div class="parse-box">
+                    <h3>解析摘要</h3>
+                    ${state.skillParsed ? `
+                      <div class="info-row"><b>名称</b><br>我的开发者 KOL Skill</div>
+                      <div class="info-row"><b>表达特点</b><br>观点明确，先给判断，再解释条件</div>
+                      <div class="info-row"><b>未识别项</b><br>互动方式、负面示例</div>
+                      <div class="mini-actions">
+                        <button class="btn primary" data-use-skill>仅本次使用</button>
+                        <button class="btn">保存到我的 Skill</button>
+                      </div>
+                    ` : `<p class="muted">粘贴 Markdown 后点击解析。系统不会补造文档里没有写的规则。</p>`}
+                  </div>
+                </div>
+              ` : ""}
+            </section>
+          </div>
+        `;
+      }
+
+      if (state.kitchenStep === 3) {
+        return `
+          <h2>想做成什么内容？还需要什么帮助？</h2>
+          <p class="muted">先选一个主要成品；辅助能力按需加入。</p>
+          <div class="choice-grid">
+            ${formats.map(format => `
+              <button class="select-card ${state.format === format[0] ? "selected" : ""}" data-format="${format[0]}">
+                <span class="check">✓</span>
+                <h3>${format[0]}</h3>
+                <p class="muted">${format[1]}</p>
+              </button>
+            `).join("")}
+          </div>
+          <div class="inline-title"><b>这次还需要什么？</b><span class="muted">可多选</span></div>
+          <div class="assist-row">
+            ${["补充可信依据", "给配图文案", "找一个更有讨论度的开头", "生成英文版本", "严格检查风险表达"].map(item => `
+              <button class="chip-btn ${state.assists.includes(item) ? "active" : ""}" data-assist="${item}">${item}</button>
+            `).join("")}
+          </div>
+          <label class="field-label">补充要求</label>
+          <textarea class="textarea" id="extra-request">${escapeHtml(state.extraRequest)}</textarea>
+        `;
+      }
+
+      return `
+        <h2>生成并修改内容</h2>
+        <p class="muted">直接编辑候选稿，或让 AI 修改选中内容和全文。</p>
+        <div class="candidate-tabs">
+          ${["候选 1", "候选 2"].map(item => `<button class="candidate-tab ${state.candidate === item ? "active" : ""}" data-candidate="${item}">${item}</button>`).join("")}
+        </div>
+        <div class="draft-layout">
+          <div class="draft" contenteditable="true" id="draft">${escapeHtml(state.draft)}</div>
+          <section class="ai-box">
+            <h3>AI 修改内容 <span class="small">选中文字后修改局部；未选择时修改全文。</span></h3>
+            <div class="assist-row">
+              ${["开头更直接", "压缩篇幅", "加强判断", "调整语气", "检查事实边界"].map(item => `<button class="chip-btn" data-ai-prompt="${item}">${item}</button>`).join("")}
+            </div>
+            <div class="ai-chat">
+              ${state.aiSuggestion ? `<div class="bubble">${escapeHtml(state.aiSuggestion.instruction)}</div>
+              <div class="bubble ai">
+                <b>已生成 1 处修改，保留了原有事实边界。</b>
+                <div class="diff">
+                  <div class="diff-card before"><span class="small">原文</span><br>GPT-6 API 已经开放，但...</div>
+                  <div style="text-align:center;font-size:24px">→</div>
+                  <div class="diff-card after"><span class="small">建议修改</span><br>GPT-6 API 开放了，先别急着迁移。</div>
+                </div>
+                <div class="mini-actions" style="justify-content:flex-end">
+                  <button class="btn" data-ignore-edit>忽略</button>
+                  <button class="btn primary" data-apply-edit>应用修改</button>
+                </div>
+              </div>` : `<p class="muted">选择快捷指令或输入要求，发送后会生成可应用或忽略的建议。</p>`}
+            </div>
+            <div class="input-row">
+              <input class="input" id="ai-instruction" placeholder="告诉 AI 你想怎么修改…" />
+              <button class="btn primary" data-send-ai>发送</button>
+            </div>
+            <div class="mini-actions"><button class="btn" data-undo-edit>撤销最近应用</button><button class="btn" data-version-history>版本历史</button></div>
+          </section>
+        </div>
+      `;
+    }
+
+    function render() {
+      if (!["recommend", "inbox", "creation", "publish"].includes(state.page)) state.page = state.lastValidPage;
+      else state.lastValidPage = state.page;
+      if (!["product", "info", "angle", "kitchen"].includes(state.workspaceTab)) state.workspaceTab = state.lastValidWorkspaceTab;
+      else state.lastValidWorkspaceTab = state.workspaceTab;
+      if (state.kitchenOpen) {
+        app.innerHTML = renderKitchen();
+      } else if (state.workspace) {
+        app.innerHTML = renderWorkspace();
+      } else if (state.page === "recommend") {
+        app.innerHTML = renderRecommend();
+      } else if (state.page === "inbox") {
+        app.innerHTML = renderInbox();
+      } else if (state.page === "creation") {
+        app.innerHTML = renderCreation();
+      } else {
+        app.innerHTML = renderPublishing();
+      }
+      bind();
+    }
+
+    function bind() {
+      document.querySelectorAll("[data-page]").forEach(button => {
+        button.addEventListener("click", () => {
+          persistFreeText();
+          if (!["recommend", "inbox", "creation", "publish"].includes(button.dataset.page)) return;
+          state.page = button.dataset.page;
+          state.workspace = false;
+          state.kitchenOpen = false;
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-recommend-basis]").forEach(button => {
+        button.addEventListener("click", event => {
+          event.stopPropagation();
+          state.recommendBasisFilter = button.dataset.recommendBasis;
+          showToast(`已应用推荐依据：${state.recommendBasisFilter}`);
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-recommend-pace]").forEach(button => {
+        button.addEventListener("click", event => {
+          event.stopPropagation();
+          state.recommendPaceFilter = button.dataset.recommendPace;
+          showToast(`已应用处理节奏：${state.recommendPaceFilter}`);
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-inbox-filter]").forEach(button => {
+        button.addEventListener("click", event => {
+          event.stopPropagation();
+          state.inboxFilter = button.dataset.inboxFilter;
+          showToast(`已应用研判筛选：${state.inboxFilter}`);
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-creation-filter]").forEach(button => {
+        button.addEventListener("click", event => {
+          event.stopPropagation();
+          state.creationFilter = button.dataset.creationFilter;
+          showToast(`已应用任务筛选：${state.creationFilter}`);
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-publish-filter]").forEach(button => {
+        button.addEventListener("click", event => {
+          event.stopPropagation();
+          persistPublishLink();
+          state.publishFilter = button.dataset.publishFilter;
+          showToast(`已应用发布筛选：${state.publishFilter}`);
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-open-workspace]").forEach(button => {
+        button.addEventListener("click", () => {
+          state.workspaceSource = state.page;
+          state.workspace = true;
+          state.kitchenOpen = false;
+          state.page = "creation";
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-close-workspace]").forEach(button => {
+        button.addEventListener("click", () => {
+          state.workspace = false;
+          state.page = state.workspaceSource;
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-workspace-tab]").forEach(button => {
+        button.addEventListener("click", () => {
+          persistFreeText();
+          if (!["product", "info", "angle", "kitchen"].includes(button.dataset.workspaceTab)) return;
+          state.workspaceTab = button.dataset.workspaceTab;
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-angle]").forEach(button => {
+        button.addEventListener("click", () => {
+          state.selectedAngle = Number(button.dataset.angle);
+          render();
+        });
+      });
+
+      document.querySelector("[data-save-quick-import]")?.addEventListener("click", event => {
+        event.stopPropagation();
+        state.quickImportSaved = true;
+        showToast("已保存到上下文草稿，不进入推荐队列。");
+        render();
+      });
+
+      document.querySelectorAll("[data-open-kitchen]").forEach(button => {
+        button.addEventListener("click", () => {
+          state.kitchenOpen = true;
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-close-kitchen]").forEach(button => {
+        button.addEventListener("click", () => {
+          persistFreeText();
+          state.kitchenOpen = false;
+          state.workspace = true;
+          state.workspaceTab = "kitchen";
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-kstep]").forEach(button => {
+        button.addEventListener("click", () => {
+          persistFreeText();
+          state.kitchenStep = Number(button.dataset.kstep);
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-prev-step]").forEach(button => {
+        button.addEventListener("click", () => {
+          persistFreeText();
+          state.kitchenStep = Math.max(1, state.kitchenStep - 1);
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-next-step]").forEach(button => {
+        button.addEventListener("click", () => {
+          persistFreeText();
+          if (state.kitchenStep < 4) {
+            state.kitchenStep += 1;
+            render();
+            return;
+          }
+          state.kitchenOpen = false;
+          state.workspace = false;
+          state.page = "publish";
+          publishing[0].draft = state.draft;
+          publishing[0].format = state.format;
+          publishing[0].note = `已采用${state.candidate}`;
+          publishing[0].status = "待发布";
+          publishing[0].link = "";
+          state.selectedPublish = 0;
+          state.publishFilter = "全部";
+          state.savedDraft = true;
+          showToast("已标记采用，终稿进入内容发布。");
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-goal]").forEach(button => {
+        button.addEventListener("click", () => {
+          const goal = button.dataset.goal;
+          const index = state.goals.indexOf(goal);
+          if (index >= 0) {
+            if (state.goals.length === 1) {
+              state.goalError = "至少保留 1 个目标。";
+              render();
+              return;
+            }
+            state.goals.splice(index, 1);
+            state.goalError = "";
+          } else {
+            if (state.goals.length >= 3) {
+              state.goalError = "最多选择 3 个目标，请先取消一个目标。";
+              render();
+              return;
+            }
+            state.goals.push(goal);
+            state.goalError = "";
+          }
+          render();
+        });
+      });
+
+      document.querySelector("[data-toggle-custom-goal]")?.addEventListener("click", () => {
+        state.customGoalOpen = !state.customGoalOpen;
+        render();
+      });
+
+      document.querySelector("[data-add-custom-goal]")?.addEventListener("click", () => {
+        const input = document.querySelector("#custom-goal");
+        state.customGoalText = input.value.trim();
+        if (!state.customGoalText) {
+          showToast("先写一句自定义目标。");
+          return;
+        }
+        if (state.goals.length >= 3) {
+          state.goalError = "最多选择 3 个目标，请先取消一个目标。";
+          render();
+          return;
+        }
+        if (state.customGoals.includes(state.customGoalText) || state.goals.includes(state.customGoalText)) {
+          showToast("这个自定义目标已经加入。");
+          return;
+        }
+        state.customGoals.push(state.customGoalText);
+        state.goals.push(state.customGoalText);
+        state.goalError = "";
+        showToast("已加入本次目标，并保留原句给 Agent。");
+        render();
+      });
+
+      document.querySelectorAll("[data-reader]").forEach(button => {
+        button.addEventListener("click", () => {
+          const reader = button.dataset.reader;
+          if (state.readers.includes(reader)) {
+            if (state.readers.length === 1) {
+              showToast("至少保留 1 个主要读者。");
+              return;
+            }
+            state.readers = state.readers.filter(item => item !== reader);
+          } else {
+            if (state.readers.length >= 3) {
+              showToast("最多 1 个主要读者加 2 个次要读者。");
+              return;
+            }
+            state.readers.push(reader);
+          }
+          render();
+        });
+      });
+
+      document.querySelector("[data-toggle-custom-reader]")?.addEventListener("click", () => {
+        state.customReaderOpen = !state.customReaderOpen;
+        render();
+      });
+
+      document.querySelector("[data-add-custom-reader]")?.addEventListener("click", () => {
+        const input = document.querySelector("#custom-reader");
+        const value = input.value.trim();
+        if (!value) {
+          showToast("先写一句目标读者描述。");
+          return;
+        }
+        if (state.readers.length >= 3) {
+          showToast("最多 1 个主要读者加 2 个次要读者。");
+          return;
+        }
+        const shortLabel = value.length > 16 ? `${value.slice(0, 16)}…` : value;
+        if (state.customReaders.includes(shortLabel)) {
+          showToast("这个目标读者已经加入。");
+          return;
+        }
+        state.customReaders.push(shortLabel);
+        state.readers.push(shortLabel);
+        showToast("已加入本次目标读者。");
+        render();
+      });
+
+      document.querySelectorAll("[data-skill]").forEach(button => {
+        button.addEventListener("click", () => {
+          state.selectedSkill = button.dataset.skill;
+          render();
+        });
+      });
+
+      document.querySelector("[data-toggle-skill-import]")?.addEventListener("click", () => {
+        state.skillImportOpen = !state.skillImportOpen;
+        render();
+      });
+
+      document.querySelector("[data-parse-skill]")?.addEventListener("click", () => {
+        const input = document.querySelector("#skill-md");
+        state.skillMarkdown = input.value.trim();
+        if (!state.skillMarkdown) {
+          showToast("Markdown 内容为空。");
+          return;
+        }
+        state.skillParsed = true;
+        showToast("已解析 Markdown。");
+        render();
+      });
+
+      document.querySelector("#skill-file")?.addEventListener("change", event => {
+        const file = event.target.files[0];
+        if (!file) return;
+        if (!file.name.toLowerCase().endsWith(".md")) {
+          showToast("只支持 .md 文件，请重新选择。");
+          return;
+        }
+        if (file.size > 1024 * 1024) {
+          showToast("文件超过 1 MB，请精简后重试；当前原文已保留。");
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = () => {
+          state.skillMarkdown = String(reader.result || "");
+          state.skillParsed = false;
+          showToast(`已读取 ${file.name}，请确认原文后解析。`);
+          render();
+        };
+        reader.onerror = () => showToast("文件读取失败，原文已保留，可重试。");
+        reader.readAsText(file);
+      });
+
+      document.querySelector("[data-use-skill]")?.addEventListener("click", () => {
+        state.selectedSkill = "我的开发者 KOL Skill";
+        state.skillImportOpen = false;
+        showToast("已作为本次内容 Skill 使用。");
+        render();
+      });
+
+      document.querySelectorAll("[data-format]").forEach(button => {
+        button.addEventListener("click", () => {
+          state.format = button.dataset.format;
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-assist]").forEach(button => {
+        button.addEventListener("click", () => {
+          const assist = button.dataset.assist;
+          if (state.assists.includes(assist)) {
+            state.assists = state.assists.filter(item => item !== assist);
+          } else {
+            state.assists.push(assist);
+          }
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-candidate]").forEach(button => {
+        button.addEventListener("click", () => {
+          persistFreeText();
+          state.candidate = button.dataset.candidate;
+          state.draft = state.candidateDrafts[state.candidate];
+          render();
+        });
+      });
+
+      document.querySelectorAll("[data-ai-prompt]").forEach(button => {
+        button.addEventListener("click", () => {
+          const input = document.querySelector("#ai-instruction");
+          input.value = button.dataset.aiPrompt;
+          input.focus();
+          showToast(`已填入修改指令：${button.dataset.aiPrompt}`);
+        });
+      });
+
+      document.querySelector("[data-apply-edit]")?.addEventListener("click", () => {
+        persistFreeText();
+        const source = "GPT-6 API 已经开放，但“新模型上线”不等于“现在就该迁移”。";
+        if (!state.draft.includes(source)) {
+          showToast("当前候选中已找不到建议对应原文，请重新生成建议。");
+          return;
+        }
+        state.draftHistory.push({ candidate: state.candidate, draft: state.draft });
+        state.draft = state.draft.replace(source, "GPT-6 API 开放了，先别急着迁移。");
+        state.candidateDrafts[state.candidate] = state.draft;
+        state.aiSuggestion = null;
+        showToast("已应用建议修改。");
+        render();
+      });
+
+      document.querySelector("[data-ignore-edit]")?.addEventListener("click", () => { state.aiSuggestion = null; showToast("已忽略建议，正文未改变。"); render(); });
+      document.querySelector("[data-send-ai]")?.addEventListener("click", () => {
+        persistFreeText();
+        const instruction = document.querySelector("#ai-instruction").value.trim();
+        if (!instruction) return showToast("请先填写修改要求。");
+        state.aiSuggestion = { candidate: state.candidate, instruction };
+        showToast("已生成修改建议，正文尚未改变。");
+        render();
+      });
+      document.querySelector("[data-undo-edit]")?.addEventListener("click", () => {
+        const index = state.draftHistory.map(item => item.candidate).lastIndexOf(state.candidate);
+        if (index < 0) return showToast("当前候选暂无可撤销的应用记录。");
+        state.draft = state.draftHistory[index].draft;
+        state.draftHistory.splice(index, 1);
+        state.candidateDrafts[state.candidate] = state.draft;
+        showToast("已撤销最近一次应用。");
+        render();
+      });
+      document.querySelector("[data-version-history]")?.addEventListener("click", () => showToast(`当前保留 ${state.draftHistory.length + 1} 个工作版本。`));
+
+      document.querySelectorAll("[data-publish]").forEach(button => {
+        button.addEventListener("click", () => {
+          persistPublishLink();
+          state.selectedPublish = Number(button.dataset.publish);
+          render();
+        });
+      });
+
+      document.querySelector("[data-copy]")?.addEventListener("click", async () => {
+        persistPublishLink();
+        const active = publishing[state.selectedPublish];
+        try {
+          await navigator.clipboard.writeText(active.draft);
+          active.status = "已复制";
+          showToast("已复制正文。");
+        } catch {
+          showToast("复制失败，请手动选择正文复制；状态未改变。");
+        }
+        render();
+      });
+
+      document.querySelector("[data-open-platform]")?.addEventListener("click", () => {
+        persistPublishLink();
+        const active = publishing[state.selectedPublish];
+        showToast(active.status === "已复制" ? "原型演示：将打开 X 发布页。" : "请先成功复制正文，再打开 X 发布页。");
+      });
+
+      document.querySelector("[data-mark-published]")?.addEventListener("click", () => {
+        persistPublishLink();
+        const active = publishing[state.selectedPublish];
+        if (!active.link) {
+          active.status = "已复制";
+          showToast("未填写链接，已保留为已复制，稍后可继续回填。");
+          render();
+          return;
+        }
+        try {
+          const parsed = new URL(active.link);
+          if (!["http:", "https:"].includes(parsed.protocol)) throw new Error("protocol");
+        } catch {
+          showToast("请输入有效的 http/https 发布链接。");
+          return;
+        }
+        active.status = "已发布";
+        showToast("已标记发布并记录链接。");
+        render();
+      });
+
+      document.querySelector("[data-mark-copied]")?.addEventListener("click", () => {
+        persistPublishLink();
+        publishing[state.selectedPublish].status = "已复制";
+        showToast("已标记为已复制。");
+        render();
+      });
+
+      document.querySelector("[data-mark-paused]")?.addEventListener("click", () => {
+        persistPublishLink();
+        publishing[state.selectedPublish].status = "暂缓";
+        showToast("已标记暂缓发布。");
+        render();
+      });
+
+      document.querySelector("[data-return-kitchen]")?.addEventListener("click", () => {
+        persistPublishLink();
+        state.page = "creation";
+        state.workspace = true;
+        state.workspaceTab = "kitchen";
+        state.kitchenOpen = true;
+        state.kitchenStep = 4;
+        state.draft = publishing[state.selectedPublish].draft;
+        state.candidateDrafts[state.candidate] = state.draft;
+        showToast("已退回内容厨房 Step 4。");
+        render();
+      });
+
+      document.querySelector("[data-add-publish]")?.addEventListener("click", () => {
+        publishing.unshift({
+          title: "手动新增终稿",
+          format: state.format,
+          note: "人工放入发布队列",
+          status: "待发布",
+          link: "",
+          draft: state.draft
+        });
+        state.selectedPublish = 0;
+        state.publishFilter = "全部";
+        showToast("已新增一条待发布终稿。");
+        render();
+      });
+
+      document.querySelectorAll("[data-open-workspace], [data-publish]").forEach(element => {
+        element.tabIndex = 0;
+        element.setAttribute("role", "button");
+        element.addEventListener("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            element.click();
+          }
+        });
+      });
+
+      document.querySelectorAll(".toolbar .chip-btn").forEach(button => {
+        button.addEventListener("click", event => {
+          if (button.dataset.recommendBasis || button.dataset.recommendPace || button.dataset.inboxFilter || button.dataset.creationFilter || button.dataset.publishFilter) return;
+          event.stopPropagation();
+          button.parentElement.querySelectorAll(".chip-btn").forEach(item => item.classList.remove("active"));
+          button.classList.add("active");
+          showToast(`已应用筛选：${button.textContent.trim()}`);
+        });
+      });
+
+      document.querySelectorAll("button").forEach(button => {
+        const label = button.textContent.trim();
+        if (["＋ 完整提交", "重新推荐", "暂不采用", "修改后采用", "保存为常用目标", "保存为常用读者", "保存到我的 Skill"].includes(label)) {
+          button.addEventListener("click", event => {
+            event.stopPropagation();
+            persistFreeText();
+            if (label === "暂不采用") state.selectedAngle = -1;
+            if (label === "修改后采用") state.selectedAngle = Math.max(0, state.selectedAngle);
+            showToast({
+              "＋ 完整提交":"原型演示：已打开完整上下文提交流程。",
+              "重新推荐":"已根据当前事件重新生成角度推荐。",
+              "暂不采用":"已暂不采用当前角度。",
+              "修改后采用":"已保存修改后采用状态。",
+              "保存为常用目标":"已保存为常用目标。",
+              "保存为常用读者":"已保存为常用读者。",
+              "保存到我的 Skill":"已保存到我的 Skill 并用于当前任务。"
+            }[label]);
+          });
+        }
+      });
+    }
+
+    function persistFreeText() {
+      persistPublishLink();
+      const extra = document.querySelector("#extra-request");
+      if (extra) state.extraRequest = extra.value;
+
+      const draft = document.querySelector("#draft");
+      if (draft) {
+        state.draft = draft.innerText;
+        state.candidateDrafts[state.candidate] = state.draft;
+      }
+
+      const customGoal = document.querySelector("#custom-goal");
+      if (customGoal) state.customGoalText = customGoal.value;
+
+      const skillMd = document.querySelector("#skill-md");
+      if (skillMd) state.skillMarkdown = skillMd.value;
+    }
+
+    function persistPublishLink() {
+      const input = document.querySelector("#publish-link");
+      if (input && publishing[state.selectedPublish]) publishing[state.selectedPublish].link = input.value.trim();
+    }
+
+    render();
+  </script>
+</body>
+</html>
